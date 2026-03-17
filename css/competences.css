@@ -1,0 +1,289 @@
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+.page-header {
+  padding: 140px 40px 80px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.page-header-inner {
+  max-width: 700px;
+}
+
+.page-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 16px 0 24px;
+}
+
+.page-intro {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+/* ============================================
+   COMPÉTENCES SECTION
+   ============================================ */
+.competences-section {
+  padding: 80px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.comp-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ============================================
+   OUTILS DATA
+   ============================================ */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.tool-card {
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.tool-card:hover {
+  border-color: rgba(86, 137, 199, 0.3);
+}
+
+.tool-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tool-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.tool-level {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(86, 137, 199, 0.1);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.tool-bar {
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.tool-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 1.2s ease;
+}
+
+.tool-proof {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.tool-link {
+  font-size: 11px;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s ease;
+}
+
+.tool-link:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   COMPÉTENCES MÉTIER
+   ============================================ */
+.metier-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.metier-card {
+  display: flex;
+  gap: 24px;
+  padding: 24px 28px;
+  background: var(--bg-primary);
+  transition: background 0.2s ease;
+}
+
+.metier-card:hover {
+  background: var(--bg-card);
+}
+
+.metier-num {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  min-width: 28px;
+  padding-top: 2px;
+}
+
+.metier-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.metier-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.metier-proof {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* ============================================
+   LANGUES
+   ============================================ */
+.langues-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.langue-card {
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 24px;
+  text-align: center;
+  transition: border-color 0.2s ease;
+}
+
+.langue-card:hover {
+  border-color: rgba(86, 137, 199, 0.3);
+}
+
+.langue-name {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.langue-level-text {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.langue-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot.full {
+  background: var(--accent);
+}
+
+.dot.empty {
+  background: var(--border);
+  border: 0.5px solid var(--accent);
+}
+
+/* ============================================
+   CAPITAL MÉTHODOLOGIQUE
+   ============================================ */
+.methodo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.methodo-item {
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.methodo-item:hover {
+  border-color: rgba(86, 137, 199, 0.3);
+}
+
+.methodo-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.methodo-item p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .competences-section {
+    padding: 60px 20px;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .langues-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .methodo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    padding: 100px 20px 60px;
+  }
+}

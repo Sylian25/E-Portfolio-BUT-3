@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expériences — Sylian Aoudia</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/experiences.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">Sylian Aoudia</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="experiences.html" class="active">Expériences</a></li>
+      <li><a href="competences.html">Compétences</a></li>
+      <li><a href="traces.html">Traces & Preuves</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-lang" id="langToggle">EN</button>
+      <button class="btn-theme" id="themeToggle">☀</button>
+      <a href="assets/cv.pdf" class="btn-cv" download>CV ↓</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="page-header-inner">
+      <div class="hero-tag">Parcours d'expériences</div>
+      <h1 class="page-title">Ce que j'ai fait,<br><span class="hero-accent">ce que j'en ai appris.</span></h1>
+      <p class="page-intro">
+        Trois ans d'expériences construites autour d'une conviction : 
+        la gestion sans la donnée reste intuitive, 
+        la donnée sans compréhension des organisations peine à produire des décisions pertinentes.
+      </p>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="timeline-line"></div>
+
+    <!-- EXP 1 — Alternance BNP -->
+    <div class="timeline-item" data-index="01">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card" id="exp1">
+        <div class="timeline-header" onclick="toggleExp('exp1')">
+          <div class="timeline-meta">
+            <span class="timeline-date">Août 2025 — En cours</span>
+            <span class="timeline-type alternance">Alternance</span>
+          </div>
+          <h2 class="timeline-title">Data Analyst RH</h2>
+          <p class="timeline-company">BNP Paribas IT Group · Montreuil</p>
+          <div class="timeline-kpis">
+            <div class="kpi"><span class="kpi-num">230 000</span><span class="kpi-label">lignes traitées</span></div>
+            <div class="kpi"><span class="kpi-num">3 000</span><span class="kpi-label">collaborateurs</span></div>
+            <div class="kpi"><span class="kpi-num">3</span><span class="kpi-label">parcours de formation</span></div>
+          </div>
+          <div class="timeline-toggle-icon">+</div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-body-inner">
+
+            <div class="mission-block">
+              <div class="mission-num">Mission 01</div>
+              <h3 class="mission-title">Projet ReCode — Analyse démographique mondiale</h3>
+              <p class="mission-desc">
+                J'analyse les données démographiques et les compétences des développeurs du groupe BNP Paribas 
+                à travers le monde, afin d'éclairer la stratégie de formation face à l'essor de l'Intelligence Artificielle. 
+                Je construis et maintiens un pipeline de données complet sous Alteryx, en extrayant, 
+                transformant et structurant des données issues de la plateforme MyLearning — jusqu'à 230 000 lignes 
+                couvrant 3 000 collaborateurs répartis sur 3 parcours de formation. 
+                Les données sont ensuite restituées sous Tableau Desktop dans le respect des exigences RGPD 
+                propres au secteur bancaire.
+              </p>
+              <div class="mission-tools">
+                <span>Alteryx</span><span>Tableau Desktop</span><span>RGPD</span><span>MyLearning</span>
+              </div>
+            </div>
+
+            <div class="mission-block">
+              <div class="mission-num">Mission 02</div>
+              <h3 class="mission-title">Tableau de bord KPI Formation — Mise à jour mensuelle</h3>
+              <p class="mission-desc">
+                J'assure la mise à jour mensuelle du tableau de bord global des KPI formation 
+                pour l'ensemble du périmètre IT Group. Ce dashboard centralise les indicateurs 
+                clés de suivi des parcours de formation et permet aux équipes RH de piloter 
+                l'activité formation en temps réel. Je suis l'interface entre les équipes Data et Formation, 
+                garantissant la fiabilité et la cohérence des données publiées.
+              </p>
+              <div class="mission-tools">
+                <span>Tableau Desktop</span><span>Alteryx</span><span>Excel avancé</span>
+              </div>
+            </div>
+
+            <div class="mission-learnings">
+              <div class="learning-title">Ce que j'en retire</div>
+              <p>
+                Cette alternance m'a confronté à la réalité d'un environnement data en grande entreprise : 
+                données imparfaites, contraintes RGPD, interlocuteurs multiples. 
+                J'ai appris à industrialiser un processus de traitement de données, 
+                à documenter mon travail pour qu'il soit réutilisable, 
+                et à présenter des résultats complexes de façon lisible pour des non-techniciens.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXP 2 — Stage BNP -->
+    <div class="timeline-item" data-index="02">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card" id="exp2">
+        <div class="timeline-header" onclick="toggleExp('exp2')">
+          <div class="timeline-meta">
+            <span class="timeline-date">Janvier — Mars 2025</span>
+            <span class="timeline-type stage">Stage</span>
+          </div>
+          <h2 class="timeline-title">Assistant Data Analyst RH</h2>
+          <p class="timeline-company">BNP Paribas IT Group · Montreuil</p>
+          <div class="timeline-kpis">
+            <div class="kpi"><span class="kpi-num">+30%</span><span class="kpi-label">gain productivité</span></div>
+            <div class="kpi"><span class="kpi-num">2</span><span class="kpi-label">parcours automatisés</span></div>
+            <div class="kpi"><span class="kpi-num">0</span><span class="kpi-label">formation préalable Power BI</span></div>
+          </div>
+          <div class="timeline-toggle-icon">+</div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-body-inner">
+
+            <div class="mission-block">
+              <div class="mission-num">Mission 01</div>
+              <h3 class="mission-title">Tableaux de bord Power BI — Formations managériales</h3>
+              <p class="mission-desc">
+                Face à une cheffe de projet qui peinait à exploiter ses données de formation, 
+                j'ai pris l'initiative d'apprendre Power BI en autodidacte pour concevoir 
+                des tableaux de bord interactifs. J'ai d'abord retraité le fichier Excel source 
+                pour en extraire des indicateurs clés — taux de formation par bloc, top 3 des formations 
+                les plus suivies, répartition des principes de management. 
+                J'ai ensuite produit un PowerPoint de présentation et un livret explicatif 
+                pour garantir la réutilisabilité du travail. Résultat : un gain de productivité 
+                de 30 % sur le pilotage du reporting RH.
+              </p>
+              <div class="mission-tools">
+                <span>Power BI</span><span>Excel avancé</span><span>PowerPoint</span>
+              </div>
+            </div>
+
+            <div class="mission-block">
+              <div class="mission-num">Mission 02</div>
+              <h3 class="mission-title">Moulinette Excel — Parcours Production Applicative</h3>
+              <p class="mission-desc">
+                J'ai conçu un fichier Excel intelligent et autonome — surnommé "moulinette" — 
+                capable de consolider automatiquement deux extractions distinctes issues de MyDevelopment, 
+                d'identifier les écarts entre les fichiers, de calculer les indicateurs clés 
+                et de mettre à jour l'ensemble des tableaux et graphiques à chaque nouvelle donnée. 
+                J'ai utilisé des tableaux croisés dynamiques, des fonctions avancées 
+                (RECHERCHEV, INDEX, EQUIV, SI) et des plages dynamiques. 
+                J'ai également intégré un menu interactif et un mode d'emploi complet 
+                pour que la cheffe de projet puisse l'utiliser seule après mon départ.
+              </p>
+              <div class="mission-tools">
+                <span>Excel (TCD, VBA)</span><span>Power Query</span><span>MyDevelopment</span>
+              </div>
+            </div>
+
+            <div class="mission-learnings">
+              <div class="learning-title">Ce que j'en retire</div>
+              <p>
+                Ce stage m'a appris que la présentation des données est aussi importante que leur contenu. 
+                Une donnée pertinente mal présentée perd toute sa valeur. 
+                C'est aussi ici que j'ai compris ce que signifie produire un livrable durable — 
+                quelque chose que quelqu'un d'autre peut reprendre et faire vivre sans moi.
+                Ce stage a directement conduit la direction à me proposer de poursuivre en alternance.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXP 3 — Stage Quai Branly -->
+    <div class="timeline-item" data-index="03">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card" id="exp3">
+        <div class="timeline-header" onclick="toggleExp('exp3')">
+          <div class="timeline-meta">
+            <span class="timeline-date">Mars 2024</span>
+            <span class="timeline-type stage">Stage</span>
+          </div>
+          <h2 class="timeline-title">Assistant RH</h2>
+          <p class="timeline-company">Musée du Quai Branly – Jacques Chirac · Paris 7e</p>
+          <div class="timeline-kpis">
+            <div class="kpi"><span class="kpi-num">100</span><span class="kpi-label">fiches dédoublonnées</span></div>
+            <div class="kpi"><span class="kpi-num">244</span><span class="kpi-label">agents dans le SIRH</span></div>
+            <div class="kpi"><span class="kpi-num">1</span><span class="kpi-label">première expérience RH</span></div>
+          </div>
+          <div class="timeline-toggle-icon">+</div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-body-inner">
+
+            <div class="mission-block">
+              <div class="mission-num">Mission principale</div>
+              <h3 class="mission-title">Optimisation du SIRH FNA</h3>
+              <p class="mission-desc">
+                J'ai été chargé de fiabiliser la base de données du Système d'Information RH 
+                nommé FNA (Fiche Nouvel Arrivant), utilisé pour gérer le circuit d'intégration 
+                des nouveaux agents du musée. J'ai réalisé une extraction des données vers Excel, 
+                croisé cette extraction avec le fichier d'effectif réel, 
+                et identifié deux types d'incohérences : des agents partis dont les fiches 
+                n'étaient pas clôturées, et des agents actifs sans fiche créée. 
+                J'ai corrigé l'ensemble de ces incohérences — soit 100 fiches traitées — 
+                en collaborant avec la Responsable des Systèmes d'Informations 
+                et en m'appuyant sur la base de données RH pour retrouver les informations nécessaires.
+              </p>
+              <div class="mission-tools">
+                <span>SIRH FNA</span><span>Excel</span><span>Base de données RH</span>
+              </div>
+            </div>
+
+            <div class="mission-learnings">
+              <div class="learning-title">Ce que j'en retire</div>
+              <p>
+                Ce stage fondateur m'a donné ma première vision concrète des ressources humaines 
+                et révélé l'importance d'une donnée propre comme fondement de toute décision RH. 
+                J'y ai développé rigueur, autonomie et sens de la communication professionnelle. 
+                C'est ici que ma vocation pour les SIRH et la data RH a pris forme.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXP 4 — Projets universitaires -->
+    <div class="timeline-item" data-index="04">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card" id="exp4">
+        <div class="timeline-header" onclick="toggleExp('exp4')">
+          <div class="timeline-meta">
+            <span class="timeline-date">2023 — 2026</span>
+            <span class="timeline-type projet">Projets universitaires</span>
+          </div>
+          <h2 class="timeline-title">Projets IUT</h2>
+          <p class="timeline-company">IUT de Paris Rives de Seine · Université Paris Cité</p>
+          <div class="timeline-kpis">
+            <div class="kpi"><span class="kpi-num">427</span><span class="kpi-label">étudiants enquêtés</span></div>
+            <div class="kpi"><span class="kpi-num">4</span><span class="kpi-label">entretiens experts</span></div>
+            <div class="kpi"><span class="kpi-num">3</span><span class="kpi-label">ans de business plan</span></div>
+          </div>
+          <div class="timeline-toggle-icon">+</div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-body-inner">
+
+            <div class="mission-block">
+              <div class="mission-num">Projet 01</div>
+              <h3 class="mission-title">Solid'R — Épicerie solidaire étudiante</h3>
+              <p class="mission-desc">
+                En tant que chargé d'étude de faisabilité, j'ai piloté l'analyse des données 
+                d'une enquête menée auprès de 427 étudiants sur la précarité étudiante. 
+                J'ai structuré un benchmark d'épiceries solidaires existantes, 
+                conduit des entretiens avec des acteurs nationaux (ANDES, Banque Alimentaire), 
+                modélisé plusieurs scénarios de déploiement avec budgets prévisionnels, 
+                et collaboré avec le département informatique de l'IUT pour produire 
+                un cahier des charges front et back office d'une application dédiée.
+              </p>
+              <div class="mission-tools">
+                <span>Excel</span><span>Google Forms</span><span>Benchmarking</span><span>Cahier des charges</span>
+              </div>
+            </div>
+
+            <div class="mission-block">
+              <div class="mission-num">Projet 02</div>
+              <h3 class="mission-title">BOOSTA'Carrière — Co-fondateur</h3>
+              <p class="mission-desc">
+                J'ai co-fondé BOOSTA'Carrière, une solution digitale d'accompagnement 
+                à l'insertion professionnelle destinée aux étudiants. 
+                J'ai piloté l'étude de marché qualitative et quantitative, 
+                modélisé le business plan sur 3 ans, et défendu le projet 
+                devant un jury de professionnels au Village des Talents — 
+                simulant une levée de fonds réelle.
+              </p>
+              <div class="mission-tools">
+                <span>Excel</span><span>Business plan</span><span>Pitch</span><span>Étude de marché</span>
+              </div>
+            </div>
+
+            <div class="mission-block">
+              <div class="mission-num">Projet 03</div>
+              <h3 class="mission-title">Audit Transformation Numérique — Modèle DIMM</h3>
+              <p class="mission-desc">
+                En tant que consultant junior, j'ai réalisé un audit de maturité numérique 
+                de deux organisations — BNP Paribas IT Group et Delacquis — 
+                via le modèle DIMM (Digital Internet Maturity Model). 
+                Sur la base de 4 entretiens conduits avec des experts métier, 
+                j'ai produit une analyse comparative et formulé des préconisations stratégiques 
+                en matière de gouvernance des données et de conduite du changement.
+              </p>
+              <div class="mission-tools">
+                <span>Modèle DIMM</span><span>Conduite d'entretiens</span><span>Analyse stratégique</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="js/main.js"></script>
+  <script src="js/experiences.js"></script>
+</body>
+</html>
