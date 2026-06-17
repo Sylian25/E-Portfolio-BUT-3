@@ -1,117 +1,2015 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sylian Aoudia — Portfolio</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sylian Aoudia — Portfolio BUT3 GEA GEMA</title>
+<meta name="description" content="Portfolio BUT3 GEA GEMA de Sylian Aoudia, Data Analyst RH, alternant BNP Paribas IT Group, futur PwC et Master MSI Sorbonne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* =============================================
+   VARIABLES — LIGHT DEFAULT
+============================================= */
+:root {
+  --bg:      #F5F5F3;
+  --bg2:     #FFFFFF;
+  --bg3:     #FAFAFA;
+  --accent:  #5689C7;
+  --adim:    rgba(86,137,199,0.10);
+  --text:    #0A0A0A;
+  --t2:      rgba(10,10,10,0.62);
+  --t3:      rgba(10,10,10,0.35);
+  --border:  rgba(10,10,10,0.07);
+  --border2: rgba(10,10,10,0.13);
+  --fd:      'Space Grotesk', sans-serif;
+  --fb:      'Inter', sans-serif;
+  --ease:    cubic-bezier(0.16,1,0.3,1);
+  --shadow:  0 2px 24px rgba(0,0,0,0.07);
+}
+body.dark {
+  --bg:      #080808;
+  --bg2:     #0F0F0F;
+  --bg3:     #141414;
+  --text:    #F2F2F0;
+  --t2:      rgba(242,242,240,0.60);
+  --t3:      rgba(242,242,240,0.28);
+  --border:  rgba(242,242,240,0.06);
+  --border2: rgba(242,242,240,0.12);
+  --adim:    rgba(86,137,199,0.10);
+  --shadow:  0 2px 24px rgba(0,0,0,0.4);
+}
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-logo">Sylian Aoudia</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="formation.html">Formation</a></li>
-      <li><a href="experiences.html">Expériences</a></li>
-      <li><a href="competences.html">Compétences</a></li>
-      <li><a href="traces.html">Traces & Preuves</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="btn-lang" id="langToggle">EN</button>
-      <button class="btn-theme" id="themeToggle">☀</button>
-      <a href="assets/cv.pdf" class="btn-cv" download>CV ↓</a>
-    </div>
-  </nav>
+/* =============================================
+   RESET
+============================================= */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--fb);
+  background:var(--bg);color:var(--text);
+  overflow-x:hidden;cursor:none;
+  transition:background .35s var(--ease),color .35s var(--ease);
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+button{font-family:var(--fb);cursor:none;}
+
+/* =============================================
+   CURSOR
+============================================= */
+#cur{
+  width:8px;height:8px;background:var(--accent);
+  border-radius:50%;position:fixed;pointer-events:none;
+  z-index:9999;left:0;top:0;transform:translate(-50%,-50%);
+  transition:width .25s var(--ease),height .25s var(--ease),background .25s;
+}
+#curf{
+  width:28px;height:28px;
+  border:1px solid rgba(86,137,199,.5);
+  border-radius:50%;position:fixed;pointer-events:none;
+  z-index:9998;left:0;top:0;transform:translate(-50%,-50%);
+  transition:width .35s var(--ease),height .35s var(--ease),border-color .25s;
+}
+body.cursor-hover #cur{width:16px;height:16px;}
+body.cursor-hover #curf{width:44px;height:44px;border-color:rgba(86,137,199,.7);}
+
+/* =============================================
+   LOADER
+============================================= */
+#loader{
+  position:fixed;inset:0;background:var(--bg);z-index:9997;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  transition:opacity .7s var(--ease);
+}
+#loader.hide{opacity:0;pointer-events:none;}
+.ll{display:flex;gap:5px;}
+.llet{
+  font-family:var(--fd);font-size:56px;font-weight:700;color:var(--text);
+  opacity:0;transform:translateY(20px);
+  transition:opacity .45s var(--ease),transform .45s var(--ease);
+}
+.llet.on{opacity:1;transform:translateY(0);}
+.lbar{width:100px;height:.5px;background:var(--border2);position:relative;overflow:hidden;}
+.lbar::after{
+  content:'';position:absolute;inset:0;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;
+  animation:lb 1.3s var(--ease) .2s forwards;
+}
+@keyframes lb{to{transform:scaleX(1);}}
+
+/* =============================================
+   NAV
+============================================= */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 48px;
+  transition:padding .4s var(--ease),background .4s,border-color .4s,box-shadow .4s;
+  border-bottom:.5px solid transparent;
+}
+#nav.sc{
+  padding:12px 48px;
+  background:rgba(245,245,243,.92);
+  backdrop-filter:blur(18px);
+  border-bottom-color:var(--border);
+  box-shadow:var(--shadow);
+}
+body.dark #nav.sc{background:rgba(8,8,8,.92);}
+.nlogo{
+  font-family:var(--fd);font-size:17px;font-weight:700;
+  letter-spacing:-.02em;cursor:pointer;
+}
+.ndot{color:var(--accent);}
+.nlinks{display:flex;gap:8px;position:relative;}
+.nlink{
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--t3);padding:7px 14px;border-radius:2px;
+  transition:color .25s;position:relative;cursor:pointer;
+}
+.nlink:hover,.nlink.active{color:var(--text);}
+.nlink.active::after{
+  content:'';position:absolute;bottom:0;left:14px;right:14px;
+  height:1.5px;background:var(--accent);border-radius:1px;
+}
+/* dropdown */
+.nlink-drop{position:relative;}
+.ndrop{
+  position:absolute;top:calc(100% + 8px);left:0;
+  background:var(--bg2);border:.5px solid var(--border2);
+  box-shadow:var(--shadow);
+  min-width:180px;opacity:0;pointer-events:none;
+  transform:translateY(-8px);transition:opacity .25s var(--ease),transform .25s var(--ease);
+}
+.nlink-drop:hover .ndrop{opacity:1;pointer-events:all;transform:translateY(0);}
+.ndrop-item{
+  display:block;padding:11px 18px;font-size:11px;
+  letter-spacing:.06em;color:var(--t2);
+  transition:background .2s,color .2s;cursor:pointer;
+}
+.ndrop-item:hover{background:var(--adim);color:var(--accent);}
+.nacts{display:flex;align-items:center;gap:8px;}
+.nbtn{
+  background:transparent;border:.5px solid var(--border2);
+  color:var(--t3);font-size:10px;letter-spacing:.1em;
+  padding:6px 13px;transition:all .25s var(--ease);
+}
+.nbtn:hover{border-color:var(--accent);color:var(--accent);}
+.ncv{
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--bg);background:var(--text);
+  padding:7px 16px;transition:opacity .25s;
+}
+.ncv:hover{opacity:.75;}
+
+/* =============================================
+   PAGES
+============================================= */
+.page{display:none;}
+.page.active{display:block;}
+
+/* =============================================
+   SECTIONS
+============================================= */
+.section{
+  padding:100px 64px;
+  border-bottom:.5px solid var(--border);
+}
+.slabel{
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;
+}
+.stitle{
+  font-family:var(--fd);
+  font-size:clamp(36px,4.5vw,68px);
+  font-weight:700;letter-spacing:-.03em;line-height:1.05;
+  margin-bottom:52px;
+}
+.stitle em{font-style:italic;font-weight:300;color:var(--t2);}
+
+/* =============================================
+   FADE IN ANIMATION
+============================================= */
+.fi{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .8s var(--ease),transform .8s var(--ease);
+}
+.fi.vis{opacity:1;transform:translateY(0);}
+
+/* =============================================
+   PAGE ACCUEIL — HERO
+============================================= */
+#p-accueil{}
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 64px 80px;
+  border-bottom:.5px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:-10%;right:-5%;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(86,137,199,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-left{flex:1;padding-right:48px;}
+.hero-tag{
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:20px;
+  animation:fup .6s var(--ease) 2.2s both;
+}
+.hero-name{
+  font-family:var(--fd);
+  font-size:clamp(48px,7vw,110px);
+  font-weight:700;letter-spacing:-.04em;line-height:.95;
+  margin-bottom:28px;
+}
+.hero-name .let{
+  display:inline-block;opacity:0;transform:translateY(60%);
+  animation:letup .65s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-name .sp{display:inline-block;width:.28em;}
+@keyframes letup{to{opacity:1;transform:translateY(0);}}
+.hero-desc{
+  font-size:clamp(14px,1.3vw,17px);font-weight:400;
+  color:var(--t2);line-height:1.7;max-width:480px;
+  margin-bottom:36px;
+  animation:fup .8s var(--ease) 3s both;
+}
+.hero-btns{
+  display:flex;flex-wrap:wrap;gap:12px;
+  animation:fup .8s var(--ease) 3.1s both;
+}
+.btn-primary{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--bg);background:var(--text);
+  padding:13px 24px;transition:opacity .25s;
+}
+.btn-primary:hover{opacity:.75;}
+.btn-outline{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text);border:.5px solid var(--border2);
+  padding:12px 23px;transition:border-color .25s,color .25s;
+  position:relative;overflow:hidden;
+}
+.btn-outline::before{
+  content:'';position:absolute;inset:0;background:var(--adim);
+  transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);
+}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-outline:hover::before{transform:scaleX(1);}
+.hero-right{
+  flex-shrink:0;width:340px;
+  animation:fup .9s var(--ease) 2.4s both;
+}
+.hero-photo-wrap{
+  position:relative;aspect-ratio:3/4;overflow:hidden;
+}
+.hero-photo{
+  width:100%;height:100%;object-fit:cover;object-position:center 15%;
+  transition:transform .6s var(--ease);
+}
+.hero-photo-wrap:hover .hero-photo{transform:scale(1.04);}
+.hero-photo-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 60%,rgba(245,245,243,.4));
+}
+body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 60%,rgba(8,8,8,.4));}
+.hero-avail{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--t3);padding:20px 64px;
+  border-bottom:.5px solid var(--border);
+  animation:fup .7s var(--ease) 3.2s both;
+}
+@keyframes fup{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* ABOUT */
+.about-section{padding:80px 64px;border-bottom:.5px solid var(--border);background:var(--bg2);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;max-width:1100px;}
+.about-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.about-title{
+  font-family:var(--fd);font-size:clamp(28px,3vw,44px);
+  font-weight:700;letter-spacing:-.03em;margin-bottom:28px;line-height:1.1;
+}
+.about-p{font-size:13px;color:var(--t2);line-height:1.85;margin-bottom:14px;}
+
+/* PASSIONS */
+.passions-section{padding:80px 64px;border-bottom:.5px solid var(--border);}
+.pass-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:8px;}
+.pass-card{
+  background:var(--bg);padding:44px 40px;
+  transition:background .3s var(--ease);
+}
+.pass-card:hover{background:var(--bg3);}
+.pass-icon{font-size:28px;margin-bottom:16px;}
+.pass-title{
+  font-family:var(--fd);font-size:20px;font-weight:600;
+  letter-spacing:-.02em;margin-bottom:14px;color:var(--text);
+}
+.pass-p{font-size:13px;color:var(--t2);line-height:1.82;margin-bottom:12px;}
+.pass-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;color:var(--accent);letter-spacing:.06em;
+  margin-top:8px;transition:opacity .2s;
+}
+.pass-link:hover{opacity:.65;}
+
+/* =============================================
+   PAGE PARCOURS
+============================================= */
+.parcours-hero{
+  padding:140px 64px 80px;
+  border-bottom:.5px solid var(--border);
+}
+.parcours-intro-big{
+  font-family:var(--fd);
+  font-size:clamp(22px,2.8vw,38px);
+  font-weight:700;letter-spacing:-.03em;line-height:1.2;
+  max-width:820px;margin-bottom:16px;
+}
+.parcours-intro-sub{
+  font-size:14px;color:var(--t2);max-width:620px;line-height:1.75;
+}
+
+/* Formation cards */
+.formation-section{padding:80px 64px;border-bottom:.5px solid var(--border);}
+.form-card{
+  background:var(--bg2);border:.5px solid var(--border);
+  padding:40px;margin-bottom:1px;
+  transition:background .3s var(--ease);
+}
+.form-card:hover{background:var(--bg3);}
+.form-card-top{display:flex;gap:32px;align-items:flex-start;}
+.form-logo{
+  width:72px;height:72px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg3);border:.5px solid var(--border);
+  font-family:var(--fd);font-size:11px;font-weight:600;
+  color:var(--t3);text-align:center;padding:8px;
+  line-height:1.3;
+}
+.form-right{flex:1;}
+.form-dates{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:6px;
+}
+.form-title{
+  font-family:var(--fd);font-size:20px;font-weight:600;
+  letter-spacing:-.02em;margin-bottom:4px;
+}
+.form-sub{font-size:12px;color:var(--t3);margin-bottom:14px;letter-spacing:.04em;}
+.form-desc{font-size:13px;color:var(--t2);line-height:1.8;margin-bottom:16px;}
+.form-va{
+  font-size:13px;color:var(--t2);line-height:1.8;
+  border-left:2px solid var(--accent);padding-left:18px;
+  margin-bottom:16px;
+}
+.form-link{
+  font-size:11px;color:var(--accent);letter-spacing:.06em;
+  display:inline-flex;align-items:center;gap:5px;
+  transition:opacity .2s;margin-top:4px;margin-right:16px;
+}
+.form-link:hover{opacity:.65;}
+/* accordeon */
+.acc-btn{
+  width:100%;text-align:left;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--t3);padding:12px 0;
+  border:none;border-top:.5px solid var(--border);
+  background:transparent;display:flex;align-items:center;
+  justify-content:space-between;margin-top:16px;
+  transition:color .25s;
+}
+.acc-btn:hover{color:var(--accent);}
+.acc-icon{font-size:16px;transition:transform .35s var(--ease);}
+.acc-btn.open .acc-icon{transform:rotate(45deg);}
+.acc-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s var(--ease);
+}
+.acc-btn.open + .acc-body{max-height:1200px;}
+.acc-inner{padding-top:16px;}
+
+/* savoirs grid */
+.savoirs-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);margin-top:4px;}
+.savoir-col{background:var(--bg3);padding:20px;}
+.savoir-col-title{
+  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px;
+}
+.savoir-item{
+  font-size:12px;color:var(--t2);line-height:1.7;
+  padding:6px 0;border-bottom:.5px solid var(--border);
+}
+.savoir-item:last-child{border-bottom:none;}
+
+/* matieres list */
+.mat-list{display:flex;flex-direction:column;gap:1px;background:var(--border);}
+.mat-item{
+  background:var(--bg3);padding:12px 16px;
+  font-size:12px;color:var(--t2);
+}
+
+/* SAE carousel */
+.sae-section{padding:80px 64px;border-bottom:.5px solid var(--border);background:var(--bg2);}
+.sae-carousel-wrap{position:relative;overflow:hidden;}
+.sae-carousel{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--border);
+  transition:transform .5s var(--ease);
+}
+.sae-slide{display:contents;}
+.sae-card{
+  background:var(--bg2);padding:36px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:background .3s var(--ease);
+}
+.sae-card:hover{background:var(--bg3);}
+.sae-year{
+  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);
+}
+.sae-title{
+  font-family:var(--fd);font-size:18px;font-weight:600;
+  letter-spacing:-.02em;color:var(--text);
+}
+.sae-desc{font-size:12px;color:var(--t2);line-height:1.75;}
+.sae-comps{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;}
+.sae-comp{
+  font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+  border:.5px solid var(--border2);color:var(--t3);padding:3px 8px;
+}
+.sae-btn{
+  align-self:flex-start;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);border:.5px solid rgba(86,137,199,.3);
+  padding:8px 14px;background:transparent;
+  transition:all .25s;margin-top:auto;
+}
+.sae-btn:hover{background:var(--adim);}
+.car-nav{
+  display:flex;justify-content:center;gap:12px;margin-top:24px;
+}
+.car-arrow{
+  width:36px;height:36px;
+  border:.5px solid var(--border2);
+  background:transparent;color:var(--t3);
+  font-size:16px;transition:all .25s;
+  display:flex;align-items:center;justify-content:center;
+}
+.car-arrow:hover{border-color:var(--accent);color:var(--accent);}
+.car-dots{display:flex;gap:8px;align-items:center;}
+.car-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--border2);transition:background .25s;
+}
+.car-dot.on{background:var(--accent);}
+
+/* =============================================
+   PAGE EXPERIENCES
+============================================= */
+.xp-hero{padding:140px 64px 60px;border-bottom:.5px solid var(--border);}
+.xp-intro{font-size:14px;color:var(--t2);max-width:660px;line-height:1.8;margin-top:16px;}
+.xp-section{padding:60px 64px;border-bottom:.5px solid var(--border);}
+.xp-section-title{
+  font-family:var(--fd);font-size:13px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--t3);margin-bottom:1px;
+}
+.xp-list{display:flex;flex-direction:column;gap:1px;background:var(--border);}
+.xp-item{background:var(--bg);transition:background .3s var(--ease);}
+.xp-item:hover{background:var(--bg3);}
+.xp-header{
+  display:flex;align-items:center;gap:18px;
+  padding:22px 28px;cursor:pointer;
+}
+.xp-logo{
+  width:42px;height:42px;min-width:42px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg3);border:.5px solid var(--border);
+  border-radius:6px;padding:6px;overflow:hidden;flex-shrink:0;
+}
+.xp-logo img{width:100%;height:100%;object-fit:contain;filter:grayscale(20%);transition:filter .3s;}
+.xp-logo-text{
+  font-family:var(--fd);font-size:9px;font-weight:700;
+  color:var(--t3);text-align:center;line-height:1.2;
+}
+.xp-item:hover .xp-logo img{filter:grayscale(0%);}
+.xp-info{flex:1;}
+.xp-date{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:4px;display:block;}
+.xp-title{
+  font-family:var(--fd);font-size:16px;font-weight:500;
+  letter-spacing:-.01em;margin-bottom:3px;transition:color .25s;
+}
+.xp-item:hover .xp-title{color:var(--accent);}
+.xp-co{font-size:11px;color:var(--t3);}
+.xp-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.badge{font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;}
+.balt{background:rgba(86,137,199,.1);color:var(--accent);}
+.bstage{background:rgba(86,199,137,.1);color:#3aaa73;}
+.bjob{background:rgba(199,160,86,.1);color:#b8903a;}
+.bsoon{background:rgba(86,137,199,.06);color:var(--t3);}
+.xtog{
+  font-size:18px;color:var(--t3);
+  transition:transform .35s var(--ease),color .25s;
+  width:20px;text-align:center;
+}
+.xp-item.open .xtog{transform:rotate(45deg);color:var(--accent);}
+.xp-body{max-height:0;overflow:hidden;transition:max-height .55s var(--ease);}
+.xp-item.open .xp-body{max-height:1400px;}
+.xp-inner{
+  padding:0 28px 28px;
+  border-top:.5px solid var(--border);
+}
+.xp-sub{
+  margin-top:22px;
+}
+.xp-sub-title{
+  font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:10px;
+}
+.xp-sub p{font-size:13px;color:var(--t2);line-height:1.82;}
+.xp-sub p + p{margin-top:10px;}
+.xp-sub ul{padding-left:0;display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.xp-sub li{
+  font-size:12px;color:var(--t2);line-height:1.7;
+  padding-left:14px;position:relative;
+}
+.xp-sub li::before{
+  content:'';position:absolute;left:0;top:9px;
+  width:4px;height:4px;border-radius:50%;
+  background:var(--accent);
+}
+.xp-comps{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+.xp-comptag{
+  font-size:9px;letter-spacing:.07em;text-transform:uppercase;
+  border:.5px solid var(--border2);color:var(--t3);padding:3px 8px;
+  transition:all .25s;
+}
+.xp-item:hover .xp-comptag{border-color:rgba(86,137,199,.25);color:var(--accent);}
+.ann-link{
+  font-size:11px;color:var(--accent);letter-spacing:.05em;
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:6px;transition:opacity .2s;
+}
+.ann-link:hover{opacity:.65;}
+
+/* =============================================
+   PAGE ARTICLES (sous-pages)
+============================================= */
+.art-page{padding:120px 64px 80px;max-width:880px;}
+.art-hero-label{
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+}
+.art-hero-title{
+  font-family:var(--fd);
+  font-size:clamp(28px,3.5vw,50px);
+  font-weight:700;letter-spacing:-.03em;line-height:1.1;
+  margin-bottom:20px;
+}
+.art-comps-line{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+.art-comp-badge{
+  display:flex;align-items:center;gap:6px;
+  font-size:10px;color:var(--t3);
+  border:.5px solid var(--border2);padding:5px 12px;
+}
+.art-comp-stars{color:var(--accent);font-size:11px;letter-spacing:1px;}
+.art-body{display:flex;flex-direction:column;gap:40px;}
+.art-block{}
+.art-block-label{
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px;
+}
+.art-block h3{
+  font-family:var(--fd);font-size:17px;font-weight:600;
+  letter-spacing:-.01em;margin-bottom:14px;color:var(--text);
+}
+.art-block p{font-size:13px;color:var(--t2);line-height:1.85;margin-bottom:12px;}
+.art-trace{
+  background:var(--bg2);border:.5px solid var(--border);
+  border-left:2px solid var(--accent);
+  padding:20px 24px;margin:16px 0;
+}
+.art-trace-label{
+  font-size:9px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:8px;
+}
+.art-trace p{font-size:12px;color:var(--t2);line-height:1.75;}
+.art-sep{height:.5px;background:var(--border);margin:8px 0;}
+.art-conscience{
+  background:var(--adim);border:.5px solid rgba(86,137,199,.2);
+  padding:24px;margin-top:8px;
+}
+.art-conscience p{font-size:13px;color:var(--t2);line-height:1.85;}
+/* competences BUT page */
+.comp-but-page{padding:120px 64px 80px;}
+.comp-but-intro{font-size:13px;color:var(--t2);max-width:620px;line-height:1.8;margin-bottom:48px;}
+.comp-but-list{display:flex;flex-direction:column;gap:1px;background:var(--border);}
+.comp-but-item{background:var(--bg2);padding:32px 36px;}
+.comp-but-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.comp-but-name{
+  font-family:var(--fd);font-size:18px;font-weight:600;
+  letter-spacing:-.01em;color:var(--text);
+}
+.comp-but-level{display:flex;gap:4px;}
+.cdot{
+  width:10px;height:10px;border-radius:50%;
+  border:.5px solid var(--border2);
+}
+.cdot.on{background:var(--accent);border-color:var(--accent);}
+.comp-but-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.comp-but-col{background:var(--bg3);padding:18px 20px;}
+.comp-but-col-title{
+  font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:10px;
+}
+.comp-but-col p{font-size:12px;color:var(--t2);line-height:1.75;}
+
+/* =============================================
+   PAGE ANNEXES
+============================================= */
+.annexes-page{padding:120px 64px 80px;}
+.ann-cats{display:flex;flex-direction:column;gap:48px;}
+.ann-cat-title{
+  font-family:var(--fd);font-size:16px;font-weight:600;
+  letter-spacing:-.01em;margin-bottom:1px;
+  padding-bottom:14px;border-bottom:.5px solid var(--border);
+}
+.ann-docs{display:flex;flex-direction:column;gap:1px;background:var(--border);}
+.ann-doc{
+  background:var(--bg2);padding:22px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  transition:background .25s;
+}
+.ann-doc:hover{background:var(--bg3);}
+.ann-doc-left{}
+.ann-doc-title{
+  font-family:var(--fd);font-size:14px;font-weight:500;
+  letter-spacing:-.01em;margin-bottom:4px;color:var(--text);
+}
+.ann-doc-ctx{font-size:11px;color:var(--t3);letter-spacing:.04em;}
+.ann-doc-btn{
+  flex-shrink:0;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);border:.5px solid rgba(86,137,199,.3);
+  padding:7px 14px;background:transparent;transition:all .25s;
+}
+.ann-doc-btn:hover{background:var(--adim);}
+
+/* =============================================
+   PAGE CONTACT
+============================================= */
+.contact-page{padding:120px 64px 80px;}
+.contact-merci{
+  font-size:14px;color:var(--t2);max-width:560px;line-height:1.8;
+  margin-bottom:56px;
+}
+.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:72px;align-items:start;}
+.cform{display:flex;flex-direction:column;gap:24px;}
+.fg{display:flex;flex-direction:column;gap:8px;}
+.fg label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);}
+.fg input,.fg textarea{
+  background:transparent;border:none;border-bottom:.5px solid var(--border2);
+  color:var(--text);font-size:13px;font-family:var(--fb);
+  padding:10px 0;outline:none;resize:none;
+  transition:border-color .25s;
+}
+.fg input:focus,.fg textarea:focus{border-bottom-color:var(--accent);}
+.csub{
+  align-self:flex-start;
+  background:var(--text);color:var(--bg);
+  border:none;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  padding:13px 28px;transition:opacity .25s;margin-top:4px;
+}
+.csub:hover{opacity:.75;}
+.cinfo{display:flex;flex-direction:column;}
+.cli{
+  display:flex;flex-direction:column;gap:5px;
+  padding:18px 0;border-bottom:.5px solid var(--border);
+  transition:padding-left .25s;
+}
+.cli:hover{padding-left:7px;}
+.cli:last-child{border-bottom:none;}
+.clil{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);}
+.cliv{font-size:13px;color:var(--text);transition:color .25s;}
+.cliv:hover{color:var(--accent);}
+
+/* =============================================
+   FOOTER
+============================================= */
+#footer{
+  padding:24px 64px;
+  border-top:.5px solid var(--border);
+  background:var(--bg2);
+}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;}
+.flogo{font-family:var(--fd);font-size:15px;font-weight:700;color:var(--t3);}
+.fc,.fb{font-size:10px;letter-spacing:.07em;color:var(--t3);}
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+@media(max-width:1024px){
+  .hero{flex-direction:column-reverse;gap:40px;padding:120px 32px 60px;}
+  .hero-left{padding-right:0;}
+  .hero-right{width:100%;max-width:320px;}
+  .about-grid{grid-template-columns:1fr;}
+  .pass-grid{grid-template-columns:1fr;}
+  .section,.formation-section,.sae-section,.xp-section,.about-section,.passions-section{padding:60px 32px;}
+  .savoirs-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;gap:44px;}
+  .comp-but-grid{grid-template-columns:1fr;}
+  #nav{padding:16px 32px;}
+  #nav.sc{padding:11px 32px;}
+  .parcours-hero,.xp-hero,.art-page,.comp-but-page,.annexes-page,.contact-page{padding:120px 32px 60px;}
+  .hero-avail{padding:16px 32px;}
+  .footer-inner{flex-direction:column;gap:8px;text-align:center;}
+  #footer{padding:20px 32px;}
+}
+@media(max-width:768px){
+  .nlinks{display:none;}
+  .sae-carousel{grid-template-columns:1fr;}
+  #cur,#curf{display:none;}
+  body{cursor:auto;}
+  .hero-name{font-size:clamp(40px,10vw,64px);}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ll">
+    <span class="llet">S</span>
+    <span class="llet">A</span>
+  </div>
+  <div class="lbar"></div>
+</div>
+
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="curf"></div>
+
+<!-- =============================================
+     NAV
+============================================= -->
+<nav id="nav">
+  <div class="nlogo" onclick="goPage('accueil')">SA<span class="ndot">.</span></div>
+  <ul class="nlinks">
+    <li><span class="nlink active" data-page="accueil" onclick="goPage('accueil')">Accueil</span></li>
+    <li><span class="nlink" data-page="parcours" onclick="goPage('parcours')">Mon Parcours</span></li>
+    <li><span class="nlink" data-page="experiences" onclick="goPage('experiences')">Mes Experiences</span></li>
+    <li class="nlink-drop">
+      <span class="nlink" data-page="articles">Articles</span>
+      <div class="ndrop">
+        <span class="ndrop-item" onclick="goArticle('comp-but')">Competences du BUT</span>
+        <span class="ndrop-item" onclick="goArticle('art1')">Article 1 — Apprendre sans filet</span>
+        <span class="ndrop-item" onclick="goArticle('art2')">Article 2 — La donnee et la decision</span>
+        <span class="ndrop-item" onclick="goArticle('art3')">Article 3 — Piloter un collectif</span>
+      </div>
+    </li>
+    <li><span class="nlink" data-page="annexes" onclick="goPage('annexes')">Annexes</span></li>
+    <li><span class="nlink" data-page="contact" onclick="goPage('contact')">Contact</span></li>
+  </ul>
+  <div class="nacts">
+    <button class="nbtn" id="langBtn">EN</button>
+    <button class="nbtn" id="themeBtn">Sombre</button>
+    <a href="assets/cv.pdf" class="ncv btn-primary" download>CV ↗</a>
+  </div>
+</nav>
+
+<!-- =============================================
+     PAGE ACCUEIL
+============================================= -->
+<div class="page active" id="p-accueil">
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-left">
-        <div class="hero-tag">Data Analyst · Gestion · RH</div>
-        <h1 class="hero-title">
-          Sylian<br>
-          <span class="hero-accent" id="typewriter"></span>
-        </h1>
-        <p class="hero-sub">
-          BUT GEA GEMA · IUT Paris Rives de Seine · Alternance BNP Paribas IT Group
-        </p>
-        <p class="hero-intro">
-          Profil hybride gestion–data. Je transforme les données brutes 
-          en outils de décision au service des organisations.
-        </p>
-        <div class="hero-cta">
-          <a href="experiences.html" class="btn-primary">Voir mes projets</a>
-          <a href="assets/cv.pdf" class="btn-secondary" download>Télécharger mon CV</a>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-photo-wrapper">
-          <img src="assets/photo.jpg" alt="Sylian Aoudia" class="hero-photo">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJETS PHARES -->
-  <section class="projects">
-    <div class="section-label">Projets phares</div>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="card-num">01</div>
-        <div class="card-title">ReCode · BNP Paribas</div>
-        <div class="card-desc">
-          Analyse démographique et compétences de 3 000 développeurs 
-          mondiaux face à l'IA. Pipeline Alteryx → Tableau, 230 000 lignes, RGPD.
-        </div>
-        <div class="card-tags">
-          <span>Alteryx</span><span>Tableau</span><span>RGPD</span>
-        </div>
-        <div class="card-bar"></div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-num">02</div>
-        <div class="card-title">KPI Formation · BNP Paribas</div>
-        <div class="card-desc">
-          Tableaux de bord Power BI conçus en autodidacte. 
-          Gain de productivité de 30 % sur le pilotage du reporting RH.
-        </div>
-        <div class="card-tags">
-          <span>Power BI</span><span>Excel</span><span>Automatisation</span>
-        </div>
-        <div class="card-bar"></div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-num">03</div>
-        <div class="card-title">Solid'R · Épicerie solidaire</div>
-        <div class="card-desc">
-          Étude de faisabilité : enquête 427 étudiants, benchmarking 
-          ANDES & Banque Alimentaire, modélisation de scénarios.
-        </div>
-        <div class="card-tags">
-          <span>Analyse terrain</span><span>Excel</span><span>Cahier des charges</span>
-        </div>
-        <div class="card-bar"></div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- MOT D'ACCUEIL -->
-  <section class="welcome">
-    <div class="welcome-inner">
-      <p class="welcome-text">
-        Bienvenue sur mon portfolio. Vous y trouverez mon parcours, 
-        mes projets et les compétences que j'ai développées depuis trois ans 
-        à l'intersection de la gestion et de la data.
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-tag fi">Portfolio BUT3 · GEA GEMA · 2023-2026</p>
+      <h1 class="hero-name" id="heroName">Sylian Aoudia</h1>
+      <p class="hero-desc fi">
+        Bienvenue sur mon portfolio. J'y presente mes experiences, mes projets et les competences que j'ai developpees au fil de mes 3 annees de BUT GEA. Tout ce que vous trouverez ici n'est pas une liste de competences — c'est le recit d'un profil construit a l'intersection de la gestion des organisations et de la donnee.
       </p>
+      <div class="hero-btns fi">
+        <a href="assets/cv.pdf" class="btn-primary" download>Telecharger mon CV ↗</a>
+        <span class="btn-outline" onclick="goPage('parcours')">Decouvrir mon parcours</span>
+        <span class="btn-outline" onclick="goPage('contact')">Me contacter</span>
+      </div>
     </div>
-  </section>
+    <div class="hero-right fi">
+      <div class="hero-photo-wrap">
+        <img src="assets/photo.jpg" alt="Sylian Aoudia" class="hero-photo">
+        <div class="hero-photo-overlay"></div>
+      </div>
+    </div>
+  </div>
 
-  <script src="js/main.js"></script>
+  <div class="hero-avail fi">Admis · Master MSI Sorbonne · Rang 4/55 · Recrute PwC France · Septembre 2026</div>
+
+  <!-- A PROPOS -->
+  <div class="about-section">
+    <div class="about-grid">
+      <div class="fi">
+        <div class="about-label">A propos de moi</div>
+        <h2 class="about-title">Analytique<br><em style="font-style:italic;font-weight:300;color:var(--t2);">par nature.</em></h2>
+      </div>
+      <div class="fi">
+        <p class="about-p">Je m'appelle Sylian, j'ai 20 ans et je suis Data Analyst RH en alternance chez BNP Paribas IT Group. Mon profil est ne d'une conviction simple : la gestion sans la donnee reste intuitive, la donnee sans comprehension des organisations peine a produire des decisions pertinentes.</p>
+        <p class="about-p">Trois ans de BUT GEA m'ont donne la culture des organisations en management, strategie et entrepreneuriat. Mes experiences chez BNP Paribas m'ont confronte a la realite de la data en grande entreprise : pipelines ETL sous Alteryx, dashboards decisionnels Power BI et Tableau, structuration d'indicateurs RH et conformite RGPD.</p>
+        <p class="about-p">Ce qui me definit autant que mes experiences, c'est ma facon d'apprendre : en autonomie, par la pratique et par passion. J'ai appris Power BI seul en deux semaines pour repondre a une problematique reelle. J'ai developpe le PSG Data Hub, un projet personnel de data storytelling combinant une base de donnees SQLite, des analyses Python et SQL, et un dashboard interactif deploye en ligne.</p>
+        <p class="about-p">Mon objectif : devenir Data Analyst confirme dans un environnement exigeant, avec une ambition a long terme d'exercer a l'international, notamment en Asie du Sud-Est.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASSIONS -->
+  <div class="passions-section">
+    <div class="slabel fi">Mes passions</div>
+    <h2 class="stitle fi">Ce qui<br><em>m'anime.</em></h2>
+    <div class="pass-grid">
+      <div class="pass-card fi">
+        <div class="pass-icon">⚽</div>
+        <div class="pass-title">Football et data sportive</div>
+        <p class="pass-p">Le football m'accompagne depuis l'enfance. J'ai pratique six ans en competition au FC 93, et je suis supporter du Paris Saint-Germain depuis mes premieres annees. Mais ce qui me passionne aujourd'hui va au-dela du jeu : l'analyse de performance par la donnee. Les xG, les indicateurs tactiques, les statistiques joueurs — je les lis comme des rapports d'activite.</p>
+        <p class="pass-p">Cette passion m'a conduit a creer le PSG Data Hub : une base de donnees relationnelle couvrant 15 saisons du PSG a l'ere QSI (2011-2026), un pipeline Python-Pandas, 10 requetes SQL analytiques, et un dashboard interactif deploye en ligne sur Vercel.</p>
+        <a href="https://psg-data-hub.vercel.app/" target="_blank" rel="noopener" class="pass-link">Voir le PSG Data Hub ↗</a>
+      </div>
+      <div class="pass-card fi">
+        <div class="pass-icon">🎮</div>
+        <div class="pass-title">Jeux video</div>
+        <p class="pass-p">Dix ans de jeux video, notamment dans les genres simulation sportive et narratif. Des series comme God of War, Uncharted ou FIFA m'ont appris des choses que les cours n'enseignent pas directement : la patience face a un obstacle, la strategie face a l'incertitude, et la perseverance face a l'echec.</p>
+        <p class="pass-p">Ces jeux m'ont egalement developpe une sensibilite pour la narration et la coherence d'ensemble — deux qualites que je retrouve dans mon approche de la data : ne pas produire des chiffres, mais construire un recit que les decideurs peuvent utiliser.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <span class="flogo">SA.</span>
+      <span class="fc">Portfolio BUT3 GEA GEMA · 2026 · Sylian Aoudia</span>
+      <span class="fb">Concu et developpe par Sylian Aoudia</span>
+    </div>
+  </footer>
+</div>
+
+<!-- =============================================
+     PAGE MON PARCOURS
+============================================= -->
+<div class="page" id="p-parcours">
+
+  <div class="parcours-hero">
+    <div class="slabel fi">Mon Parcours</div>
+    <h1 class="parcours-intro-big fi">Trois ans pour construire<br>un profil qui n'existait pas encore.</h1>
+    <p class="parcours-intro-sub fi">Entree en BUT sans projet precise, sortie avec une alternance chez BNP Paribas, une admission au Master MSI Sorbonne rang 4/55, et un recrutement chez PwC France. Ce parcours n'etait pas prevu — il s'est construit par l'experience, etape apres etape.</p>
+  </div>
+
+  <!-- FORMATIONS -->
+  <div class="formation-section">
+    <div class="slabel fi">Ma formation</div>
+
+    <!-- MASTER -->
+    <div class="form-card fi">
+      <div class="form-card-top">
+        <div class="form-logo">Paris 1<br>Sorbonne</div>
+        <div class="form-right">
+          <div class="form-dates">2026 — 2028</div>
+          <div class="form-title">Master Management des Systemes d'Information</div>
+          <div class="form-sub">Parcours SIC Big Data · Universite Paris 1 Pantheon-Sorbonne · Ecole de Management de la Sorbonne · Paris 5e</div>
+          <p class="form-desc">Le Master MSI parcours SIC Big Data forme des experts capables de piloter les systemes d'information dans un contexte de transformation numerique et de massification des donnees. La formation couvre les architectures Big Data, le Data Mining, le Machine Learning applique, la gouvernance des SI et les methodes avancees d'analyse quantitative. Elle prepare a des roles d'analyst, de consultant SI ou de chef de projet data dans des organisations complexes.</p>
+          <div class="form-va">Admis rang 4 sur 55 candidats en recherche de contrat, ce master repond precisement aux lacunes que j'ai identifiees dans ma formation actuelle : la technicite avancee en Big Data et en analyse predictive. Il completera deux ans de terrain chez BNP Paribas avec la rigueur academique d'une universite de premier plan.</div>
+          <a href="https://formations.pantheonsorbonne.fr/fr/catalogue-des-formations/master-XB/master-management-des-systemes-d-information-KBUVOSYW/sic-big-data-systemes-d-information-et-de-connaissance-sous-parcours-big-data-KBZ1W0BJ.html" target="_blank" rel="noopener" class="form-link">Voir la formation sur le site de Paris 1 ↗</a>
+        </div>
+      </div>
+      <button class="acc-btn" onclick="toggleAcc(this)">
+        <span>Quelques matieres etudiees</span>
+        <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <div class="mat-list">
+            <div class="mat-item">Architectures Big Data et systemes distribues (Hadoop, Spark)</div>
+            <div class="mat-item">Data Mining et apprentissage automatique</div>
+            <div class="mat-item">Gouvernance des systemes d'information</div>
+            <div class="mat-item">Analyse predictive et modelisation statistique</div>
+            <div class="mat-item">Management de projet SI et conduite du changement</div>
+            <div class="mat-item">Droit du numerique et protection des donnees</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUT -->
+    <div class="form-card fi" style="margin-top:1px;">
+      <div class="form-card-top">
+        <div class="form-logo">IUT<br>Paris</div>
+        <div class="form-right">
+          <div class="form-dates">2023 — 2026</div>
+          <div class="form-title">BUT GEA · Gestion des Entreprises et des Administrations</div>
+          <div class="form-sub">Parcours GEMA — Gestion Entrepreneuriat et Management d'Activites · IUT de Paris Rives de Seine · Universite Paris Cite</div>
+          <p class="form-desc">Le BUT GEA est une formation pluridisciplinaire en gestion des organisations couvrant le management, la comptabilite, la finance, le droit, les ressources humaines, le marketing et la strategie d'entreprise. Le parcours GEMA — specifique a ce diplome — ajoute une dimension entrepreneuriale forte : etude de marche, business plan, creation d'activite, pilotage de projets. La formation alterne enseignements theoriques et SAE (Situations d'Apprentissage et d'Evaluation) ancrees dans des cas reels.</p>
+          <div class="form-va">Ce BUT m'a donne une culture transversale des organisations que peu de formations techniques offrent a Bac+3. C'est precisement cette comprehension du fonctionnement des organisations qui fait la valeur de mon profil data : je ne produis pas seulement des dashboards, je comprends les decisions auxquelles ils doivent repondre.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+            <span class="form-link" onclick="goArticle('comp-but')" style="cursor:pointer;">Voir mes competences du BUT ↗</span>
+            <a href="https://iutparis-seine.u-paris.fr/formations/but-gea/" target="_blank" rel="noopener" class="form-link">Page de la formation ↗</a>
+          </div>
+        </div>
+      </div>
+      <button class="acc-btn" onclick="toggleAcc(this)">
+        <span>Mes apprentissages cles</span>
+        <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <div class="savoirs-grid">
+            <div class="savoir-col">
+              <div class="savoir-col-title">Savoirs</div>
+              <div class="savoir-item">Analyse financiere et comptabilite</div>
+              <div class="savoir-item">Droit des organisations et droit du travail</div>
+              <div class="savoir-item">Management strategique et pilotage</div>
+              <div class="savoir-item">Marketing et etude de marche</div>
+              <div class="savoir-item">Systemes d'information et outils numeriques</div>
+              <div class="savoir-item">Entrepreneuriat et creation de valeur</div>
+            </div>
+            <div class="savoir-col">
+              <div class="savoir-col-title">Savoir-faire</div>
+              <div class="savoir-item">Analyser et visualiser des donnees (Excel, Power BI, Tableau)</div>
+              <div class="savoir-item">Conduire une etude de marche qualitative et quantitative</div>
+              <div class="savoir-item">Rediger un business plan et des projections financieres</div>
+              <div class="savoir-item">Elaborer un cahier des charges fonctionnel</div>
+              <div class="savoir-item">Mener un projet collectif avec des roles definis</div>
+              <div class="savoir-item">Restituer une analyse face a un jury professionnel</div>
+            </div>
+            <div class="savoir-col">
+              <div class="savoir-col-title">Savoir-etre</div>
+              <div class="savoir-item">Autonomie et apprentissage en situation</div>
+              <div class="savoir-item">Rigueur et exigence sur la qualite des donnees</div>
+              <div class="savoir-item">Capacite a vulgariser des sujets techniques</div>
+              <div class="savoir-item">Proactivite et prise d'initiative</div>
+              <div class="savoir-item">Ecoute et co-construction en equipe</div>
+              <div class="savoir-item">Recul critique et remise en question</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="acc-btn" onclick="toggleAcc(this)">
+        <span>Quelques matieres etudiees</span>
+        <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <div class="mat-list">
+            <div class="mat-item">Management et organisation des entreprises</div>
+            <div class="mat-item">Gestion financiere et comptabilite analytique</div>
+            <div class="mat-item">Droit des societes et droit du travail</div>
+            <div class="mat-item">Ressources humaines et gestion des competences</div>
+            <div class="mat-item">Marketing strategique et operationnel</div>
+            <div class="mat-item">Systemes d'information et outils numeriques (Excel, Power BI)</div>
+            <div class="mat-item">Entrepreneuriat, business model et creation d'activite</div>
+            <div class="mat-item">Communication professionnelle et prise de parole</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BAC -->
+    <div class="form-card fi" style="margin-top:1px;">
+      <div class="form-card-top">
+        <div class="form-logo">Bac<br>2023</div>
+        <div class="form-right">
+          <div class="form-dates">2020 — 2023</div>
+          <div class="form-title">Baccalaureat General — Mention Assez Bien</div>
+          <div class="form-sub">Specialites SES, Mathematiques — Option Droit · Lycee Prive Saint-Joseph La Salle · Pantin (93)</div>
+          <p class="form-desc">Baccalaureat general avec les specialites Sciences Economiques et Sociales et Mathematiques, completees par l'option Droit. Ce triptyque a pose sans que je le realise les bases d'un profil hybride : analyser les organisations par les structures et les mecanismes sociaux, raisonner par les chiffres et les preuves, comprendre les regles qui encadrent l'action collective. Des reflexes que je mobilise chaque jour dans mon travail de Data Analyst RH.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAE -->
+  <div class="sae-section">
+    <div class="slabel fi">Projets professionnalisants</div>
+    <h2 class="stitle fi">Mes SAE<br><em>en BUT.</em></h2>
+
+    <div class="sae-carousel-wrap fi">
+      <!-- Slide 0 : BOOSTA + SOLID'R -->
+      <div class="sae-carousel" id="saeCarousel">
+        <div class="sae-card">
+          <div class="sae-year">BUT 2 · 2024-2025</div>
+          <div class="sae-title">BOOSTA'Carriere</div>
+          <p class="sae-desc">Co-fondation d'une solution d'accompagnement a l'insertion professionnelle destinee aux etudiants. Etude de marche qualitative et quantitative, modelisation d'un business plan sur trois ans avec projections financieres, pitch devant un jury d'investisseurs dans le cadre du Village des Talents.</p>
+          <div class="sae-comps">
+            <span class="sae-comp">ENTREPRENDRE N2</span>
+            <span class="sae-comp">ANALYSER N2</span>
+            <span class="sae-comp">PILOTER N2</span>
+          </div>
+          <button class="sae-btn" onclick="goSAE('boosta')">Voir la SAE complete ↗</button>
+        </div>
+        <div class="sae-card">
+          <div class="sae-year">BUT 2 · 2024-2025</div>
+          <div class="sae-title">Solid'R — Epicerie Solidaire</div>
+          <p class="sae-desc">Etude de faisabilite pour la creation d'une epicerie solidaire etudiante. Enquete aupres de 427 etudiants, benchmarking national (ANDES, Banque Alimentaire), entretiens qualitatifs avec des acteurs de terrain, modelisation de deux scenarios de deploiement avec budgets previsionnels.</p>
+          <div class="sae-comps">
+            <span class="sae-comp">ANALYSER N2</span>
+            <span class="sae-comp">DECIDER N2</span>
+            <span class="sae-comp">PILOTER N2</span>
+          </div>
+          <button class="sae-btn" onclick="goSAE('solidr')">Voir la SAE complete ↗</button>
+        </div>
+        <div class="sae-card" style="display:none" id="sae-slide2-1">
+          <div class="sae-year">BUT 3 · 2025-2026</div>
+          <div class="sae-title">Maia Village — Deploiement ERP</div>
+          <p class="sae-desc">Mission de transformation numerique pour un groupe de creches. Audit du SI existant, redaction du cahier des charges fonctionnel, grille multicritere de selection du prestataire (ERP Mercury), plan de communication d'adoption pour accompagner la conduite du changement.</p>
+          <div class="sae-comps">
+            <span class="sae-comp">DECIDER N3</span>
+            <span class="sae-comp">ANALYSER N3</span>
+            <span class="sae-comp">PILOTER N3</span>
+          </div>
+          <button class="sae-btn" onclick="goSAE('maia')">Voir la SAE complete ↗</button>
+        </div>
+        <div class="sae-card" style="display:none" id="sae-slide2-2">
+          <div class="sae-year">BUT 3 · 2025-2026</div>
+          <div class="sae-title">E-reputation Clariane</div>
+          <p class="sae-desc">Audit de l'e-reputation du groupe Clariane (leader europeen de l'hebergement seniors). Analyse de 2 500 avis salaries, diagnostic du paradoxe NPS patients +45 vs NPS employe 12, plan de communication corporate, production d'une video documentaire "Le Relais" (90 secondes).</p>
+          <div class="sae-comps">
+            <span class="sae-comp">DEVELOPPER N3</span>
+            <span class="sae-comp">ANALYSER N3</span>
+            <span class="sae-comp">PILOTER N3</span>
+          </div>
+          <button class="sae-btn" onclick="goSAE('clariane')">Voir la SAE complete ↗</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-nav fi">
+      <button class="car-arrow" id="carPrev" onclick="carNav(-1)">&#8592;</button>
+      <div class="car-dots">
+        <div class="car-dot on" id="dot0"></div>
+        <div class="car-dot" id="dot1"></div>
+      </div>
+      <button class="car-arrow" id="carNext" onclick="carNav(1)">&#8594;</button>
+    </div>
+  </div>
+
+  <footer id="footer2">
+    <div class="footer-inner">
+      <span class="flogo">SA.</span>
+      <span class="fc">Portfolio BUT3 GEA GEMA · 2026 · Sylian Aoudia</span>
+      <span class="fb">Concu et developpe par Sylian Aoudia</span>
+    </div>
+  </footer>
+</div>
+
+<!-- =============================================
+     PAGE MES EXPERIENCES
+============================================= -->
+<div class="page" id="p-experiences">
+
+  <div class="xp-hero">
+    <div class="slabel fi">Mes Experiences</div>
+    <h1 class="stitle fi">Ce que<br><em>j'ai vecu.</em></h1>
+    <p class="xp-intro fi">Des mon entree dans les etudes superieures, j'ai cherche a confronter mes apprentissages a la realite professionnelle. En progressant du stage de decouverte RH au poste d'alternant Data Analyst dans l'un des plus grands groupes bancaires mondiaux, j'ai construit etape par etape un profil hybride gestion-data qui se confirme aujourd'hui chez PwC France. Le fil conducteur : comprendre les organisations et faire parler leurs donnees au service de decisions concretes.</p>
+  </div>
+
+  <!-- STAGES ET ALTERNANCES -->
+  <div class="xp-section">
+    <div class="xp-section-title fi">Stages et alternances</div>
+    <div class="xp-list fi">
+
+      <!-- PwC -->
+      <div class="xp-item">
+        <div class="xp-header" onclick="toggleXp(this)">
+          <div class="xp-logo"><div class="xp-logo-text">PwC</div></div>
+          <div class="xp-info">
+            <span class="xp-date">Septembre 2026 (a venir)</span>
+            <div class="xp-title">Charge de Data RH</div>
+            <div class="xp-co">PwC France · Data Office · Human Capital · Paris</div>
+          </div>
+          <div class="xp-right">
+            <span class="badge bsoon">Alternance · a venir</span>
+            <span class="xtog">+</span>
+          </div>
+        </div>
+        <div class="xp-body">
+          <div class="xp-inner">
+            <div class="xp-sub">
+              <div class="xp-sub-title">Ce que j'apprendrai</div>
+              <p>PwC deploie une transformation SIRH ambitieuse sur cinq ans (FY26-FY30) autour de trois piliers : Data, Confiance, Employee-Centric. Cette alternance va m'apprendre a inscrire la production de donnees RH dans une transformation organisationnelle a long terme, au sein d'un cabinet pluridisciplinaire de 7 000 collaborateurs en France. C'est un saut qualitatif delibere par rapport a BNP : de la production fiable de donnees vers la transformation durable des pratiques.</p>
+            </div>
+            <div class="xp-sub">
+              <div class="xp-sub-title">Mes missions et livrables</div>
+              <ul>
+                <li>Creation et maintenance de dashboards Power BI pour les equipes RH et le business</li>
+                <li>Production de reportings recurrents : effectifs, turnover, absenteisme, budget</li>
+                <li>Automatisation des extractions de donnees depuis Workday et Anaplan</li>
+                <li>Identification des anomalies dans les donnees RH et suivi d'un plan de remediation</li>
+                <li>Animation de la communaute utilisateurs data et formation aux bonnes pratiques</li>
+              </ul>
+            </div>
+            <div class="xp-sub">
+              <div class="xp-sub-title">Competences BUT mobilisees</div>
+              <div class="xp-comps">
+                <span class="xp-comptag">DECIDER N3</span>
+                <span class="xp-comptag">ANALYSER N3</span>
+                <span class="xp-comptag">DEVELOPPER N3</span>
+                <span class="xp-comptag">PILOTER N3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BNP Alternance -->
+      <div class="xp-item">
+        <div class="xp-header" onclick="toggleXp(this)">
+          <div class="xp-logo"><div class="xp-logo-text">BNP</div></div>
+          <div class="xp-info">
+            <span class="xp-date">Aout 2025 — Aout 2026</span>
+            <div class="xp-title">Data Analyst RH</div>
+            <div class="xp-co">BNP Paribas IT Group · Montreuil (93)</div>
+          </div>
+          <div class="xp-right">
+            <span class="badge balt">Alternance</span>
+            <span class="xtog">+</span>
+          </div>
+        </div>
+        <div class="xp-body">
+          <div class="xp-inner">
+            <div class="xp-sub">
+              <div class="xp-sub-title">Ce que j'ai appris</div>
+              <p>Cette alternance m'a appris que la valeur d'un analyste de donnees ne reside pas dans sa maitrise d'un outil, mais dans sa capacite a comprendre ce que les donnees racontent a une organisation. Produire un dashboard sur le projet ReCode, ce n'est pas faire de la technique — c'est aider une direction RH a decider comment preparer 3 000 developpeurs a un monde ou l'IA redefinie les competences.</p>
+              <p>J'ai egalement appris que la contrainte peut etre formatrice. L'absence de mentor technique direct m'a oblige a developper une vraie autonomie d'apprentissage, testee sur des projets a enjeux reels.</p>
+            </div>
+            <div class="xp-sub">
+              <div class="xp-sub-title">Mes missions et livrables</div>
+              <ul>
+                <li>Projet ReCode : analyse des donnees demographiques et competences de 3 000 developpeurs face a l'IA — pipeline Alteryx vers Tableau, 230 000 lignes, RGPD bancaire</li>
+                <li>Mise a jour mensuelle du tableau de bord global des KPI formation (perimetre ITG complet)</li>
+                <li>Automatisation et modernisation des reportings de l'equipe</li>
+                <li>Documentation via modes operatoires pour assurer la transmission et l'amelioration continue</li>
+              </ul>
+              <a class="ann-link" onclick="goPage('annexes')">Voir les preuves en annexe ↗</a>
+            </div>
+            <div class="xp-sub">
+              <div class="xp-sub-title">Competences BUT acquises</div>
+              <div class="xp-comps">
+                <span class="xp-comptag">DECIDER N3 · AC32.02</span>
+                <span class="xp-comptag">DECIDER N3 · AC32.03</span>
+                <span class="xp-comptag">ANALYSER N3 · AC31.01</span>
+                <span class="xp-comptag">DEVELOPPER N3 · AC35.01GEMA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BNP Stage -->
+      <div class="xp-item">
+        <div class="xp-header" onclick="toggleXp(this)">
+          <div class="xp-logo"><div class="xp-logo-text">BNP</div></div>
+          <div class="xp-info">
+            <span class="xp-date">Janvier — Mars 2025</span>
+            <div class="xp-title">Assistant Data Analyst RH</div>
+            <div class="xp-co">BNP Paribas IT Group · Montreuil (93)</div>
+          </div>
+          <div class="xp-right">
+            <span class="badge bstage">Stage</span>
+            <span class="xtog">+</span>
+          </div>
+        </div>
+        <div class="xp-body">
+          <div class="xp-inner">
+            <div class="xp-sub">
+              <div class="xp-sub-title">Ce que j'ai appris</div>
+              <p>Ce stage a ete le moment ou mon projet professionnel est passe de vague a precis. J'ai appris que la proactivite dans un environnement professionnel ce n'est pas une posture — c'est un resultat. J'ai aussi decouvert ce que signifie vraiment apprendre un outil en conditions reelles : Power BI en deux semaines, sans formation, avec un resultat mesurable a la cle.</p>
+            </div>
+            <div class="xp-sub">
+              <div class="xp-sub-title">Mes missions et livrables</div>
+              <ul>
+                <li>Mission 1 : Traitement et visualisation des donnees de formation en management. Tableau de bord Power BI interactif : taux de completion par bloc, top formations, presence des principes de management. Gain de productivite mesure : +30% sur le pilotage des parcours.</li>
+                <li>Mission 2 : Automatisation du reporting du parcours production applicative. Fichier Excel entierement automatise avec menu interactif et mode d'emploi integre.</li>
+              </ul>
+              <a class="ann-link" onclick="goPage('annexes')">Voir le rapport de stage en annexe ↗</a>
+            </div>
+            <div class="xp-sub">
+              <div class="xp-sub-title">Competences BUT acquises</div>
+              <div class="xp-comps">
+                <span class="xp-comptag">DECIDER N2 · AC22.03</span>
+                <span class="xp-comptag">ANALYSER N2 · AC21.01</span>
+                <span class="xp-comptag">DEVELOPPER N2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quai Branly -->
+      <div class="xp-item">
+        <div class="xp-header" onclick="toggleXp(this)">
+          <div class="xp-logo"><div class="xp-logo-text">Quai<br>Branly</div></div>
+          <div class="xp-info">
+            <span class="xp-date">Mars 2024</span>
+            <div class="xp-title">Stagiaire RH</div>
+            <div class="xp-co">Musee du Quai Branly Jacques-Chirac · Paris 7e</div>
+          </div>
+          <div class="xp-right">
+            <span class="badge bstage">Stage</span>
+            <span class="xtog">+</span>
+          </div>
+        </div>
+        <div class="xp-body">
+          <div class="xp-inner">
+            <div class="xp-sub">
+              <div class="xp-sub-title">Ce que j'ai appris</div>
+              <p>Ce stage m'a revele quelque chose d'essentiel que je n'attendais pas : une base de donnees mal tenue, c'est une organisation qui prend des decisions sur des informations fausses. La qualite de la donnee n'est pas un detail operationnel — c'est le fondement de toute decision RH fiable. Une conviction acquise dans un musee parisien a 19 ans, que je retrouve chaque jour dans mon travail chez BNP Paribas.</p>
+            </div>
+            <div class="xp-sub">
+              <div class="xp-sub-title">Mes missions et livrables</div>
+              <ul>
+                <li>Fiabilisation de la base de donnees du SIRH FNA : identification et correction de 100 fiches en doublons</li>
+                <li>Optimisation de la Fiche Nouvel Arrivant et transmission du repertoire des incoherences corrigees</li>
+                <li>Participation aux entretiens de recrutement, saisie de conges dans le SIRH, echanges autour de la paie, formation et QVT</li>
+              </ul>
+              <a class="ann-link" onclick="goPage('annexes')">Voir le rapport de stage en annexe ↗</a>
+            </div>
+            <div class="xp-sub">
+              <div class="xp-sub-title">Competences BUT acquises</div>
+              <div class="xp-comps">
+                <span class="xp-comptag">ANALYSER N1 · AC12.01</span>
+                <span class="xp-comptag">DECIDER N1 · AC12.02</span>
+                <span class="xp-comptag">DEVELOPPER N1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JOBS ETUDIANTS -->
+  <div class="xp-section" style="background:var(--bg2);">
+    <div class="xp-section-title fi">Jobs etudiants</div>
+    <div class="xp-list fi">
+
+      <div class="xp-item">
+        <div class="xp-header" onclick="toggleXp(this)">
+          <div class="xp-logo"><div class="xp-logo-text">Mairie<br>Paris</div></div>
+          <div class="xp-info">
+            <span class="xp-date">Juillet 2024 et Juillet 2025</span>
+            <div class="xp-title">Agent Technique des Installations Sportives</div>
+            <div class="xp-co">Ville de Paris · Direction de la Jeunesse et des Sports</div>
+          </div>
+          <div class="xp-right">
+            <span class="badge bjob">Job etudiant</span>
+            <span class="xtog">+</span>
+          </div>
+        </div>
+        <div class="xp-body">
+          <div class="xp-inner">
+            <div class="xp-sub">
+              <div class="xp-sub-title">Ce que j'ai appris</div>
+              <p>Accueil et orientation des usagers, surveillance des installations, suivi de la frequentation et gestion du planning d'occupation dans un centre sportif municipal. Reconduit apres une premiere mission remarquee, ce poste a renforce mon autonomie et mon sens des responsabilites dans un environnement ou la rigueur operationnelle n'est pas optionnelle.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-header" onclick="toggleXp(this)">
+          <div class="xp-logo"><div class="xp-logo-text">Carre<br>four</div></div>
+          <div class="xp-info">
+            <span class="xp-date">Octobre — Decembre 2024</span>
+            <div class="xp-title">Equipier de Vente en Rayon</div>
+            <div class="xp-co">Carrefour · Drancy (93)</div>
+          </div>
+          <div class="xp-right">
+            <span class="badge bjob">Job etudiant</span>
+            <span class="xtog">+</span>
+          </div>
+        </div>
+        <div class="xp-body">
+          <div class="xp-inner">
+            <div class="xp-sub">
+              <div class="xp-sub-title">Ce que j'ai appris</div>
+              <p>Mise en rayon, gestion des stocks et conseil client dans un hypermarche a fort volume. Exerce en parallele de ma deuxieme annee de BUT, avec BOOSTA'Carriere et un stage BNP en preparation. Gerer simultanement plusieurs engagements exigeants m'a appris quelque chose que les etudes seules n'enseignent pas : la gestion de ses propres ressources dans la duree.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-header" onclick="toggleXp(this)">
+          <div class="xp-logo"><div class="xp-logo-text">Pepe<br>Manzo</div></div>
+          <div class="xp-info">
+            <span class="xp-date">Ete 2023</span>
+            <div class="xp-title">Employe Polyvalent en Restauration</div>
+            <div class="xp-co">Pepe Manzo · Aulnay-sous-Bois (93)</div>
+          </div>
+          <div class="xp-right">
+            <span class="badge bjob">Job etudiant</span>
+            <span class="xtog">+</span>
+          </div>
+        </div>
+        <div class="xp-body">
+          <div class="xp-inner">
+            <div class="xp-sub">
+              <div class="xp-sub-title">Ce que j'ai appris</div>
+              <p>Preparation de salle, service, suivi des stocks et gestion de la caisse. Premiere experience professionnelle, qui m'a confronte aux exigences fondamentales du monde du travail : ponctualite, polyvalence, sens du service. Ces postes, souvent physiques et peu reconnus, ont renforce ma determination — chaque heure passee m'a donne l'envie de construire quelque chose de durable et de reconnu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner" style="padding:24px 64px;border-top:.5px solid var(--border);background:var(--bg2);display:flex;justify-content:space-between;align-items:center;">
+      <span class="flogo">SA.</span>
+      <span class="fc">Portfolio BUT3 GEA GEMA · 2026 · Sylian Aoudia</span>
+      <span class="fb">Concu et developpe par Sylian Aoudia</span>
+    </div>
+  </footer>
+</div>
+
+<!-- =============================================
+     PAGE ARTICLES (sous-pages via JS)
+============================================= -->
+<div class="page" id="p-articles">
+
+  <!-- COMP BUT -->
+  <div id="art-comp-but" class="art-subpage" style="display:none;">
+    <div class="comp-but-page">
+      <div class="slabel fi">Articles</div>
+      <h1 class="stitle fi">Les Competences<br><em>du BUT.</em></h1>
+      <p class="comp-but-intro fi">Situer mes competences, c'est prendre du recul sur mon parcours : comprendre ce que j'ai acquis, identifier les situations qui m'ont fait progresser, et reperer les axes que je souhaite encore renforcer pour devenir Data Analyst confirme dans un environnement exigeant.</p>
+      <a href="assets/ppn-but-gea.pdf" target="_blank" class="form-link fi" style="margin-bottom:32px;display:inline-flex;">Consulter le referentiel officiel des competences ↗</a>
+
+      <div class="comp-but-list fi">
+
+        <div class="comp-but-item">
+          <div class="comp-but-header">
+            <div class="comp-but-name">ANALYSER — Conseiller pour l'amelioration des processus</div>
+            <div class="comp-but-level">
+              <div class="cdot on"></div><div class="cdot on"></div><div class="cdot on"></div>
+            </div>
+          </div>
+          <div class="comp-but-grid">
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Niveau acquis · 3/3</div>
+              <p>Audit DIMM (BNP Paribas ITG et Delacquis), analyse e-reputation Clariane (2 500 avis), etude de faisabilite Solid'R (427 etudiants enquetes).</p>
+            </div>
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Mon regard aujourd'hui</div>
+              <p>Je ne me limite plus a decrire une situation. Je comprends son fonctionnement, ses contraintes, ses causes profondes, pour formuler des recommandations concretes et argumentees. Le coaching correctif de Solid'R m'a appris a poser la methode avant de plonger dans l'action.</p>
+            </div>
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Mon prochain cap</div>
+              <p>Renforcer mon analyse dans des contextes de transformation organisationnelle complexe, avec des parties prenantes multiples et des contraintes reglementaires fortes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-but-item">
+          <div class="comp-but-header">
+            <div class="comp-but-name">DECIDER — Concourir a la prise de decision</div>
+            <div class="comp-but-level">
+              <div class="cdot on"></div><div class="cdot on"></div><div class="cdot on"></div>
+            </div>
+          </div>
+          <div class="comp-but-grid">
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Niveau acquis · 3/3</div>
+              <p>Pipeline Alteryx vers Tableau sur 230 000 lignes (projet ReCode, RGPD bancaire). Dashboard Power BI (+30% productivite). Choix ERP Mercury pour Maia Village via grille multicritere.</p>
+            </div>
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Mon regard aujourd'hui</div>
+              <p>C'est la competence ou ma progression est la plus documentee. De l'identification d'un SI en cours theorique a l'exploitation d'un pipeline ETL professionnel avec contraintes reelles. Ce que je dois encore construire : l'analyse predictive et le Machine Learning. C'est l'objet du Master MSI.</p>
+            </div>
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Mon prochain cap</div>
+              <p>Acquerir la maitrise de l'analyse predictive appliquee aux RH — architectures Big Data, modeles de scoring, apprentissage automatique sur donnees metier.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-but-item">
+          <div class="comp-but-header">
+            <div class="comp-but-name">PILOTER — Ameliorer les relations entre parties prenantes</div>
+            <div class="comp-but-level">
+              <div class="cdot on"></div><div class="cdot on"></div><div class="cdot on"></div>
+            </div>
+          </div>
+          <div class="comp-but-grid">
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Niveau acquis · 3/3</div>
+              <p>Animation d'equipe sur BOOSTA'Carriere (5 co-fondateurs), coordination de Solid'R (8 personnes), roles definis sur les SAE BUT3 en mode agence (Clariane, Maia Village, DIMM).</p>
+            </div>
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Mon regard aujourd'hui</div>
+              <p>J'ai appris que federer une equipe ce n'est pas la diriger — c'est creer les conditions dans lesquelles chacun contribue au mieux. BOOSTA'Carriere m'a confronte a ma difficulte a deleguer. J'ai progresse, mais cette nuance continue de s'affiner.</p>
+            </div>
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Mon prochain cap</div>
+              <p>Animer une equipe en responsabilite reelle dans un contexte professionnel avec une hierarchie — c'est ce que l'alternance chez PwC va m'apporter.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-but-item">
+          <div class="comp-but-header">
+            <div class="comp-but-name">ENTREPRENDRE — Securiser la proposition de valeur</div>
+            <div class="comp-but-level">
+              <div class="cdot on"></div><div class="cdot on"></div><div class="cdot"></div>
+            </div>
+          </div>
+          <div class="comp-but-grid">
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Niveau acquis · 2/3</div>
+              <p>BOOSTA'Carriere : etude de marche 35 pages, business plan 3 ans, modele economique (CA previsionnel 47K-108K euros an 1), pitch devant jury investisseurs au Village des Talents.</p>
+            </div>
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Mon regard aujourd'hui</div>
+              <p>Cette experience m'a appris que convaincre ne signifie pas seduire — cela signifie prouver. La data comme fondement de la decision entrepreneuriale, pas l'intuition. Le niveau 3 reste a construire dans un contexte professionnel avec de vrais enjeux financiers.</p>
+            </div>
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Mon prochain cap</div>
+              <p>Contribuer a un projet qui cree de la valeur mesurable dans une organisation, avec des indicateurs de viabilite reels et un impact visible sur les decisions prises.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-but-item">
+          <div class="comp-but-header">
+            <div class="comp-but-name">DEVELOPPER — Optimiser la chaine de valeur</div>
+            <div class="comp-but-level">
+              <div class="cdot on"></div><div class="cdot on"></div><div class="cdot on"></div>
+            </div>
+          </div>
+          <div class="comp-but-grid">
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Niveau acquis · 3/3</div>
+              <p>Communication data aupres de decideurs non techniques (BNP), strategie marque employe Clariane, plan d'adoption ERP Maia Village, marketing operationnel BOOSTA'Carriere, communication digitale PSG Data Hub.</p>
+            </div>
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Mon regard aujourd'hui</div>
+              <p>J'ai compris que developper ne signifie pas seulement produire — cela signifie rendre durable ce qu'on produit en impliquant ceux qui vont l'utiliser. Un outil excellent que personne n'utilise est un outil rate.</p>
+            </div>
+            <div class="comp-but-col">
+              <div class="comp-but-col-title">Mon prochain cap</div>
+              <p>Conduire un projet de communication data a grande echelle — former des utilisateurs, creer une culture de la donnee au sein d'une organisation, au-dela de la simple production de dashboards.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 1 -->
+  <div id="art-art1" class="art-subpage" style="display:none;">
+    <div class="art-page">
+      <div class="art-hero-label fi">Article 1</div>
+      <h1 class="art-hero-title fi">Apprendre sans filet :<br>l'autodidaxie comme methode de travail</h1>
+      <div class="art-comps-line fi">
+        <div class="art-comp-badge">DECIDER <span class="art-comp-stars">★★★</span></div>
+        <div class="art-comp-badge">DEVELOPPER <span class="art-comp-stars">★★★</span></div>
+        <div class="art-comp-badge">ANALYSER <span class="art-comp-stars">★★★</span></div>
+      </div>
+      <div class="art-body">
+
+        <div class="art-block fi">
+          <div class="art-block-label">La situation problematique</div>
+          <h3>Quand personne ne peut vous apprendre ce que vous devez savoir</h3>
+          <p>En janvier 2025, j'arrive en stage chez BNP Paribas IT Group avec une mission claire : ameliorer le suivi de deux parcours de formation via des outils de reporting. Le probleme : les outils existants sont des fichiers Excel construits manuellement, et mon encadrante — excellente par ailleurs — est specialisee en gestion du budget et des formations, pas en data. Personne autour de moi ne maitrise Power BI, l'outil que j'identifie comme la reponse a la problematique.</p>
+          <p>Deux options : attendre qu'une formation soit organisee, ou apprendre seul en conditions reelles. J'ai choisi la deuxieme. En deux semaines, en consultant la documentation officielle, des tutoriels YouTube et en experimentant directement sur les donnees reelles du stage, j'ai concu des tableaux de bord interactifs qui generent un gain de productivite de 30% sur le pilotage des parcours.</p>
+          <div class="art-trace">
+            <div class="art-trace-label">Trace 1 — Dashboard Power BI, stage BNP IT Group, mars 2025</div>
+            <p>Dashboard interactif construit en autodidacte : taux de completion par bloc de formation, classement des formations les plus suivies, presence des principes de management dans les parcours. Resultat mesure : gain de 30% sur le temps de pilotage mensuel. Voir en annexe.</p>
+          </div>
+        </div>
+
+        <div class="art-sep fi"></div>
+
+        <div class="art-block fi">
+          <div class="art-block-label">Ce que cette difficulte a revele</div>
+          <h3>L'absence de cadre comme opportunite d'apprentissage</h3>
+          <p>Cette situation s'est ensuite reproduite, de facon encore plus marquee, lors de mon arrivee en alternance en aout 2025. Une reorganisation interne deplace le Data Analyst avec lequel je devais travailler vers une autre entite. Ma tutrice n'est pas issue de la data. Je me retrouve, sur des projets de volume reel (230 000 lignes, contraintes RGPD bancaires), sans interlocuteur technique au quotidien.</p>
+          <p>J'aurais pu attendre. J'ai construit ma progression : OpenClassrooms, formations internes BNP sur les outils data, YouTube, parcours d'apprentissage structures avec l'IA Claude sur des cas concrets, et surtout — apprendre en faisant sur les projets reels de l'equipe. Chaque obstacle rencontre dans le traitement des donnees est devenu une occasion de comprendre un mecanisme que je n'aurais pas saisi dans un cours theorique.</p>
+          <div class="art-trace">
+            <div class="art-trace-label">Trace 2 — Pipeline Alteryx vers Tableau, projet ReCode, 2025-2026</div>
+            <p>Pipeline ETL complet : extraction depuis MyLearning, transformation sous Alteryx (230 000 lignes, 3 000 collaborateurs), restitution sous Tableau avec contraintes RGPD. Outil utilise chaque mois par la direction RH pour piloter la strategie de formation face a l'IA. Voir les captures en annexe.</p>
+          </div>
+        </div>
+
+        <div class="art-sep fi"></div>
+
+        <div class="art-block fi">
+          <div class="art-block-label">Mobilisation aujourd'hui</div>
+          <h3>Le PSG Data Hub — apprendre par passion</h3>
+          <p>En dehors de tout cadre academique ou professionnel, j'ai construit le PSG Data Hub : une base de donnees SQLite relationnelle (5 tables, 15 saisons, 35 joueurs, 36 operations de mercato), un pipeline Python-Pandas, 10 requetes SQL analytiques, un dashboard Chart.js deploye sur Vercel et versionne sur GitHub. Personne ne me l'a demande. Je l'ai fait parce que c'est comme ca que j'apprends.</p>
+          <div class="art-conscience">
+            <p>Ce que j'ai interiorise : l'autodidaxie n'est pas une methode par defaut quand la formation manque. C'est une methode deliberee, que je mobilise aujourd'hui avant meme qu'on me la demande. Je n'attends pas qu'un cours existe pour apprendre ce dont j'ai besoin. Je cree mon propre parcours, ancre dans un probleme reel, teste sur des donnees reelles, valide par un resultat mesurable.</p>
+          </div>
+          <div style="margin-top:16px;">
+            <a href="https://psg-data-hub.vercel.app/" target="_blank" rel="noopener" class="form-link">Voir le PSG Data Hub en ligne ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 2 -->
+  <div id="art-art2" class="art-subpage" style="display:none;">
+    <div class="art-page">
+      <div class="art-hero-label fi">Article 2</div>
+      <h1 class="art-hero-title fi">La donnee ne vaut que par<br>la decision qu'elle eclaire</h1>
+      <div class="art-comps-line fi">
+        <div class="art-comp-badge">DECIDER <span class="art-comp-stars">★★★</span></div>
+        <div class="art-comp-badge">ANALYSER <span class="art-comp-stars">★★★</span></div>
+        <div class="art-comp-badge">DEVELOPPER <span class="art-comp-stars">★★★</span></div>
+      </div>
+      <div class="art-body">
+
+        <div class="art-block fi">
+          <div class="art-block-label">La situation problematique</div>
+          <h3>Une base de donnees propre comme fondement de decision</h3>
+          <p>Mars 2024, Musee du Quai Branly. Ma mission principale : dedoublonner 100 fiches collaborateurs dans le SIRH FNA. Une tache qui semblait purement administrative. En la realisant, j'ai compris quelque chose que je n'aurais pas saisi dans un cours : une base de donnees mal tenue, c'est une organisation qui prend ses decisions sur des informations fausses. Qui recrute sur la base d'effectifs errones. Qui forme sur la base de profils inexacts.</p>
+          <div class="art-trace">
+            <div class="art-trace-label">Trace 1 — Rapport de stage BUT1, Musee du Quai Branly, mars 2024</div>
+            <p>Mission de fiabilisation du SIRH FNA : identification et correction de 100 doublons, transmission du repertoire d'incoherences a la Responsable RH et a la Responsable SI. Voir en annexe.</p>
+          </div>
+        </div>
+
+        <div class="art-sep fi"></div>
+
+        <div class="art-block fi">
+          <div class="art-block-label">Une conviction qui se construit</div>
+          <h3>Du reporting au pilotage strategique</h3>
+          <p>Cette conviction s'est approfondie au stage BNP (janvier-mars 2025). Les tableaux de bord Power BI que j'ai concus ne valaient pas par leur technique — ils valaient par ce qu'ils permettaient de decider. Le chef de projet formation pouvait en un coup d'oeil identifier les blocs sous-performants, ajuster les priorites, justifier ses choix aupres de la direction. J'ai compris la difference entre produire de l'information et produire de l'aide a la decision.</p>
+          <p>C'est cette distinction qui a oriente tout mon travail sur le projet ReCode. Analyser les donnees demographiques et les competences de 3 000 developpeurs face a l'IA ne sert a rien si le resultat ne repond pas a une question strategique precise : comment adapter la strategie de formation du groupe a la realite de ce que l'IA va modifier dans les metiers de developpeur ?</p>
+          <div class="art-trace">
+            <div class="art-trace-label">Trace 2 — Capture pipeline ReCode, alternance BNP IT Group, 2025-2026</div>
+            <p>Pipeline complet Alteryx vers Tableau : de la donnee brute MyLearning au tableau de bord decisonnel utilise par la direction RH pour piloter la strategie de formation. Voir en annexe.</p>
+          </div>
+        </div>
+
+        <div class="art-sep fi"></div>
+
+        <div class="art-block fi">
+          <div class="art-block-label">Mobilisation dans un contexte inattendu</div>
+          <h3>Le NPS comme argument strategique</h3>
+          <p>La SAE e-reputation Clariane (BUT3) m'a confronte a une version differente du meme probleme. J'etais Responsable Communication Interne et RH. J'avais acces a 2 500 avis salaries sur Glassdoor et Indeed. La difficulte n'etait pas de les lire — c'etait de les transformer en argument devant un jury jouant le role du CODIR de Clariane.</p>
+          <p>J'ai mis en evidence le paradoxe central : NPS patients +45 contre NPS employe 12. Deux chiffres, mis en regard l'un de l'autre, qui racontent une histoire que vingt pages de rapport ne raconteraient pas avec la meme puissance : Clariane produit de la qualite de soin, mais ne parvient pas a la faire reconnaitre par ceux qui la produisent. Ce n'est pas la donnee qui convainc — c'est le recit qu'on en construit.</p>
+          <div class="art-conscience">
+            <p>Ce que j'ai interiorise : la donnee est un moyen, pas une fin. Sa valeur est proportionnelle a la precision de la question a laquelle elle repond, et a la clarte du recit dans lequel elle s'inscrit. Je ne produis pas des dashboards — je produis des outils qui permettent a quelqu'un de decider mieux. Cette conviction structure aujourd'hui chaque choix que je fais sur un projet data.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE 3 -->
+  <div id="art-art3" class="art-subpage" style="display:none;">
+    <div class="art-page">
+      <div class="art-hero-label fi">Article 3</div>
+      <h1 class="art-hero-title fi">Piloter un collectif :<br>de la prise de devants a la co-construction</h1>
+      <div class="art-comps-line fi">
+        <div class="art-comp-badge">PILOTER <span class="art-comp-stars">★★★</span></div>
+        <div class="art-comp-badge">ENTREPRENDRE <span class="art-comp-stars">★★☆</span></div>
+        <div class="art-comp-badge">ANALYSER <span class="art-comp-stars">★★★</span></div>
+      </div>
+      <div class="art-body">
+
+        <div class="art-block fi">
+          <div class="art-block-label">La situation problematique</div>
+          <h3>Quand prendre les devants devient un frein</h3>
+          <p>Septembre 2024. BOOSTA'Carriere demarre. Cinq co-fondateurs, un projet entrepreneurial exigeant, des opinions fortes sur tout. Je suis naturellement celui qui prend les devants — j'initie les reunions, je cadre les livrables, je pousse l'avancement. Mais rapidement, j'identifie une difficulte que je n'avais pas anticipee : j'eprouve des problemes a deleguer vraiment. Je surveille, je verifie, je reprends. Ce n'est pas de la mefiance — c'est une forme de controle que j'exerce sans m'en rendre compte.</p>
+          <p>Deux membres du groupe commencent a se desengager. Pas par manque de motivation — mais parce que l'espace pour contribuer se referme. C'est la que j'ai compris qu'il y a une difference fondamentale entre animer un collectif et le diriger.</p>
+          <div class="art-trace">
+            <div class="art-trace-label">Trace 1 — Soutenance Business Plan BOOSTA'Carriere, Village des Talents, 2025</div>
+            <p>Pitch devant jury d'investisseurs : business plan 3 ans, etude de marche 35 pages, projections financieres. La qualite du resultat final a ete rendue possible par une redistribution des roles plus equitable en deuxieme partie de projet. Voir le support en annexe.</p>
+          </div>
+        </div>
+
+        <div class="art-sep fi"></div>
+
+        <div class="art-block fi">
+          <div class="art-block-label">Ce que cette difficulte a revele</div>
+          <h3>Solid'R et le coaching correctif</h3>
+          <p>Quelques mois plus tard, Solid'R. Equipe de 8, projet de faisabilite d'une epicerie solidaire. Premiere soutenance du cahier des charges : le jury nous dit que le groupe est perdu, que la methode manque. Un coaching avec l'enseignante est necessaire. C'est la premiere fois qu'on me reproche un manque d'organisation dans un projet collectif — et je le vis mal.</p>
+          <p>En analysant ce qui s'est passe, je comprends quelque chose d'important : j'avais agi avant de cadrer. J'avais plonge dans l'action sans que le groupe ait partage une methode commune. J'ai donc pris l'initiative — cette fois differemment. J'ai lance le benchmarking des epiceries solidaires existantes, contacte des acteurs nationaux pour ancrer notre travail dans le reel, et surtout : j'ai invite le groupe a construire la demarche ensemble plutot que de la lui imposer.</p>
+          <div class="art-trace">
+            <div class="art-trace-label">Trace 2 — Dossier de faisabilite Solid'R, BUT2, 2024-2025</div>
+            <p>Enquete 427 etudiants, benchmarking national, entretiens ANDES et Banque Alimentaire Paris IDF, deux scenarios de deploiement avec budgets previsionnels. Ce dossier n'aurait pas existe sans la restructuration de notre methode de travail collectif. Voir en annexe.</p>
+          </div>
+        </div>
+
+        <div class="art-sep fi"></div>
+
+        <div class="art-block fi">
+          <div class="art-block-label">Mobilisation aujourd'hui</div>
+          <h3>SAE BUT3 : les roles definis comme condition de la qualite</h3>
+          <p>En troisieme annee, les SAE fonctionnent en mode agence : chaque membre a un role defini. Sur la SAE Clariane, j'etais Responsable Communication Interne et RH. Ce cadre m'a oblige a lacher la vision globale pour me concentrer sur ma dimension, tout en articulant mon travail avec celui des autres membres. Quand la prof nous a renvoye notre premier plan de communication en nous disant qu'il etait trop disperse, j'ai integre le retour sans le vivre comme une remise en question personnelle — j'ai cherche comment l'equipe pouvait retravailler le plan ensemble.</p>
+          <div class="art-conscience">
+            <p>Ce que j'ai interiorise : co-construire ne signifie pas renoncer a l'initiative — cela signifie que l'initiative se met au service du collectif plutot que de le depasser. Je prends encore les devants. Mais aujourd'hui, quand je le fais, je cree un espace dans lequel les autres peuvent entrer, reagir, amender. Et c'est precisement cet espace qui rend le resultat collectif meilleur que ce que j'aurais produit seul.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner" style="padding:24px 64px;border-top:.5px solid var(--border);background:var(--bg2);display:flex;justify-content:space-between;align-items:center;">
+      <span class="flogo">SA.</span>
+      <span class="fc">Portfolio BUT3 GEA GEMA · 2026 · Sylian Aoudia</span>
+      <span class="fb">Concu et developpe par Sylian Aoudia</span>
+    </div>
+  </footer>
+</div>
+
+<!-- =============================================
+     PAGE ANNEXES
+============================================= -->
+<div class="page" id="p-annexes">
+  <div class="annexes-page">
+    <div class="slabel fi">Annexes</div>
+    <h1 class="stitle fi">Documents<br><em>et preuves.</em></h1>
+    <p style="font-size:13px;color:var(--t2);max-width:600px;line-height:1.8;margin-bottom:52px;" class="fi">Tous les documents cites dans ce portfolio sont accessibles ici, classes par categorie. Chaque document est presente avec son contexte pour faciliter la lecture.</p>
+
+    <div class="ann-cats fi">
+
+      <div>
+        <div class="ann-cat-title">Rapports de stage</div>
+        <div class="ann-docs">
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Rapport de stage BUT2 — BNP Paribas IT Group</div>
+              <div class="ann-doc-ctx">Assistant Data Analyst RH · Janvier-Mars 2025 · Stage ayant conduit a l'alternance</div>
+            </div>
+            <a href="assets/rapport-stage-bnp-gema2.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Rapport de stage BUT1 — Musee du Quai Branly</div>
+              <div class="ann-doc-ctx">Stagiaire RH · Mars 2024 · Premiere experience RH et decouverte du SIRH</div>
+            </div>
+            <a href="assets/rapport-stage-quaibranly.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="ann-cat-title">SAE et projets academiques</div>
+        <div class="ann-docs">
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Business Plan BOOSTA'Carriere</div>
+              <div class="ann-doc-ctx">SAE Entrepreneuriale · BUT2 · Pitch Village des Talents · 2025</div>
+            </div>
+            <a href="assets/bp-boosta.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Etude de marche BOOSTA'Carriere</div>
+              <div class="ann-doc-ctx">SAE Entrepreneuriale · BUT2 · 35 pages · Analyse qualitative et quantitative</div>
+            </div>
+            <a href="assets/etude-marche-boosta.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Dossier de faisabilite Solid'R</div>
+              <div class="ann-doc-ctx">SAE BUT2 · Epicerie solidaire · 427 etudiants enquetes · 2024-2025</div>
+            </div>
+            <a href="assets/solidr-faisabilite.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Rapport d'analyse Audit DIMM</div>
+              <div class="ann-doc-ctx">SAE BUT3 S5 · Consultant junior · BNP Paribas ITG et Delacquis · 2025-2026</div>
+            </div>
+            <a href="assets/rapport-dimm.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Audit e-reputation Clariane — Support CODIR</div>
+              <div class="ann-doc-ctx">SAE BUT3 S6 · Presentation jury role CODIR · 2026</div>
+            </div>
+            <a href="assets/clariane-audit.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Cahier des charges ERP Maia Village</div>
+              <div class="ann-doc-ctx">SAE BUT3 S5 · Deploiement ERP Mercury · Cahier des charges + choix prestataire · 2025-2026</div>
+            </div>
+            <a href="assets/cdc-maia.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="ann-cat-title">Preuves data et projets personnels</div>
+        <div class="ann-docs">
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">PSG Data Hub — Projet data personnel</div>
+              <div class="ann-doc-ctx">Dashboard interactif · SQLite, Python, SQL, Chart.js · Deploye sur Vercel · 2025-2026</div>
+            </div>
+            <a href="https://psg-data-hub.vercel.app/" target="_blank" class="ann-doc-btn">Voir le projet ↗</a>
+          </div>
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Captures dashboard Power BI — Stage BNP</div>
+              <div class="ann-doc-ctx">Tableaux de bord interactifs · Gain de productivite +30% · Janvier-Mars 2025</div>
+            </div>
+            <a href="assets/captures-powerbi.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Captures pipeline ReCode — Alternance BNP</div>
+              <div class="ann-doc-ctx">Pipeline Alteryx vers Tableau · 230 000 lignes · RGPD · 2025-2026</div>
+            </div>
+            <a href="assets/captures-recode.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="ann-cat-title">Admissions et reconnaissances</div>
+        <div class="ann-docs">
+          <div class="ann-doc">
+            <div class="ann-doc-left">
+              <div class="ann-doc-title">Lettre d'admission Master MSI Sorbonne</div>
+              <div class="ann-doc-ctx">Universite Paris 1 Pantheon-Sorbonne · Rang 4/55 · Mars 2026</div>
+            </div>
+            <a href="assets/admission-msi.pdf" target="_blank" class="ann-doc-btn">Consulter ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div style="padding:24px 64px;border-top:.5px solid var(--border);background:var(--bg2);display:flex;justify-content:space-between;align-items:center;">
+    <span class="flogo">SA.</span>
+    <span class="fc">Portfolio BUT3 GEA GEMA · 2026 · Sylian Aoudia</span>
+    <span class="fb">Concu et developpe par Sylian Aoudia</span>
+  </div>
+</div>
+
+<!-- =============================================
+     PAGE CONTACT
+============================================= -->
+<div class="page" id="p-contact">
+  <div class="contact-page">
+    <div class="slabel fi">Contact</div>
+    <h1 class="stitle fi">Travaillons<br><em>ensemble.</em></h1>
+    <p class="contact-merci fi">Merci de prendre le temps de parcourir mon portfolio. Que vous soyez enseignant, membre du jury, recruteur ou simplement curieux de mon parcours, je serais ravi d'echanger avec vous. N'hesitez pas a me contacter via le formulaire ci-dessous ou directement par les liens sur le cote.</p>
+    <div class="contact-grid fi">
+      <form class="cform" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="fg"><label>Nom</label><input type="text" name="name" required></div>
+        <div class="fg"><label>Email</label><input type="email" name="email" required></div>
+        <div class="fg"><label>Sujet</label><input type="text" name="subject" required></div>
+        <div class="fg"><label>Message</label><textarea name="message" rows="5" required></textarea></div>
+        <button type="submit" class="csub">Envoyer ↗</button>
+      </form>
+      <div class="cinfo">
+        <div class="cli"><span class="clil">Email</span><a href="mailto:sylianaoudia06@gmail.com" class="cliv">sylianaoudia06@gmail.com</a></div>
+        <div class="cli"><span class="clil">LinkedIn</span><a href="https://linkedin.com/in/sylian-aoudia-867411298" target="_blank" rel="noopener" class="cliv">Sylian Aoudia ↗</a></div>
+        <div class="cli"><span class="clil">GitHub</span><a href="https://github.com/Sylian25" target="_blank" rel="noopener" class="cliv">Sylian25 ↗</a></div>
+        <div class="cli"><span class="clil">PSG Data Hub</span><a href="https://psg-data-hub.vercel.app/" target="_blank" rel="noopener" class="cliv">psg-data-hub.vercel.app ↗</a></div>
+        <div class="cli"><span class="clil">CV</span><a href="assets/cv.pdf" class="cliv" download>Telecharger ↗</a></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:24px 64px;border-top:.5px solid var(--border);background:var(--bg2);display:flex;justify-content:space-between;align-items:center;">
+    <span class="flogo">SA.</span>
+    <span class="fc">Portfolio BUT3 GEA GEMA · 2026 · Sylian Aoudia</span>
+    <span class="fb">Concu et developpe par Sylian Aoudia</span>
+  </div>
+</div>
+
+<!-- =============================================
+     JAVASCRIPT
+============================================= -->
+<script>
+// ============================================
+// LOADER
+// ============================================
+const loader = document.getElementById('loader');
+const llets = document.querySelectorAll('.llet');
+setTimeout(() => llets[0].classList.add('on'), 100);
+setTimeout(() => llets[1].classList.add('on'), 260);
+setTimeout(() => {
+  loader.classList.add('hide');
+  setTimeout(() => loader.style.display = 'none', 700);
+}, 2000);
+
+// ============================================
+// HERO LETTERS
+// ============================================
+(function(){
+  const el = document.getElementById('heroName');
+  if (!el) return;
+  const txt = el.textContent.trim();
+  el.textContent = '';
+  txt.split('').forEach((c, i) => {
+    if (c === ' ') {
+      const sp = document.createElement('span');
+      sp.classList.add('sp');
+      el.appendChild(sp);
+      return;
+    }
+    const s = document.createElement('span');
+    s.classList.add('let');
+    s.textContent = c;
+    s.style.animationDelay = (2.3 + i * 0.04) + 's';
+    el.appendChild(s);
+  });
+})();
+
+// ============================================
+// CURSOR
+// ============================================
+const cur = document.getElementById('cur');
+const curf = document.getElementById('curf');
+let mx = 0, my = 0, fx = 0, fy = 0;
+if (window.innerWidth > 768) {
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+  });
+  (function track(){
+    fx += (mx-fx)*0.1; fy += (my-fy)*0.1;
+    curf.style.left = fx+'px'; curf.style.top = fy+'px';
+    requestAnimationFrame(track);
+  })();
+  function addHover(el) {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  }
+  document.querySelectorAll('a,button,.nlink,.ndrop-item,.xp-header,.acc-btn,.sae-btn,.pass-card,.form-card,.ann-doc,.comp-but-item').forEach(addHover);
+  const hoverObs = new MutationObserver(() => {
+    document.querySelectorAll('a,button,.nlink,.ndrop-item,.xp-header,.acc-btn,.sae-btn,.pass-card,.form-card,.ann-doc,.comp-but-item').forEach(addHover);
+  });
+  hoverObs.observe(document.body, {childList:true,subtree:true});
+}
+
+// ============================================
+// NAV SCROLL
+// ============================================
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('sc', window.scrollY > 50), {passive:true});
+
+// ============================================
+// THEME
+// ============================================
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', () => {
+  const isDark = document.body.classList.toggle('dark');
+  themeBtn.textContent = isDark ? 'Clair' : 'Sombre';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+const saved = localStorage.getItem('theme');
+if (saved === 'dark') { document.body.classList.add('dark'); themeBtn.textContent = 'Clair'; }
+
+// ============================================
+// PAGES NAVIGATION
+// ============================================
+function goPage(pid) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('p-' + pid).classList.add('active');
+  document.querySelectorAll('.nlink').forEach(l => {
+    l.classList.toggle('active', l.dataset.page === pid);
+  });
+  window.scrollTo(0,0);
+  revealFi();
+  if (pid === 'articles') {
+    // show first subpage by default
+    showArtSub('comp-but');
+  }
+}
+
+// ============================================
+// ARTICLES SUB-PAGES
+// ============================================
+let currentArt = 'comp-but';
+function goArticle(id) {
+  goPage('articles');
+  showArtSub(id);
+  document.querySelectorAll('.nlink').forEach(l => {
+    l.classList.toggle('active', l.dataset.page === 'articles');
+  });
+}
+function showArtSub(id) {
+  currentArt = id;
+  document.querySelectorAll('.art-subpage').forEach(s => s.style.display = 'none');
+  const el = document.getElementById('art-' + id);
+  if (el) { el.style.display = 'block'; revealFi(); }
+}
+
+// ============================================
+// SAE PAGES (placeholder)
+// ============================================
+function goSAE(id) {
+  // Placeholder : renvoie vers annexes pour l'instant
+  goPage('annexes');
+}
+
+// ============================================
+// CAROUSEL SAE
+// ============================================
+let carIdx = 0;
+const slides = [
+  ['sae-slide0-1', 'sae-slide0-2'],
+  ['sae-slide2-1', 'sae-slide2-2']
+];
+// index les cartes
+document.querySelectorAll('.sae-card').forEach((c, i) => {
+  if (i < 2) { c.dataset.slide = 0; } else { c.dataset.slide = 1; }
+});
+function carNav(dir) {
+  const cards = document.querySelectorAll('.sae-card');
+  carIdx = (carIdx + dir + 2) % 2;
+  cards.forEach((c, i) => {
+    c.style.display = (Math.floor(i/2) === carIdx) ? '' : 'none';
+  });
+  document.querySelectorAll('.car-dot').forEach((d, i) => d.classList.toggle('on', i === carIdx));
+}
+// init
+document.querySelectorAll('.sae-card').forEach((c, i) => {
+  c.style.display = i < 2 ? '' : 'none';
+});
+
+// ============================================
+// ACCORDEON
+// ============================================
+function toggleAcc(btn) {
+  const wasOpen = btn.classList.contains('open');
+  // close siblings in same card
+  const card = btn.closest('.form-card');
+  if (card) {
+    card.querySelectorAll('.acc-btn.open').forEach(b => {
+      if (b !== btn) b.classList.remove('open');
+    });
+  }
+  btn.classList.toggle('open', !wasOpen);
+}
+
+// ============================================
+// XP TOGGLE
+// ============================================
+function toggleXp(header) {
+  const item = header.closest('.xp-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.xp-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ============================================
+// SCROLL REVEAL
+// ============================================
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
+  });
+}, {threshold:0.05, rootMargin:'0px 0px -20px 0px'});
+
+function revealFi() {
+  setTimeout(() => {
+    document.querySelectorAll('.fi:not(.vis)').forEach((el, i) => {
+      el.style.transitionDelay = (i % 6) * 55 + 'ms';
+      obs.observe(el);
+    });
+  }, 30);
+}
+revealFi();
+
+// ============================================
+// LANGUE (placeholder)
+// ============================================
+document.getElementById('langBtn').addEventListener('click', function() {
+  this.textContent = this.textContent === 'EN' ? 'FR' : 'EN';
+});
+
+// ============================================
+// SMOOTH SCROLL LINKS
+// ============================================
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
 </body>
 </html>
