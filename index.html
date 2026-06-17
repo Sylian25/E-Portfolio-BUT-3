@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sylian Aoudia — Portfolio BUT3 GEA GEMA</title>
+<title>Sylian AOUDIA — Portfolio</title>
 <meta name="description" content="Portfolio BUT3 GEA GEMA de Sylian Aoudia, Data Analyst RH, alternant BNP Paribas IT Group, futur PwC et Master MSI Sorbonne.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%235689C7'/><text y='70' x='12' font-size='52' font-family='Georgia,serif' font-weight='bold' fill='white'>SA</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -220,7 +221,7 @@ body.dark #nav.sc{background:rgba(8,8,8,.92);}
 .hero-tag{
   font-size:10px;letter-spacing:.22em;text-transform:uppercase;
   color:var(--accent);margin-bottom:20px;
-  animation:fup .6s var(--ease) 2.2s both;
+  animation:fup .6s var(--ease) 1.3s both;
 }
 .hero-name{
   font-family:var(--fd);
@@ -238,11 +239,11 @@ body.dark #nav.sc{background:rgba(8,8,8,.92);}
   font-size:clamp(14px,1.3vw,17px);font-weight:400;
   color:var(--t2);line-height:1.7;max-width:480px;
   margin-bottom:36px;
-  animation:fup .8s var(--ease) 3s both;
+  animation:fup .8s var(--ease) 1.9s both;
 }
 .hero-btns{
   display:flex;flex-wrap:wrap;gap:12px;
-  animation:fup .8s var(--ease) 3.1s both;
+  animation:fup .8s var(--ease) 2s both;
 }
 .btn-primary{
   font-size:10px;letter-spacing:.14em;text-transform:uppercase;
@@ -264,7 +265,7 @@ body.dark #nav.sc{background:rgba(8,8,8,.92);}
 .btn-outline:hover::before{transform:scaleX(1);}
 .hero-right{
   flex-shrink:0;width:340px;
-  animation:fup .9s var(--ease) 2.4s both;
+  animation:fup .9s var(--ease) 1.5s both;
 }
 .hero-photo-wrap{
   position:relative;aspect-ratio:3/4;overflow:hidden;
@@ -283,19 +284,19 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
   font-size:10px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--t3);padding:20px 64px;
   border-bottom:.5px solid var(--border);
-  animation:fup .7s var(--ease) 3.2s both;
+  animation:fup .7s var(--ease) 2.1s both;
 }
 @keyframes fup{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 
 /* ABOUT */
 .about-section{padding:80px 64px;border-bottom:.5px solid var(--border);background:var(--bg2);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;max-width:1100px;}
+.about-center{max-width:800px;margin:0 auto;text-align:center;}
 .about-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
 .about-title{
   font-family:var(--fd);font-size:clamp(28px,3vw,44px);
-  font-weight:700;letter-spacing:-.03em;margin-bottom:28px;line-height:1.1;
+  font-weight:700;letter-spacing:-.03em;margin-bottom:32px;line-height:1.1;
 }
-.about-p{font-size:13px;color:var(--t2);line-height:1.85;margin-bottom:14px;}
+.about-p{font-size:14px;color:var(--t2);line-height:1.9;margin-bottom:16px;text-align:left;}
 
 /* PASSIONS */
 .passions-section{padding:80px 64px;border-bottom:.5px solid var(--border);}
@@ -717,7 +718,6 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
   .hero{flex-direction:column-reverse;gap:40px;padding:120px 32px 60px;}
   .hero-left{padding-right:0;}
   .hero-right{width:100%;max-width:320px;}
-  .about-grid{grid-template-columns:1fr;}
   .pass-grid{grid-template-columns:1fr;}
   .section,.formation-section,.sae-section,.xp-section,.about-section,.passions-section{padding:60px 32px;}
   .savoirs-grid{grid-template-columns:1fr;}
@@ -729,6 +729,7 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
   .hero-avail{padding:16px 32px;}
   .footer-inner{flex-direction:column;gap:8px;text-align:center;}
   #footer{padding:20px 32px;}
+  .about-center{padding:0;}
 }
 @media(max-width:768px){
   .nlinks{display:none;}
@@ -778,7 +779,6 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
   <div class="nacts">
     <button class="nbtn" id="langBtn">EN</button>
     <button class="nbtn" id="themeBtn">Sombre</button>
-    <a href="assets/cv.pdf" class="ncv btn-primary" download>CV ↗</a>
   </div>
 </nav>
 
@@ -813,17 +813,13 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
 
   <!-- A PROPOS -->
   <div class="about-section">
-    <div class="about-grid">
-      <div class="fi">
-        <div class="about-label">A propos de moi</div>
-        <h2 class="about-title">Analytique<br><em style="font-style:italic;font-weight:300;color:var(--t2);">par nature.</em></h2>
-      </div>
-      <div class="fi">
-        <p class="about-p">Je m'appelle Sylian, j'ai 20 ans et je suis Data Analyst RH en alternance chez BNP Paribas IT Group. Mon profil est ne d'une conviction simple : la gestion sans la donnee reste intuitive, la donnee sans comprehension des organisations peine a produire des decisions pertinentes.</p>
-        <p class="about-p">Trois ans de BUT GEA m'ont donne la culture des organisations en management, strategie et entrepreneuriat. Mes experiences chez BNP Paribas m'ont confronte a la realite de la data en grande entreprise : pipelines ETL sous Alteryx, dashboards decisionnels Power BI et Tableau, structuration d'indicateurs RH et conformite RGPD.</p>
-        <p class="about-p">Ce qui me definit autant que mes experiences, c'est ma facon d'apprendre : en autonomie, par la pratique et par passion. J'ai appris Power BI seul en deux semaines pour repondre a une problematique reelle. J'ai developpe le PSG Data Hub, un projet personnel de data storytelling combinant une base de donnees SQLite, des analyses Python et SQL, et un dashboard interactif deploye en ligne.</p>
-        <p class="about-p">Mon objectif : devenir Data Analyst confirme dans un environnement exigeant, avec une ambition a long terme d'exercer a l'international, notamment en Asie du Sud-Est.</p>
-      </div>
+    <div class="about-center fi">
+      <div class="about-label">A propos de moi</div>
+      <h2 class="about-title">Analytique <em style="font-style:italic;font-weight:300;color:var(--t2);">par nature.</em></h2>
+      <p class="about-p">Je m'appelle Sylian, j'ai 20 ans et je suis Data Analyst RH en alternance chez BNP Paribas IT Group. Mon profil est ne d'une conviction simple : la gestion sans la donnee reste intuitive, la donnee sans comprehension des organisations peine a produire des decisions pertinentes.</p>
+      <p class="about-p">Trois ans de BUT GEA m'ont donne la culture des organisations en management, strategie et entrepreneuriat. Mes experiences chez BNP Paribas m'ont confronte a la realite de la data en grande entreprise : pipelines ETL sous Alteryx, dashboards decisionnels Power BI et Tableau, structuration d'indicateurs RH et conformite RGPD.</p>
+      <p class="about-p">Ce qui me definit autant que mes experiences, c'est ma facon d'apprendre : en autonomie, par la pratique et par passion. J'ai appris Power BI seul en deux semaines pour repondre a une problematique reelle. J'ai developpe le PSG Data Hub, un projet personnel de data storytelling combinant une base de donnees SQLite, des analyses Python et SQL, et un dashboard interactif deploye en ligne.</p>
+      <p class="about-p">Mon objectif : devenir Data Analyst confirme dans un environnement exigeant, avec une ambition a long terme d'exercer a l'international, notamment en Asie du Sud-Est.</p>
     </div>
   </div>
 
@@ -964,14 +960,16 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
       <div class="acc-body">
         <div class="acc-inner">
           <div class="mat-list">
-            <div class="mat-item">Management et organisation des entreprises</div>
-            <div class="mat-item">Gestion financiere et comptabilite analytique</div>
-            <div class="mat-item">Droit des societes et droit du travail</div>
-            <div class="mat-item">Ressources humaines et gestion des competences</div>
-            <div class="mat-item">Marketing strategique et operationnel</div>
-            <div class="mat-item">Systemes d'information et outils numeriques (Excel, Power BI)</div>
-            <div class="mat-item">Entrepreneuriat, business model et creation d'activite</div>
-            <div class="mat-item">Communication professionnelle et prise de parole</div>
+            <div class="mat-item">Management des organisations et strategie d'entreprise</div>
+            <div class="mat-item">Comptabilite financiere, analytique et controle de gestion</div>
+            <div class="mat-item">Droit des affaires, droit du travail et droit des societes</div>
+            <div class="mat-item">Gestion des ressources humaines et management des competences</div>
+            <div class="mat-item">Marketing strategique, etude de marche et comportement du consommateur</div>
+            <div class="mat-item">Entrepreneuriat, business model et creation d'activite (parcours GEMA)</div>
+            <div class="mat-item">Systemes d'information, outils numeriques et data management</div>
+            <div class="mat-item">Gestion de projet et conduite du changement</div>
+            <div class="mat-item">Communication professionnelle, anglais des affaires et prise de parole</div>
+            <div class="mat-item">Statistiques appliquees, analyse de donnees et tableaux de bord</div>
           </div>
         </div>
       </div>
@@ -1056,7 +1054,7 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
     </div>
   </div>
 
-  <footer id="footer2">
+  <footer style="padding:24px 64px;border-top:.5px solid var(--border);background:var(--bg2);">
     <div class="footer-inner">
       <span class="flogo">SA.</span>
       <span class="fc">Portfolio BUT3 GEA GEMA · 2026 · Sylian Aoudia</span>
@@ -1349,7 +1347,7 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
       <div class="slabel fi">Articles</div>
       <h1 class="stitle fi">Les Competences<br><em>du BUT.</em></h1>
       <p class="comp-but-intro fi">Situer mes competences, c'est prendre du recul sur mon parcours : comprendre ce que j'ai acquis, identifier les situations qui m'ont fait progresser, et reperer les axes que je souhaite encore renforcer pour devenir Data Analyst confirme dans un environnement exigeant.</p>
-      <a href="assets/ppn-but-gea.pdf" target="_blank" class="form-link fi" style="margin-bottom:32px;display:inline-flex;">Consulter le referentiel officiel des competences ↗</a>
+      <a href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2022-07/pn-but-g-a-15712.pdf" target="_blank" rel="noopener" class="form-link fi" style="margin-bottom:32px;display:inline-flex;">Consulter le referentiel officiel des competences (PPN BUT GEA) ↗</a>
 
       <div class="comp-but-list fi">
 
@@ -1806,12 +1804,12 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
 // ============================================
 const loader = document.getElementById('loader');
 const llets = document.querySelectorAll('.llet');
-setTimeout(() => llets[0].classList.add('on'), 100);
-setTimeout(() => llets[1].classList.add('on'), 260);
+setTimeout(() => llets[0].classList.add('on'), 80);
+setTimeout(() => llets[1].classList.add('on'), 200);
 setTimeout(() => {
   loader.classList.add('hide');
-  setTimeout(() => loader.style.display = 'none', 700);
-}, 2000);
+  setTimeout(() => loader.style.display = 'none', 500);
+}, 1200);
 
 // ============================================
 // HERO LETTERS
@@ -1831,7 +1829,7 @@ setTimeout(() => {
     const s = document.createElement('span');
     s.classList.add('let');
     s.textContent = c;
-    s.style.animationDelay = (2.3 + i * 0.04) + 's';
+    s.style.animationDelay = (1.4 + i * 0.04) + 's';
     el.appendChild(s);
   });
 })();
@@ -1875,7 +1873,9 @@ window.addEventListener('scroll', () => nav.classList.toggle('sc', window.scroll
 const themeBtn = document.getElementById('themeBtn');
 themeBtn.addEventListener('click', () => {
   const isDark = document.body.classList.toggle('dark');
-  themeBtn.textContent = isDark ? 'Clair' : 'Sombre';
+  themeBtn.textContent = isDark
+    ? (currentLang === 'fr' ? 'Clair' : 'Light')
+    : (currentLang === 'fr' ? 'Sombre' : 'Dark');
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 const saved = localStorage.getItem('theme');
@@ -1994,10 +1994,113 @@ function revealFi() {
 revealFi();
 
 // ============================================
-// LANGUE (placeholder)
+// TRADUCTION FR / EN
 // ============================================
+const translations = {
+  fr: {
+    navAccueil: 'Accueil', navParcours: 'Mon Parcours',
+    navExperiences: 'Mes Experiences', navArticles: 'Articles',
+    navAnnexes: 'Annexes', navContact: 'Contact',
+    dropCompBut: 'Competences du BUT',
+    dropArt1: 'Article 1 — Apprendre sans filet',
+    dropArt2: 'Article 2 — La donnee et la decision',
+    dropArt3: 'Article 3 — Piloter un collectif',
+    heroTag: 'Portfolio BUT3 · GEA GEMA · 2023-2026',
+    heroDesc: "Bienvenue sur mon portfolio. J'y presente mes experiences, mes projets et les competences que j'ai developpees au fil de mes 3 annees de BUT GEA. Tout ce que vous trouverez ici n'est pas une liste de competences — c'est le recit d'un profil construit a l'intersection de la gestion des organisations et de la donnee.",
+    heroBtn1: 'Telecharger mon CV', heroBtn2: 'Decouvrir mon parcours', heroBtn3: 'Me contacter',
+    heroAvail: 'Admis · Master MSI Sorbonne · Rang 4/55 · Recrute PwC France · Septembre 2026',
+    aboutLabel: 'A propos de moi',
+    aboutTitle: 'Analytique par nature.',
+    passLabel: 'Mes passions', passTitle: 'Ce qui m\'anime.',
+    pass1Title: 'Football et data sportive', pass2Title: 'Jeux video',
+    parcIntro: 'Trois ans pour construire un profil qui n\'existait pas encore.',
+    parcSub: 'Entree en BUT sans projet precise, sortie avec une alternance chez BNP Paribas, une admission au Master MSI Sorbonne rang 4/55, et un recrutement chez PwC France.',
+    xpTitle: 'Ce que j\'ai vecu.', annTitle: 'Documents et preuves.',
+    contactTitle: 'Travaillons ensemble.',
+    contactMerci: 'Merci de prendre le temps de parcourir mon portfolio. Que vous soyez enseignant, membre du jury, recruteur ou simplement curieux de mon parcours, je serais ravi d\'echanger avec vous.',
+    formNom: 'Nom', formEmail: 'Email', formSujet: 'Sujet', formMessage: 'Message', formEnvoyer: 'Envoyer',
+    themeBtn: 'Sombre',
+  },
+  en: {
+    navAccueil: 'Home', navParcours: 'My Journey',
+    navExperiences: 'My Experience', navArticles: 'Articles',
+    navAnnexes: 'Appendix', navContact: 'Contact',
+    dropCompBut: 'BUT Competencies',
+    dropArt1: 'Article 1 — Learning without a safety net',
+    dropArt2: 'Article 2 — Data only matters through decisions',
+    dropArt3: 'Article 3 — Leading a team',
+    heroTag: 'Bachelor Portfolio · Business Management · 2023-2026',
+    heroDesc: 'Welcome to my portfolio. Here I present my experiences, projects and skills developed over 3 years of study. What you will find here is not a list of competencies — it is the story of a profile built at the intersection of organizational management and data.',
+    heroBtn1: 'Download CV', heroBtn2: 'Discover my journey', heroBtn3: 'Contact me',
+    heroAvail: 'Admitted · MSI Master Sorbonne · Rank 4/55 · Hired PwC France · September 2026',
+    aboutLabel: 'About me',
+    aboutTitle: 'Analytical by nature.',
+    passLabel: 'My passions', passTitle: 'What drives me.',
+    pass1Title: 'Football and sports data', pass2Title: 'Video games',
+    parcIntro: 'Three years to build a profile that did not exist yet.',
+    parcSub: 'Entered university without a clear plan, leaving with an apprenticeship at BNP Paribas, admission to Sorbonne MSI Master ranked 4/55, and a job offer at PwC France.',
+    xpTitle: 'What I have experienced.',
+    annTitle: 'Documents and evidence.',
+    contactTitle: "Let's work together.",
+    contactMerci: 'Thank you for taking the time to browse my portfolio. Whether you are a teacher, jury member, recruiter or simply curious about my background, I would be happy to connect with you.',
+    formNom: 'Name', formEmail: 'Email', formSujet: 'Subject', formMessage: 'Message', formEnvoyer: 'Send',
+    themeBtn: 'Dark',
+  }
+};
+
+let currentLang = 'fr';
+
+function applyLang(lang) {
+  const t = translations[lang];
+  // nav links
+  const navLinks = document.querySelectorAll('.nlink[data-page]');
+  const keys = ['navAccueil','navParcours','navExperiences','navArticles','navAnnexes','navContact'];
+  navLinks.forEach((l, i) => { if (keys[i]) l.textContent = t[keys[i]]; });
+  // dropdown
+  const drops = document.querySelectorAll('.ndrop-item');
+  if (drops[0]) drops[0].textContent = t.dropCompBut;
+  if (drops[1]) drops[1].textContent = t.dropArt1;
+  if (drops[2]) drops[2].textContent = t.dropArt2;
+  if (drops[3]) drops[3].textContent = t.dropArt3;
+  // hero
+  const heroTag = document.querySelector('.hero-tag');
+  if (heroTag) heroTag.textContent = t.heroTag;
+  const heroDesc = document.querySelector('.hero-desc');
+  if (heroDesc) heroDesc.textContent = t.heroDesc;
+  const heroBtns = document.querySelectorAll('.hero-btns .btn-primary, .hero-btns .btn-outline');
+  if (heroBtns[0]) heroBtns[0].textContent = t.heroBtn1 + ' ↗';
+  if (heroBtns[1]) heroBtns[1].textContent = t.heroBtn2;
+  if (heroBtns[2]) heroBtns[2].textContent = t.heroBtn3;
+  const heroAvail = document.querySelector('.hero-avail');
+  if (heroAvail) heroAvail.textContent = t.heroAvail;
+  // about
+  const aboutLabel = document.querySelector('.about-label');
+  if (aboutLabel) aboutLabel.textContent = t.aboutLabel;
+  const aboutTitle = document.querySelector('.about-title');
+  if (aboutTitle) aboutTitle.textContent = t.aboutTitle;
+  // passions
+  const passLabel = document.querySelector('.passions-section .slabel');
+  if (passLabel) passLabel.textContent = t.passLabel;
+  // contact
+  const contactTitle = document.querySelector('#p-contact .stitle');
+  if (contactTitle) contactTitle.innerHTML = t.contactTitle;
+  const contactMerci = document.querySelector('.contact-merci');
+  if (contactMerci) contactMerci.textContent = t.contactMerci;
+  const fgs = document.querySelectorAll('.fg label');
+  const fkeys = ['formNom','formEmail','formSujet','formMessage'];
+  fgs.forEach((fg, i) => { if (t[fkeys[i]]) fg.textContent = t[fkeys[i]]; });
+  const csub = document.querySelector('.csub');
+  if (csub) csub.textContent = t.formEnvoyer + ' ↗';
+  // theme btn text
+  themeBtn.textContent = document.body.classList.contains('dark')
+    ? (lang === 'fr' ? 'Clair' : 'Light')
+    : t.themeBtn;
+}
+
 document.getElementById('langBtn').addEventListener('click', function() {
-  this.textContent = this.textContent === 'EN' ? 'FR' : 'EN';
+  currentLang = currentLang === 'fr' ? 'en' : 'fr';
+  this.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+  applyLang(currentLang);
 });
 
 // ============================================
