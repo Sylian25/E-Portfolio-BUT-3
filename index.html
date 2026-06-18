@@ -773,6 +773,55 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
 }
 .cli-icon-wrap svg{width:18px;height:18px;}
 
+.burger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  padding:6px;
+  background:transparent;
+  border:none;
+}
+.burger span{
+  width:22px;height:1.5px;
+  background:var(--text);
+  transition:transform .3s var(--ease),opacity .3s var(--ease);
+}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+.mnav{
+  position:fixed;top:0;right:0;
+  width:78%;max-width:320px;height:100vh;
+  background:var(--bg2);
+  border-left:.5px solid var(--border2);
+  z-index:150;
+  padding:90px 32px 32px;
+  transform:translateX(100%);
+  transition:transform .4s var(--ease);
+  overflow-y:auto;
+}
+.mnav.open{transform:translateX(0);}
+.mnav-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.4);
+  z-index:140;opacity:0;pointer-events:none;
+  transition:opacity .3s var(--ease);
+}
+.mnav-overlay.open{opacity:1;pointer-events:all;}
+.mnav-link{
+  display:block;padding:16px 0;
+  font-size:14px;letter-spacing:.04em;
+  color:var(--t2);border-bottom:.5px solid var(--border);
+  cursor:pointer;
+}
+.mnav-link.active{color:var(--accent);}
+.mnav-sub{padding-left:16px;}
+.mnav-sub .mnav-link{font-size:12px;padding:12px 0;}
+
+@media(max-width:768px){
+  .burger{display:flex;}
+}
 </style>
 </head>
 <body>
@@ -814,8 +863,27 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
   <div class="nacts">
     <button class="nbtn" id="langBtn">EN</button>
     <button class="nbtn" id="themeBtn">Sombre</button>
+    <button class="burger" id="burgerBtn" onclick="toggleMnav()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mnav-overlay" id="mnavOverlay" onclick="toggleMnav()"></div>
+<div class="mnav" id="mnavPanel">
+  <span class="mnav-link" data-page="accueil" onclick="goPageMobile('accueil')">Accueil</span>
+  <span class="mnav-link" data-page="parcours" onclick="goPageMobile('parcours')">Mon Parcours</span>
+  <span class="mnav-link" data-page="experiences" onclick="goPageMobile('experiences')">Mes Experiences</span>
+  <span class="mnav-link" data-page="articles" onclick="goPageMobile('articles')">Articles</span>
+  <div class="mnav-sub">
+    <span class="mnav-link" onclick="goArticleMobile('comp-but')">Competences du BUT</span>
+    <span class="mnav-link" onclick="goArticleMobile('art1')">Article 1</span>
+    <span class="mnav-link" onclick="goArticleMobile('art2')">Article 2</span>
+    <span class="mnav-link" onclick="goArticleMobile('art3')">Article 3</span>
+  </div>
+  <span class="mnav-link" data-page="annexes" onclick="goPageMobile('annexes')">Annexes</span>
+  <span class="mnav-link" data-page="contact" onclick="goPageMobile('contact')">Contact</span>
+</div>
 
 <!-- =============================================
      PAGE ACCUEIL
@@ -2166,6 +2234,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) t.scrollIntoView({behavior:'smooth'});
   });
 });
+function toggleMnav() {
+  document.getElementById('burgerBtn').classList.toggle('open');
+  document.getElementById('mnavPanel').classList.toggle('open');
+  document.getElementById('mnavOverlay').classList.toggle('open');
+}
+function goPageMobile(pid) {
+  goPage(pid);
+  toggleMnav();
+}
+function goArticleMobile(id) {
+  goArticle(id);
+  toggleMnav();
+}
 </script>
 </body>
 </html>
