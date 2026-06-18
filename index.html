@@ -822,6 +822,39 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
 @media(max-width:768px){
   .burger{display:flex;}
 }
+.art-hub{padding:120px 64px 80px;}
+.art-hub-quote{
+  font-family:var(--fd);font-size:clamp(18px,2vw,26px);
+  font-weight:300;line-height:1.5;color:var(--text);
+  letter-spacing:-.02em;max-width:780px;margin-bottom:24px;
+}
+.art-hub-desc{font-size:14px;color:var(--t2);line-height:1.8;max-width:680px;margin-bottom:48px;}
+.art-hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.art-hub-card{
+  background:var(--bg2);padding:32px;
+  display:flex;flex-direction:column;gap:14px;
+  cursor:pointer;transition:background .3s var(--ease);
+}
+.art-hub-card:hover{background:var(--bg3);}
+.art-hub-num{
+  font-family:var(--fd);font-size:11px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--accent);
+}
+.art-hub-title{
+  font-family:var(--fd);font-size:19px;font-weight:600;
+  letter-spacing:-.02em;color:var(--text);transition:color .25s;
+}
+.art-hub-card:hover .art-hub-title{color:var(--accent);}
+.art-hub-tag{font-size:13px;color:var(--t2);line-height:1.6;flex-grow:1;}
+.art-hub-btn{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);display:inline-flex;align-items:center;gap:6px;
+  transition:opacity .2s;margin-top:4px;
+}
+.art-hub-card:hover .art-hub-btn{opacity:.7;}
+.art-hub-compbtn{margin-top:40px;}
+@media(max-width:1024px){.art-hub-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
@@ -1401,6 +1434,39 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
      PAGE ARTICLES (sous-pages via JS)
 ============================================= -->
 <div class="page" id="p-articles">
+
+  <!-- HUB ARTICLES -->
+  <div id="art-hub" class="art-subpage">
+    <div class="art-hub">
+      <div class="slabel fi">Articles</div>
+      <h1 class="stitle fi">Mes<br><em>articles.</em></h1>
+      <p class="art-hub-quote fi">"La donnee ne vaut que par la decision qu'elle eclaire, et un profil hybride se construit en apprenant sans filet, en sachant piloter un collectif."</p>
+      <p class="art-hub-desc fi">A travers ces trois articles, je retrace la construction progressive de mon profil de Data Analyst hybride gestion-donnees, chacun traitant d'une competence indispensable pour exceller dans ce metier.</p>
+
+      <div class="art-hub-grid fi">
+        <div class="art-hub-card" onclick="goArticle('art1')">
+          <div class="art-hub-num">Article 1</div>
+          <div class="art-hub-title">Apprendre sans filet</div>
+          <p class="art-hub-tag">L'autodidaxie comme methode de travail deliberee</p>
+          <span class="art-hub-btn">Lire l'article ➜</span>
+        </div>
+        <div class="art-hub-card" onclick="goArticle('art2')">
+          <div class="art-hub-num">Article 2</div>
+          <div class="art-hub-title">La donnee et la decision</div>
+          <p class="art-hub-tag">La donnee ne vaut que par la decision qu'elle eclaire</p>
+          <span class="art-hub-btn">Lire l'article ➜</span>
+        </div>
+        <div class="art-hub-card" onclick="goArticle('art3')">
+          <div class="art-hub-num">Article 3</div>
+          <div class="art-hub-title">Piloter un collectif</div>
+          <p class="art-hub-tag">De la prise de devants a la co-construction</p>
+          <span class="art-hub-btn">Lire l'article ➜</span>
+        </div>
+      </div>
+
+      <span class="form-link art-hub-compbtn fi" onclick="goArticle('comp-but')" style="cursor:pointer;display:inline-flex;">Decouvrir mes competences du BUT ↗</span>
+    </div>
+  </div>
 
   <!-- COMP BUT -->
   <div id="art-comp-but" class="art-subpage" style="display:none;">
@@ -1996,8 +2062,8 @@ function goPage(pid, push = true) {
   window.scrollTo(0,0);
   revealFi();
   if (pid === 'articles') {
-    showArtSub('comp-but', false);
-  }
+  showArtSub('hub', false);
+}
   if (push) {
     history.pushState({page: pid}, '', '#' + pid);
   }
