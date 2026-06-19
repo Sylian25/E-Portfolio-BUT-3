@@ -855,6 +855,76 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
 .art-hub-compbtn{margin-top:40px;}
 @media(max-width:1024px){.art-hub-grid{grid-template-columns:1fr;}}
 
+/* =============================================
+   PAGE SAE DETAIL
+============================================= */
+.sae-detail-page{padding:120px 64px 80px;max-width:980px;}
+.sae-detail-tag{
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+}
+.sae-detail-title{
+  font-family:var(--fd);font-size:clamp(32px,4vw,56px);
+  font-weight:700;letter-spacing:-.03em;line-height:1.05;
+  margin-bottom:48px;
+}
+.sae-block{margin-bottom:40px;}
+.sae-block-label{
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+  padding-bottom:10px;border-bottom:.5px solid var(--border);
+}
+.sae-block p{font-size:14px;color:var(--t2);line-height:1.85;}
+.sae-block ul{display:flex;flex-direction:column;gap:12px;margin-top:8px;}
+.sae-block li{
+  font-size:13px;color:var(--t2);line-height:1.8;
+  padding-left:18px;position:relative;
+}
+.sae-block li::before{
+  content:'';position:absolute;left:0;top:8px;
+  width:5px;height:5px;border-radius:50%;background:var(--accent);
+}
+.sae-visual{
+  margin:32px 0;border:.5px solid var(--border2);
+  overflow:hidden;
+}
+.sae-visual img{width:100%;display:block;}
+.sae-visual-caption{
+  font-size:10px;color:var(--t3);letter-spacing:.05em;
+  margin-top:8px;text-align:center;
+}
+.sae-stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--border);margin-top:8px;
+}
+.sae-stat{
+  background:var(--bg2);padding:24px 16px;text-align:center;
+}
+.sae-stat-num{
+  font-family:var(--fd);font-size:32px;font-weight:700;
+  color:var(--accent);letter-spacing:-.02em;margin-bottom:6px;
+}
+.sae-stat-label{
+  font-size:10px;color:var(--t3);letter-spacing:.04em;line-height:1.4;
+}
+.sae-comps-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.sae-comp-tag{
+  font-size:11px;color:var(--t2);
+  border:.5px solid var(--border2);padding:6px 14px;
+}
+.sae-back{
+  margin-top:56px;padding-top:24px;border-top:.5px solid var(--border);
+}
+.sae-back-btn{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+}
+@media(max-width:768px){
+  .sae-stats-grid{grid-template-columns:1fr 1fr;}
+  .sae-detail-page{padding:120px 24px 60px;}
+}
+
 </style>
 </head>
 <body>
@@ -1797,6 +1867,256 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
 </div>
 
 <!-- =============================================
+     PAGE SAE DETAIL (sous-pages, hors menu)
+============================================= -->
+<div class="page" id="p-sae-detail">
+
+  <!-- SAE BOOSTA -->
+  <div id="sae-boosta" class="sae-subpage">
+    <div class="sae-detail-page">
+      <div class="sae-detail-tag">Entrepreneuriat - BUT 2</div>
+      <h1 class="sae-detail-title">BOOSTA'Carriere</h1>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Enjeux</div>
+        <p>Trouver un stage ou une alternance quand on vient d'un milieu sans reseau constitue est un obstacle reel que les plateformes d'offres d'emploi classiques ne resolvent pas. Les etudiants de premier cycle manquent d'accompagnement personnalise pour valoriser leur candidature et preparer leurs entretiens.</p>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Solution</div>
+        <p>BOOSTA'Carriere est une solution d'accompagnement a l'insertion professionnelle pour les etudiants de BTS, BUT et Licence : coaching personnalise CV et lettre de motivation, preparation aux entretiens, et une communaute Discord pour elargir son reseau via des evenements organises autour de centres d'interet communs.</p>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Demarche</div>
+        <ul>
+          <li>Pilotage de l'etude de marche qualitative et quantitative auprès de la cible etudiante</li>
+          <li>Traitement des donnees collectees via Google Forms et Excel pour en extraire des tendances exploitables</li>
+          <li>Conduite d'entretiens qualitatifs pour affiner la comprehension des besoins reels</li>
+          <li>Modelisation du business plan sur trois ans avec hypotheses de revenus chiffrees</li>
+          <li>Defense du projet devant un jury d'investisseurs au Village des Talents</li>
+        </ul>
+      </div>
+
+      <div class="sae-visual">
+        <img src="assets/art3-trace1.png" alt="Projections financieres BOOSTA Carriere">
+      </div>
+      <div class="sae-visual-caption">Extrait du Business Plan : hypotheses de revenus sur 3 ans</div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Resultats</div>
+        <div class="sae-stats-grid">
+          <div class="sae-stat"><div class="sae-stat-num">5</div><div class="sae-stat-label">Co-fondateurs</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">35</div><div class="sae-stat-label">Pages d'etude de marche</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">142K€</div><div class="sae-stat-label">CA previsionnel annee 3</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">2382</div><div class="sae-stat-label">Coachings projetes an 3</div></div>
+        </div>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Competences developpees</div>
+        <div class="sae-comps-tags">
+          <span class="sae-comp-tag">Etude de marche</span>
+          <span class="sae-comp-tag">Business plan</span>
+          <span class="sae-comp-tag">Modelisation financiere</span>
+          <span class="sae-comp-tag">Pitch investisseur</span>
+          <span class="sae-comp-tag">Travail en equipe</span>
+        </div>
+      </div>
+
+      <div class="sae-back">
+        <span class="sae-back-btn" onclick="goPage('parcours')">← Revenir a mon parcours</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAE SOLID'R -->
+  <div id="sae-solidr" class="sae-subpage" style="display:none;">
+    <div class="sae-detail-page">
+      <div class="sae-detail-tag">Analyse strategique - BUT 2</div>
+      <h1 class="sae-detail-title">Solid'R - Epicerie Solidaire</h1>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Enjeux</div>
+        <p>Pres de 25% des etudiants de l'IUT beneficient d'une bourse, et une part significative a deja eu recours a une aide alimentaire. L'IUT souhaite etudier la faisabilite d'une epicerie solidaire pour repondre a cette precarite etudiante de maniere structurelle.</p>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Solution</div>
+        <p>Une etude de faisabilite complete identifiant le modele de deploiement le plus adapte : approvisionnement via des reseaux solidaires nationaux (ANDES, BAPIF), modalites de fonctionnement, financement et impact attendu sur la dignite des etudiants beneficiaires.</p>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Demarche</div>
+        <ul>
+          <li>Pilotage de l'analyse des donnees d'une enquete menee auprès de 427 etudiants sur 3 000</li>
+          <li>Structuration d'un benchmarking d'epiceries solidaires existantes (Ma'Yonnaise, Episol)</li>
+          <li>Conduite d'entretiens avec des acteurs nationaux : ANDES, Banque Alimentaire Paris IDF</li>
+          <li>Modelisation de deux scenarios de deploiement avec budgets previsionnels detailles</li>
+          <li>Collaboration avec le departement informatique pour un cahier des charges front et back office</li>
+        </ul>
+      </div>
+
+      <div class="sae-visual">
+        <img src="assets/art3-trace2.png" alt="Carte mentale scenario 1 Solid'R">
+      </div>
+      <div class="sae-visual-caption">Carte mentale du scenario de deploiement retenu</div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Resultats</div>
+        <div class="sae-stats-grid">
+          <div class="sae-stat"><div class="sae-stat-num">8</div><div class="sae-stat-label">Membres de l'equipe</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">427</div><div class="sae-stat-label">Etudiants enquetes</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">2</div><div class="sae-stat-label">Scenarios modelises</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">3</div><div class="sae-stat-label">Acteurs nationaux consultes</div></div>
+        </div>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Competences developpees</div>
+        <div class="sae-comps-tags">
+          <span class="sae-comp-tag">Analyse de donnees quantitatives</span>
+          <span class="sae-comp-tag">Benchmarking</span>
+          <span class="sae-comp-tag">Entretiens qualitatifs</span>
+          <span class="sae-comp-tag">Modelisation budgetaire</span>
+          <span class="sae-comp-tag">Travail transversal</span>
+        </div>
+      </div>
+
+      <div class="sae-back">
+        <span class="sae-back-btn" onclick="goPage('parcours')">← Revenir a mon parcours</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAE MAIA VILLAGE -->
+  <div id="sae-maia" class="sae-subpage" style="display:none;">
+    <div class="sae-detail-page">
+      <div class="sae-detail-tag">Transformation digitale - BUT 3</div>
+      <h1 class="sae-detail-title">Maia Village - Deploiement ERP</h1>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Enjeux</div>
+        <p>Maia Village, groupe de gestion de creches multi-etablissements, rencontre des limites operationnelles avec son systeme d'information actuel : inefficacite des processus, erreurs de traitement, securite insuffisante des donnees face aux exigences RGPD.</p>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Solution</div>
+        <p>Le deploiement de l'ERP Mercury, une solution agile et securisee adaptee a la croissance du reseau, accompagnee d'un plan de communication d'adoption structure pour garantir l'acceptation du changement par l'ensemble des parties prenantes : direction, equipes pedagogiques, familles.</p>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Demarche</div>
+        <ul>
+          <li>Audit du systeme d'information existant pour identifier dysfonctionnements et limites</li>
+          <li>Redaction d'un cahier des charges fonctionnel detaille, incluant l'analyse des besoins de chaque partie prenante</li>
+          <li>Comparaison de plusieurs solutions ERP via une grille multicritere construite collectivement</li>
+          <li>Recommandation argumentee du choix du prestataire Mercury</li>
+          <li>Elaboration d'un plan de communication d'adoption avec budget maitrise, incluant sensibilisation, formation et ambassadeurs du projet</li>
+        </ul>
+      </div>
+
+      <div class="sae-visual">
+        <img src="assets/cdc-maia.pdf" alt="Cahier des charges Maia Village">
+      </div>
+      <div class="sae-visual-caption">Extrait du cahier des charges : page de garde et structure du document</div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Resultats</div>
+        <div class="sae-stats-grid">
+          <div class="sae-stat"><div class="sae-stat-num">5</div><div class="sae-stat-label">Membres de l'equipe</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">5</div><div class="sae-stat-label">Priorites fonctionnelles</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">5K€</div><div class="sae-stat-label">Budget plan d'adoption</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">4</div><div class="sae-stat-label">Phases de deploiement</div></div>
+        </div>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Competences developpees</div>
+        <div class="sae-comps-tags">
+          <span class="sae-comp-tag">Audit de systeme d'information</span>
+          <span class="sae-comp-tag">Cahier des charges</span>
+          <span class="sae-comp-tag">Analyse comparative</span>
+          <span class="sae-comp-tag">Conduite du changement</span>
+          <span class="sae-comp-tag">Communication multi-niveaux</span>
+        </div>
+      </div>
+
+      <div class="sae-back">
+        <span class="sae-back-btn" onclick="goPage('parcours')">← Revenir a mon parcours</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAE CLARIANE -->
+  <div id="sae-clariane" class="sae-subpage" style="display:none;">
+    <div class="sae-detail-page">
+      <div class="sae-detail-tag">Communication strategique - BUT 3</div>
+      <h1 class="sae-detail-title">E-reputation Clariane</h1>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Enjeux</div>
+        <p>Clariane, leader europeen de l'hebergement pour seniors, porte encore le poids du scandale Orpea-Korian de 2022. Le groupe doit reconstruire sa reputation, d'abord auprès de ses collaborateurs, ensuite auprès du grand public, dans un secteur sous forte surveillance mediatique.</p>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Solution</div>
+        <p>Un audit complet de l'e-reputation du groupe, suivi d'un plan de communication centre sur la marque employeur ("Chez Clariane, on prend soin de ceux qui prennent soin"), et la production d'un contenu reel : une video documentaire montrant la sincerite du quotidien des equipes.</p>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Demarche</div>
+        <ul>
+          <li>Collecte et classification de plus de 2 500 avis salaries sur Glassdoor et Indeed par thematique et tonalite</li>
+          <li>Identification du paradoxe central : NPS patients +45 contre NPS employe 12</li>
+          <li>Recentrage du plan de communication apres retours critiques du jury, autour d'un message unique</li>
+          <li>Definition d'objectifs chiffres, de cibles et d'un calendrier de campagnes sur 12 mois</li>
+          <li>Production d'une video documentaire de 90 secondes, "Le Relais", filmee au smartphone</li>
+        </ul>
+      </div>
+
+      <div class="sae-visual">
+        <img src="assets/art3-trace3.png" alt="Repartition des roles SAE Clariane">
+      </div>
+      <div class="sae-visual-caption">Structure de l'equipe en mode agence et repartition des roles</div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Resultats</div>
+        <div class="sae-stats-grid">
+          <div class="sae-stat"><div class="sae-stat-num">4</div><div class="sae-stat-label">Membres de l'equipe</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">2500+</div><div class="sae-stat-label">Avis salaries analyses</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">90s</div><div class="sae-stat-label">Video documentaire produite</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">75K€</div><div class="sae-stat-label">Budget plan de communication</div></div>
+        </div>
+      </div>
+
+      <div class="sae-block">
+        <div class="sae-block-label">Competences developpees</div>
+        <div class="sae-comps-tags">
+          <span class="sae-comp-tag">Audit e-reputation</span>
+          <span class="sae-comp-tag">Analyse multi-sources</span>
+          <span class="sae-comp-tag">Communication corporate</span>
+          <span class="sae-comp-tag">Marque employeur</span>
+          <span class="sae-comp-tag">Production de contenu</span>
+        </div>
+      </div>
+
+      <div class="sae-back">
+        <span class="sae-back-btn" onclick="goPage('parcours')">← Revenir a mon parcours</span>
+      </div>
+    </div>
+  </div>
+
+  <footer style="padding:24px 64px;border-top:.5px solid var(--border);background:var(--bg2);width:100%;box-sizing:border-box;">
+    <div class="footer-inner">
+      <span class="flogo">SA.</span>
+      <span class="fc" data-tkey="footerCopy">Portfolio BUT3 GEA GEMA - 2026 - Sylian Aoudia</span>
+      <span class="fb" data-tkey="footerBuilt">Concu et developpe par Sylian Aoudia</span>
+    </div>
+  </footer>
+</div>
+
+<!-- =============================================
      PAGE ANNEXES
 ============================================= -->
 <div class="page" id="p-annexes">
@@ -2158,7 +2478,10 @@ function showArtSub(id, push = true) {
 // SAE PAGES (placeholder)
 // ============================================
 function goSAE(id) {
-  goPage('annexes');
+  goPage('sae-detail');
+  document.querySelectorAll('.sae-subpage').forEach(s => s.style.display = 'none');
+  const el = document.getElementById('sae-' + id);
+  if (el) { el.style.display = 'block'; revealFi(); window.scrollTo(0,0); }
 }
 
 // ============================================
