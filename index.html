@@ -1615,9 +1615,20 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
           <p>En janvier 2025, j'arrive en stage chez BNP Paribas IT Group avec une mission claire : ameliorer le suivi de deux parcours de formation via des outils de reporting. Le probleme : les outils existants sont des fichiers Excel construits manuellement, et mon encadrante, excellente par ailleurs, est specialisee en gestion du budget et des formations, pas en data. Personne autour de moi ne maitrise Power BI, l'outil que j'identifie comme la reponse a la problematique.</p>
           <p>Deux options : attendre qu'une formation soit organisee, ou apprendre seul en conditions reelles. J'ai choisi la deuxieme. En deux semaines, en consultant la documentation officielle, des tutoriels YouTube et en experimentant directement sur les donnees reelles du stage, j'ai concu des tableaux de bord interactifs qui generent un gain de productivite de 30% sur le pilotage des parcours.</p>
           <div class="art-trace">
-            <div class="art-trace-label">Trace 1 — Dashboard Power BI, stage BNP IT Group, mars 2025</div>
-            <p>Dashboard interactif construit en autodidacte : taux de completion par bloc de formation, classement des formations les plus suivies, presence des principes de management dans les parcours. Resultat mesure : gain de 30% sur le temps de pilotage mensuel. Voir en annexe.</p>
-          </div>
+  <div class="art-trace-label">Trace 1 — Dashboard Power BI, stage BNP IT Group, mars 2025</div>
+  <p style="margin-bottom:12px;">Avant : un fichier Excel ou les donnees restent dispersees et difficiles a exploiter. Apres : un dashboard Power BI clair, avec des indicateurs visuels directement actionnables par l'equipe formation.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;">
+    <div>
+      <img src="assets/art1-trace1-avant.png" alt="Avant - donnees Excel brutes" style="width:100%;border:.5px solid var(--border2);">
+      <div style="font-size:9px;color:var(--t3);text-align:center;margin-top:4px;text-transform:uppercase;letter-spacing:.08em;">Avant</div>
+    </div>
+    <div>
+      <img src="assets/art1-trace1-apres.png" alt="Apres - dashboard Power BI" style="width:100%;border:.5px solid var(--border2);">
+      <div style="font-size:9px;color:var(--t3);text-align:center;margin-top:4px;text-transform:uppercase;letter-spacing:.08em;">Apres</div>
+    </div>
+  </div>
+  <p>Resultat mesure : gain de 30% sur le temps de pilotage mensuel des parcours de formation.</p>
+</div>
         </div>
 
         <div class="art-sep fi"></div>
@@ -1628,9 +1639,10 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
           <p>Cette situation s'est ensuite reproduite, de facon encore plus marquee, lors de mon arrivee en alternance en aout 2025. Une reorganisation interne deplace le Data Analyst avec lequel je devais travailler vers une autre entite. Ma tutrice n'est pas issue de la data. Je me retrouve, sur des projets de volume reel, sans interlocuteur technique au quotidien.</p>
           <p>J'aurais pu attendre. J'ai construit ma progression : OpenClassrooms, formations internes BNP sur les outils data, YouTube, parcours d'apprentissage structures avec l'IA Claude sur des cas concrets, et surtout, apprendre en faisant sur les projets reels de l'equipe. Chaque obstacle rencontre dans le traitement des donnees est devenu une occasion de comprendre un mecanisme que je n'aurais pas saisi dans un cours theorique.</p>
           <div class="art-trace">
-            <div class="art-trace-label">Trace 2 — Pipeline Alteryx vers Tableau, projet ReCode, 2025-2026</div>
-            <p>Pipeline ETL complet : extraction depuis MyLearning, transformation sous Alteryx (230 000 lignes, 3 000 collaborateurs), restitution sous Tableau avec contraintes RGPD. Outil utilise chaque mois par la direction RH pour piloter la strategie de formation face a l'IA. Voir les captures en annexe.</p>
-          </div>
+  <div class="art-trace-label">Trace 2 — Tableau de bord ReCode, niveaux de competences, 2025-2026</div>
+  <img src="assets/art2-trace2.png" alt="Dashboard ReCode niveaux competences" style="width:100%;border:.5px solid var(--border2);margin-bottom:10px;">
+  <p>Tableau de bord ReCode : repartition de 3 585 developpeurs par niveau de maitrise des outils techniques, utilise par la direction RH pour piloter la strategie de formation face a l'IA.</p>
+</div>
         </div>
 
         <div class="art-sep fi"></div>
@@ -1639,6 +1651,7 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
           <div class="art-block-label">Mobilisation aujourd'hui</div>
           <h3>Le PSG Data Hub — apprendre par passion</h3>
           <p>En dehors de tout cadre academique ou professionnel, j'ai construit le PSG Data Hub : une base de donnees SQLite relationnelle (5 tables, 15 saisons, 35 joueurs, 36 operations de mercato), un pipeline Python-Pandas, 10 requetes SQL analytiques, un dashboard Chart.js deploye sur Vercel et versionne sur GitHub. Personne ne me l'a demande. Je l'ai fait parce que c'est comme ca que j'apprends.</p>
+          <img src="assets/art1-trace3.png" alt="PSG Data Hub palmares" style="width:100%;border:.5px solid var(--border2);margin-bottom:16px;">
           <div class="art-conscience">
             <p>Ce que j'ai interiorise : l'autodidaxie n'est pas une methode par defaut quand la formation manque. C'est une methode deliberee, que je mobilise aujourd'hui avant meme qu'on me la demande. Je n'attends pas qu'un cours existe pour apprendre ce dont j'ai besoin. Je cree mon propre parcours, ancre dans un probleme reel, teste sur des donnees reelles, valide par un resultat mesurable.</p>
           </div>
@@ -1667,10 +1680,20 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
           <div class="art-block-label">La situation problematique</div>
           <h3>Une base de donnees propre comme fondement de decision</h3>
           <p>Mars 2024, Musee du Quai Branly. Ma mission principale : dedoublonner 100 fiches collaborateurs dans le SIRH FNA. Une tache qui semblait purement administrative. En la realisant, j'ai compris quelque chose que je n'aurais pas saisi dans un cours : une base de donnees mal tenue, c'est une organisation qui prend ses decisions sur des informations fausses. Qui recrute sur la base d'effectifs errones. Qui forme sur la base de profils inexacts.</p>
-          <div class="art-trace">
-            <div class="art-trace-label">Trace 1 — Rapport de stage BUT1, Musee du Quai Branly, mars 2024</div>
-            <p>Mission de fiabilisation du SIRH FNA : identification et correction de 100 doublons, transmission du repertoire d'incoherences a la Responsable RH et a la Responsable SI. Voir en annexe.</p>
-          </div>
+         <div class="art-trace">
+  <div class="art-trace-label">Trace 1 — Fiabilisation SIRH FNA, Musee du Quai Branly, mars 2024</div>
+  <p style="margin-bottom:12px;">Avant : la base collaborateurs comporte des doublons et incoherences. Apres : un fichier corrige, fiabilise et documente, transmis a la Responsable RH.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;">
+    <div>
+      <img src="assets/art2-trace1-avant.png" alt="Avant - SIRH avec incoherences" style="width:100%;border:.5px solid var(--border2);">
+      <div style="font-size:9px;color:var(--t3);text-align:center;margin-top:4px;text-transform:uppercase;letter-spacing:.08em;">Avant</div>
+    </div>
+    <div>
+      <img src="assets/art2-trace1-apres.png" alt="Apres - SIRH corrige" style="width:100%;border:.5px solid var(--border2);">
+      <div style="font-size:9px;color:var(--t3);text-align:center;margin-top:4px;text-transform:uppercase;letter-spacing:.08em;">Apres</div>
+    </div>
+  </div>
+</div>
         </div>
 
         <div class="art-sep fi"></div>
@@ -1693,6 +1716,7 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
           <h3>Le NPS comme argument strategique</h3>
           <p>La SAE e-reputation Clariane (BUT3) m'a confronte a une version differente du meme probleme. J'etais Responsable Communication Interne et RH. J'avais acces a 2 500 avis salaries sur Glassdoor et Indeed. La difficulte n'etait pas de les lire, c'etait de les transformer en argument devant un jury jouant le role du CODIR de Clariane.</p>
           <p>J'ai mis en evidence le paradoxe central : NPS patients +45 contre NPS employe 12. Deux chiffres, mis en regard l'un de l'autre, qui racontent une histoire que vingt pages de rapport ne raconteraient pas avec la meme puissance : Clariane produit de la qualite de soin, mais ne parvient pas a la faire reconnaitre par ceux qui la produisent. Ce n'est pas la donnee qui convainc, c'est le recit qu'on en construit.</p>
+        <img src="assets/art2-trace3.png" alt="Contexte Clariane" style="width:100%;border:.5px solid var(--border2);margin-bottom:16px;">
           <div class="art-conscience">
             <p>Ce que j'ai interiorise : la donnee est un moyen, pas une fin. Sa valeur est proportionnelle a la precision de la question a laquelle elle repond, et a la clarte du recit dans lequel elle s'inscrit. Je ne produis pas des dashboards, je produis des outils qui permettent a quelqu'un de decider mieux. Cette conviction structure aujourd'hui chaque choix que je fais sur un projet data.</p>
           </div>
