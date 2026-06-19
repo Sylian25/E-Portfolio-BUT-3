@@ -925,6 +925,24 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
   .sae-detail-page{padding:120px 24px 60px;}
 }
 
+.sae-nav{
+  display:flex;gap:1px;background:var(--border);
+  margin-bottom:48px;border:.5px solid var(--border);
+}
+.sae-nav-btn{
+  flex:1;background:var(--bg2);padding:16px 12px;
+  font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--t3);text-align:center;cursor:pointer;
+  transition:background .25s,color .25s;
+}
+.sae-nav-btn:hover{background:var(--bg3);color:var(--text);}
+.sae-nav-btn.active{color:var(--accent);background:var(--adim);}
+.sae-back-row{display:flex;justify-content:space-between;align-items:center;}
+@media(max-width:768px){
+  .sae-nav{flex-wrap:wrap;}
+  .sae-nav-btn{flex:1 1 45%;}
+}
+
 </style>
 </head>
 <body>
@@ -1874,58 +1892,67 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
   <!-- SAE BOOSTA -->
   <div id="sae-boosta" class="sae-subpage">
     <div class="sae-detail-page">
-      <div class="sae-detail-tag">Entrepreneuriat - BUT 2</div>
+      <div class="sae-nav">
+        <div class="sae-nav-btn active" data-sae="boosta" onclick="showSaeSub('boosta')" data-tkey="saeNavBoosta">BOOSTA'Carriere</div>
+        <div class="sae-nav-btn" data-sae="solidr" onclick="showSaeSub('solidr')" data-tkey="saeNavSolidr">Solid'R</div>
+        <div class="sae-nav-btn" data-sae="maia" onclick="showSaeSub('maia')" data-tkey="saeNavMaia">Maia Village</div>
+        <div class="sae-nav-btn" data-sae="clariane" onclick="showSaeSub('clariane')" data-tkey="saeNavClariane">Clariane</div>
+      </div>
+      <div class="sae-detail-tag" data-tkey="saeTagBoosta">Entrepreneuriat - BUT 2</div>
       <h1 class="sae-detail-title">BOOSTA'Carriere</h1>
 
       <div class="sae-block">
-        <div class="sae-block-label">Enjeux</div>
-        <p>Trouver un stage ou une alternance quand on vient d'un milieu sans reseau constitue est un obstacle reel que les plateformes d'offres d'emploi classiques ne resolvent pas. Les etudiants de premier cycle manquent d'accompagnement personnalise pour valoriser leur candidature et preparer leurs entretiens.</p>
+        <div class="sae-block-label" data-tkey="saeLabelEnjeux">Enjeux</div>
+        <p data-tkey="boostaEnjeux">Trouver un stage ou une alternance quand on vient d'un milieu sans reseau constitue est un obstacle reel que les plateformes d'offres d'emploi classiques ne resolvent pas. Les etudiants de premier cycle manquent d'accompagnement personnalise pour valoriser leur candidature et preparer leurs entretiens.</p>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Solution</div>
-        <p>BOOSTA'Carriere est une solution d'accompagnement a l'insertion professionnelle pour les etudiants de BTS, BUT et Licence : coaching personnalise CV et lettre de motivation, preparation aux entretiens, et une communaute Discord pour elargir son reseau via des evenements organises autour de centres d'interet communs.</p>
+        <div class="sae-block-label" data-tkey="saeLabelSolution">Solution</div>
+        <p data-tkey="boostaSolution">BOOSTA'Carriere est une solution d'accompagnement a l'insertion professionnelle pour les etudiants de BTS, BUT et Licence : coaching personnalise CV et lettre de motivation, preparation aux entretiens, et une communaute Discord pour elargir son reseau via des evenements organises autour de centres d'interet communs.</p>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Demarche</div>
+        <div class="sae-block-label" data-tkey="saeLabelDemarche">Demarche</div>
         <ul>
-          <li>Pilotage de l'etude de marche qualitative et quantitative auprès de la cible etudiante</li>
-          <li>Traitement des donnees collectees via Google Forms et Excel pour en extraire des tendances exploitables</li>
-          <li>Conduite d'entretiens qualitatifs pour affiner la comprehension des besoins reels</li>
-          <li>Modelisation du business plan sur trois ans avec hypotheses de revenus chiffrees</li>
-          <li>Defense du projet devant un jury d'investisseurs au Village des Talents</li>
+          <li data-tkey="boostaD1">Pilotage de l'etude de marche qualitative et quantitative auprès de la cible etudiante</li>
+          <li data-tkey="boostaD2">Traitement des donnees collectees via Google Forms et Excel pour en extraire des tendances exploitables</li>
+          <li data-tkey="boostaD3">Conduite d'entretiens qualitatifs pour affiner la comprehension des besoins reels</li>
+          <li data-tkey="boostaD4">Modelisation du business plan sur trois ans avec hypotheses de revenus chiffrees</li>
+          <li data-tkey="boostaD5">Defense du projet devant un jury d'investisseurs au Village des Talents</li>
         </ul>
       </div>
 
       <div class="sae-visual">
         <img src="assets/art3-trace1.png" alt="Projections financieres BOOSTA Carriere">
       </div>
-      <div class="sae-visual-caption">Extrait du Business Plan : hypotheses de revenus sur 3 ans</div>
+      <div class="sae-visual-caption" data-tkey="boostaCaption">Extrait du Business Plan : hypotheses de revenus sur 3 ans</div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Resultats</div>
+        <div class="sae-block-label" data-tkey="saeLabelResultats">Resultats</div>
         <div class="sae-stats-grid">
-          <div class="sae-stat"><div class="sae-stat-num">5</div><div class="sae-stat-label">Co-fondateurs</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">35</div><div class="sae-stat-label">Pages d'etude de marche</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">142K€</div><div class="sae-stat-label">CA previsionnel annee 3</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">2382</div><div class="sae-stat-label">Coachings projetes an 3</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">5</div><div class="sae-stat-label" data-tkey="boostaStat1">Co-fondateurs</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">35</div><div class="sae-stat-label" data-tkey="boostaStat2">Pages d'etude de marche</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">142K€</div><div class="sae-stat-label" data-tkey="boostaStat3">CA previsionnel annee 3</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">2382</div><div class="sae-stat-label" data-tkey="boostaStat4">Coachings projetes an 3</div></div>
         </div>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Competences developpees</div>
+        <div class="sae-block-label" data-tkey="saeLabelComps">Competences developpees</div>
         <div class="sae-comps-tags">
-          <span class="sae-comp-tag">Etude de marche</span>
-          <span class="sae-comp-tag">Business plan</span>
-          <span class="sae-comp-tag">Modelisation financiere</span>
-          <span class="sae-comp-tag">Pitch investisseur</span>
-          <span class="sae-comp-tag">Travail en equipe</span>
+          <span class="sae-comp-tag" data-tkey="boostaComp1">Etude de marche</span>
+          <span class="sae-comp-tag" data-tkey="boostaComp2">Business plan</span>
+          <span class="sae-comp-tag" data-tkey="boostaComp3">Modelisation financiere</span>
+          <span class="sae-comp-tag" data-tkey="boostaComp4">Pitch investisseur</span>
+          <span class="sae-comp-tag" data-tkey="boostaComp5">Travail en equipe</span>
         </div>
       </div>
 
       <div class="sae-back">
-        <span class="sae-back-btn" onclick="goPage('parcours')">← Revenir a mon parcours</span>
+        <div class="sae-back-row">
+          <span class="sae-back-btn" onclick="goPage('parcours')" data-tkey="backParcours">← Revenir a mon parcours</span>
+          <span class="sae-back-btn" onclick="nextSAE('boosta')" data-tkey="nextSae">SAE suivante →</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1933,58 +1960,67 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
   <!-- SAE SOLID'R -->
   <div id="sae-solidr" class="sae-subpage" style="display:none;">
     <div class="sae-detail-page">
-      <div class="sae-detail-tag">Analyse strategique - BUT 2</div>
+      <div class="sae-nav">
+        <div class="sae-nav-btn" data-sae="boosta" onclick="showSaeSub('boosta')" data-tkey="saeNavBoosta">BOOSTA'Carriere</div>
+        <div class="sae-nav-btn active" data-sae="solidr" onclick="showSaeSub('solidr')" data-tkey="saeNavSolidr">Solid'R</div>
+        <div class="sae-nav-btn" data-sae="maia" onclick="showSaeSub('maia')" data-tkey="saeNavMaia">Maia Village</div>
+        <div class="sae-nav-btn" data-sae="clariane" onclick="showSaeSub('clariane')" data-tkey="saeNavClariane">Clariane</div>
+      </div>
+      <div class="sae-detail-tag" data-tkey="saeTagSolidr">Analyse strategique - BUT 2</div>
       <h1 class="sae-detail-title">Solid'R - Epicerie Solidaire</h1>
 
       <div class="sae-block">
-        <div class="sae-block-label">Enjeux</div>
-        <p>Pres de 25% des etudiants de l'IUT beneficient d'une bourse, et une part significative a deja eu recours a une aide alimentaire. L'IUT souhaite etudier la faisabilite d'une epicerie solidaire pour repondre a cette precarite etudiante de maniere structurelle.</p>
+        <div class="sae-block-label" data-tkey="saeLabelEnjeux">Enjeux</div>
+        <p data-tkey="solidrEnjeux">Pres de 25% des etudiants de l'IUT beneficient d'une bourse, et une part significative a deja eu recours a une aide alimentaire. L'IUT souhaite etudier la faisabilite d'une epicerie solidaire pour repondre a cette precarite etudiante de maniere structurelle.</p>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Solution</div>
-        <p>Une etude de faisabilite complete identifiant le modele de deploiement le plus adapte : approvisionnement via des reseaux solidaires nationaux (ANDES, BAPIF), modalites de fonctionnement, financement et impact attendu sur la dignite des etudiants beneficiaires.</p>
+        <div class="sae-block-label" data-tkey="saeLabelSolution">Solution</div>
+        <p data-tkey="solidrSolution">Une etude de faisabilite complete identifiant le modele de deploiement le plus adapte : approvisionnement via des reseaux solidaires nationaux (ANDES, BAPIF), modalites de fonctionnement, financement et impact attendu sur la dignite des etudiants beneficiaires.</p>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Demarche</div>
+        <div class="sae-block-label" data-tkey="saeLabelDemarche">Demarche</div>
         <ul>
-          <li>Pilotage de l'analyse des donnees d'une enquete menee auprès de 427 etudiants sur 3 000</li>
-          <li>Structuration d'un benchmarking d'epiceries solidaires existantes (Ma'Yonnaise, Episol)</li>
-          <li>Conduite d'entretiens avec des acteurs nationaux : ANDES, Banque Alimentaire Paris IDF</li>
-          <li>Modelisation de deux scenarios de deploiement avec budgets previsionnels detailles</li>
-          <li>Collaboration avec le departement informatique pour un cahier des charges front et back office</li>
+          <li data-tkey="solidrD1">Pilotage de l'analyse des donnees d'une enquete menee auprès de 427 etudiants sur 3 000</li>
+          <li data-tkey="solidrD2">Structuration d'un benchmarking d'epiceries solidaires existantes (Ma'Yonnaise, Episol)</li>
+          <li data-tkey="solidrD3">Conduite d'entretiens avec des acteurs nationaux : ANDES, Banque Alimentaire Paris IDF</li>
+          <li data-tkey="solidrD4">Modelisation de deux scenarios de deploiement avec budgets previsionnels detailles</li>
+          <li data-tkey="solidrD5">Collaboration avec le departement informatique pour un cahier des charges front et back office</li>
         </ul>
       </div>
 
       <div class="sae-visual">
         <img src="assets/art3-trace2.png" alt="Carte mentale scenario 1 Solid'R">
       </div>
-      <div class="sae-visual-caption">Carte mentale du scenario de deploiement retenu</div>
+      <div class="sae-visual-caption" data-tkey="solidrCaption">Carte mentale du scenario de deploiement retenu</div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Resultats</div>
+        <div class="sae-block-label" data-tkey="saeLabelResultats">Resultats</div>
         <div class="sae-stats-grid">
-          <div class="sae-stat"><div class="sae-stat-num">8</div><div class="sae-stat-label">Membres de l'equipe</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">427</div><div class="sae-stat-label">Etudiants enquetes</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">2</div><div class="sae-stat-label">Scenarios modelises</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">3</div><div class="sae-stat-label">Acteurs nationaux consultes</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">8</div><div class="sae-stat-label" data-tkey="solidrStat1">Membres de l'equipe</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">427</div><div class="sae-stat-label" data-tkey="solidrStat2">Etudiants enquetes</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">2</div><div class="sae-stat-label" data-tkey="solidrStat3">Scenarios modelises</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">3</div><div class="sae-stat-label" data-tkey="solidrStat4">Acteurs nationaux consultes</div></div>
         </div>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Competences developpees</div>
+        <div class="sae-block-label" data-tkey="saeLabelComps">Competences developpees</div>
         <div class="sae-comps-tags">
-          <span class="sae-comp-tag">Analyse de donnees quantitatives</span>
-          <span class="sae-comp-tag">Benchmarking</span>
-          <span class="sae-comp-tag">Entretiens qualitatifs</span>
-          <span class="sae-comp-tag">Modelisation budgetaire</span>
-          <span class="sae-comp-tag">Travail transversal</span>
+          <span class="sae-comp-tag" data-tkey="solidrComp1">Analyse de donnees quantitatives</span>
+          <span class="sae-comp-tag" data-tkey="solidrComp2">Benchmarking</span>
+          <span class="sae-comp-tag" data-tkey="solidrComp3">Entretiens qualitatifs</span>
+          <span class="sae-comp-tag" data-tkey="solidrComp4">Modelisation budgetaire</span>
+          <span class="sae-comp-tag" data-tkey="solidrComp5">Travail transversal</span>
         </div>
       </div>
 
       <div class="sae-back">
-        <span class="sae-back-btn" onclick="goPage('parcours')">← Revenir a mon parcours</span>
+        <div class="sae-back-row">
+          <span class="sae-back-btn" onclick="goPage('parcours')" data-tkey="backParcours">← Revenir a mon parcours</span>
+          <span class="sae-back-btn" onclick="nextSAE('solidr')" data-tkey="nextSae">SAE suivante →</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1992,58 +2028,67 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
   <!-- SAE MAIA VILLAGE -->
   <div id="sae-maia" class="sae-subpage" style="display:none;">
     <div class="sae-detail-page">
-      <div class="sae-detail-tag">Transformation digitale - BUT 3</div>
+      <div class="sae-nav">
+        <div class="sae-nav-btn" data-sae="boosta" onclick="showSaeSub('boosta')" data-tkey="saeNavBoosta">BOOSTA'Carriere</div>
+        <div class="sae-nav-btn" data-sae="solidr" onclick="showSaeSub('solidr')" data-tkey="saeNavSolidr">Solid'R</div>
+        <div class="sae-nav-btn active" data-sae="maia" onclick="showSaeSub('maia')" data-tkey="saeNavMaia">Maia Village</div>
+        <div class="sae-nav-btn" data-sae="clariane" onclick="showSaeSub('clariane')" data-tkey="saeNavClariane">Clariane</div>
+      </div>
+      <div class="sae-detail-tag" data-tkey="saeTagMaia">Transformation digitale - BUT 3</div>
       <h1 class="sae-detail-title">Maia Village - Deploiement ERP</h1>
 
       <div class="sae-block">
-        <div class="sae-block-label">Enjeux</div>
-        <p>Maia Village, groupe de gestion de creches multi-etablissements, rencontre des limites operationnelles avec son systeme d'information actuel : inefficacite des processus, erreurs de traitement, securite insuffisante des donnees face aux exigences RGPD.</p>
+        <div class="sae-block-label" data-tkey="saeLabelEnjeux">Enjeux</div>
+        <p data-tkey="maiaEnjeux">Maia Village, groupe de gestion de creches multi-etablissements, rencontre des limites operationnelles avec son systeme d'information actuel : inefficacite des processus, erreurs de traitement, securite insuffisante des donnees face aux exigences RGPD.</p>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Solution</div>
-        <p>Le deploiement de l'ERP Mercury, une solution agile et securisee adaptee a la croissance du reseau, accompagnee d'un plan de communication d'adoption structure pour garantir l'acceptation du changement par l'ensemble des parties prenantes : direction, equipes pedagogiques, familles.</p>
+        <div class="sae-block-label" data-tkey="saeLabelSolution">Solution</div>
+        <p data-tkey="maiaSolution">Le deploiement de l'ERP Mercury, une solution agile et securisee adaptee a la croissance du reseau, accompagnee d'un plan de communication d'adoption structure pour garantir l'acceptation du changement par l'ensemble des parties prenantes : direction, equipes pedagogiques, familles.</p>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Demarche</div>
+        <div class="sae-block-label" data-tkey="saeLabelDemarche">Demarche</div>
         <ul>
-          <li>Audit du systeme d'information existant pour identifier dysfonctionnements et limites</li>
-          <li>Redaction d'un cahier des charges fonctionnel detaille, incluant l'analyse des besoins de chaque partie prenante</li>
-          <li>Comparaison de plusieurs solutions ERP via une grille multicritere construite collectivement</li>
-          <li>Recommandation argumentee du choix du prestataire Mercury</li>
-          <li>Elaboration d'un plan de communication d'adoption avec budget maitrise, incluant sensibilisation, formation et ambassadeurs du projet</li>
+          <li data-tkey="maiaD1">Audit du systeme d'information existant pour identifier dysfonctionnements et limites</li>
+          <li data-tkey="maiaD2">Redaction d'un cahier des charges fonctionnel detaille, incluant l'analyse des besoins de chaque partie prenante</li>
+          <li data-tkey="maiaD3">Comparaison de plusieurs solutions ERP via une grille multicritere construite collectivement</li>
+          <li data-tkey="maiaD4">Recommandation argumentee du choix du prestataire Mercury</li>
+          <li data-tkey="maiaD5">Elaboration d'un plan de communication d'adoption avec budget maitrise, incluant sensibilisation, formation et ambassadeurs du projet</li>
         </ul>
       </div>
 
       <div class="sae-visual">
-        <img src="assets/cdc-maia.pdf" alt="Cahier des charges Maia Village">
+        <img src="assets/maia-cdc-capture.png" alt="Cahier des charges Maia Village">
       </div>
-      <div class="sae-visual-caption">Extrait du cahier des charges : page de garde et structure du document</div>
+      <div class="sae-visual-caption" data-tkey="maiaCaption">Extrait du cahier des charges : page de garde et structure du document</div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Resultats</div>
+        <div class="sae-block-label" data-tkey="saeLabelResultats">Resultats</div>
         <div class="sae-stats-grid">
-          <div class="sae-stat"><div class="sae-stat-num">5</div><div class="sae-stat-label">Membres de l'equipe</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">5</div><div class="sae-stat-label">Priorites fonctionnelles</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">5K€</div><div class="sae-stat-label">Budget plan d'adoption</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">4</div><div class="sae-stat-label">Phases de deploiement</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">5</div><div class="sae-stat-label" data-tkey="maiaStat1">Membres de l'equipe</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">5</div><div class="sae-stat-label" data-tkey="maiaStat2">Priorites fonctionnelles</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">5K€</div><div class="sae-stat-label" data-tkey="maiaStat3">Budget plan d'adoption</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">4</div><div class="sae-stat-label" data-tkey="maiaStat4">Phases de deploiement</div></div>
         </div>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Competences developpees</div>
+        <div class="sae-block-label" data-tkey="saeLabelComps">Competences developpees</div>
         <div class="sae-comps-tags">
-          <span class="sae-comp-tag">Audit de systeme d'information</span>
-          <span class="sae-comp-tag">Cahier des charges</span>
-          <span class="sae-comp-tag">Analyse comparative</span>
-          <span class="sae-comp-tag">Conduite du changement</span>
-          <span class="sae-comp-tag">Communication multi-niveaux</span>
+          <span class="sae-comp-tag" data-tkey="maiaComp1">Audit de systeme d'information</span>
+          <span class="sae-comp-tag" data-tkey="maiaComp2">Cahier des charges</span>
+          <span class="sae-comp-tag" data-tkey="maiaComp3">Analyse comparative</span>
+          <span class="sae-comp-tag" data-tkey="maiaComp4">Conduite du changement</span>
+          <span class="sae-comp-tag" data-tkey="maiaComp5">Communication multi-niveaux</span>
         </div>
       </div>
 
       <div class="sae-back">
-        <span class="sae-back-btn" onclick="goPage('parcours')">← Revenir a mon parcours</span>
+        <div class="sae-back-row">
+          <span class="sae-back-btn" onclick="goPage('parcours')" data-tkey="backParcours">← Revenir a mon parcours</span>
+          <span class="sae-back-btn" onclick="nextSAE('maia')" data-tkey="nextSae">SAE suivante →</span>
+        </div>
       </div>
     </div>
   </div>
@@ -2051,58 +2096,67 @@ body.dark .hero-photo-overlay{background:linear-gradient(to bottom,transparent 6
   <!-- SAE CLARIANE -->
   <div id="sae-clariane" class="sae-subpage" style="display:none;">
     <div class="sae-detail-page">
-      <div class="sae-detail-tag">Communication strategique - BUT 3</div>
+      <div class="sae-nav">
+        <div class="sae-nav-btn" data-sae="boosta" onclick="showSaeSub('boosta')" data-tkey="saeNavBoosta">BOOSTA'Carriere</div>
+        <div class="sae-nav-btn" data-sae="solidr" onclick="showSaeSub('solidr')" data-tkey="saeNavSolidr">Solid'R</div>
+        <div class="sae-nav-btn" data-sae="maia" onclick="showSaeSub('maia')" data-tkey="saeNavMaia">Maia Village</div>
+        <div class="sae-nav-btn active" data-sae="clariane" onclick="showSaeSub('clariane')" data-tkey="saeNavClariane">Clariane</div>
+      </div>
+      <div class="sae-detail-tag" data-tkey="saeTagClariane">Communication strategique - BUT 3</div>
       <h1 class="sae-detail-title">E-reputation Clariane</h1>
 
       <div class="sae-block">
-        <div class="sae-block-label">Enjeux</div>
-        <p>Clariane, leader europeen de l'hebergement pour seniors, porte encore le poids du scandale Orpea-Korian de 2022. Le groupe doit reconstruire sa reputation, d'abord auprès de ses collaborateurs, ensuite auprès du grand public, dans un secteur sous forte surveillance mediatique.</p>
+        <div class="sae-block-label" data-tkey="saeLabelEnjeux">Enjeux</div>
+        <p data-tkey="clarianeEnjeux">Clariane, leader europeen de l'hebergement pour seniors, porte encore le poids du scandale Orpea-Korian de 2022. Le groupe doit reconstruire sa reputation, d'abord auprès de ses collaborateurs, ensuite auprès du grand public, dans un secteur sous forte surveillance mediatique.</p>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Solution</div>
-        <p>Un audit complet de l'e-reputation du groupe, suivi d'un plan de communication centre sur la marque employeur ("Chez Clariane, on prend soin de ceux qui prennent soin"), et la production d'un contenu reel : une video documentaire montrant la sincerite du quotidien des equipes.</p>
+        <div class="sae-block-label" data-tkey="saeLabelSolution">Solution</div>
+        <p data-tkey="clarianeSolution">Un audit complet de l'e-reputation du groupe, suivi d'un plan de communication centre sur la marque employeur ("Chez Clariane, on prend soin de ceux qui prennent soin"), et la production d'un contenu reel : une video documentaire montrant la sincerite du quotidien des equipes.</p>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Demarche</div>
+        <div class="sae-block-label" data-tkey="saeLabelDemarche">Demarche</div>
         <ul>
-          <li>Collecte et classification de plus de 2 500 avis salaries sur Glassdoor et Indeed par thematique et tonalite</li>
-          <li>Identification du paradoxe central : NPS patients +45 contre NPS employe 12</li>
-          <li>Recentrage du plan de communication apres retours critiques du jury, autour d'un message unique</li>
-          <li>Definition d'objectifs chiffres, de cibles et d'un calendrier de campagnes sur 12 mois</li>
-          <li>Production d'une video documentaire de 90 secondes, "Le Relais", filmee au smartphone</li>
+          <li data-tkey="clarianeD1">Collecte et classification de plus de 2 500 avis salaries sur Glassdoor et Indeed par thematique et tonalite</li>
+          <li data-tkey="clarianeD2">Identification du paradoxe central : NPS patients +45 contre NPS employe 12</li>
+          <li data-tkey="clarianeD3">Recentrage du plan de communication apres retours critiques du jury, autour d'un message unique</li>
+          <li data-tkey="clarianeD4">Definition d'objectifs chiffres, de cibles et d'un calendrier de campagnes sur 12 mois</li>
+          <li data-tkey="clarianeD5">Production d'une video documentaire de 90 secondes, "Le Relais", filmee au smartphone</li>
         </ul>
       </div>
 
       <div class="sae-visual">
         <img src="assets/art3-trace3.png" alt="Repartition des roles SAE Clariane">
       </div>
-      <div class="sae-visual-caption">Structure de l'equipe en mode agence et repartition des roles</div>
+      <div class="sae-visual-caption" data-tkey="clarianeCaption">Structure de l'equipe en mode agence et repartition des roles</div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Resultats</div>
+        <div class="sae-block-label" data-tkey="saeLabelResultats">Resultats</div>
         <div class="sae-stats-grid">
-          <div class="sae-stat"><div class="sae-stat-num">4</div><div class="sae-stat-label">Membres de l'equipe</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">2500+</div><div class="sae-stat-label">Avis salaries analyses</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">90s</div><div class="sae-stat-label">Video documentaire produite</div></div>
-          <div class="sae-stat"><div class="sae-stat-num">75K€</div><div class="sae-stat-label">Budget plan de communication</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">4</div><div class="sae-stat-label" data-tkey="clarianeStat1">Membres de l'equipe</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">2500+</div><div class="sae-stat-label" data-tkey="clarianeStat2">Avis salaries analyses</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">90s</div><div class="sae-stat-label" data-tkey="clarianeStat3">Video documentaire produite</div></div>
+          <div class="sae-stat"><div class="sae-stat-num">75K€</div><div class="sae-stat-label" data-tkey="clarianeStat4">Budget plan de communication</div></div>
         </div>
       </div>
 
       <div class="sae-block">
-        <div class="sae-block-label">Competences developpees</div>
+        <div class="sae-block-label" data-tkey="saeLabelComps">Competences developpees</div>
         <div class="sae-comps-tags">
-          <span class="sae-comp-tag">Audit e-reputation</span>
-          <span class="sae-comp-tag">Analyse multi-sources</span>
-          <span class="sae-comp-tag">Communication corporate</span>
-          <span class="sae-comp-tag">Marque employeur</span>
-          <span class="sae-comp-tag">Production de contenu</span>
+          <span class="sae-comp-tag" data-tkey="clarianeComp1">Audit e-reputation</span>
+          <span class="sae-comp-tag" data-tkey="clarianeComp2">Analyse multi-sources</span>
+          <span class="sae-comp-tag" data-tkey="clarianeComp3">Communication corporate</span>
+          <span class="sae-comp-tag" data-tkey="clarianeComp4">Marque employeur</span>
+          <span class="sae-comp-tag" data-tkey="clarianeComp5">Production de contenu</span>
         </div>
       </div>
 
       <div class="sae-back">
-        <span class="sae-back-btn" onclick="goPage('parcours')">← Revenir a mon parcours</span>
+        <div class="sae-back-row">
+          <span class="sae-back-btn" onclick="goPage('parcours')" data-tkey="backParcours">← Revenir a mon parcours</span>
+          <span class="sae-back-btn" onclick="nextSAE('clariane')" data-tkey="nextSae">SAE suivante →</span>
+        </div>
       </div>
     </div>
   </div>
@@ -2430,12 +2484,16 @@ window.addEventListener('popstate', (e) => {
   if (pid === 'articles' && e.state && e.state.art) {
     showArtSub(e.state.art, false);
   }
+  if (pid === 'sae-detail' && e.state && e.state.sae) {
+    showSaeSub(e.state.sae, false);
+  }
 });
 
 window.addEventListener('load', () => {
   const hash = window.location.hash.replace('#', '');
   const valid = ['accueil','parcours','experiences','articles','annexes','contact'];
   const artValid = ['comp-but','art1','art2','art3'];
+  const saeValid = ['boosta','solidr','maia','clariane'];
 
   if (hash.startsWith('articles-')) {
     const artId = hash.replace('articles-', '');
@@ -2444,6 +2502,13 @@ window.addEventListener('load', () => {
       showArtSub(artId, false);
     }
     history.replaceState({page: 'articles', art: artId}, '', '#articles-' + artId);
+  } else if (hash.startsWith('sae-')) {
+    const saeId = hash.replace('sae-', '');
+    goPage('sae-detail', false);
+    if (saeValid.includes(saeId)) {
+      showSaeSub(saeId, false);
+    }
+    history.replaceState({page: 'sae-detail', sae: saeId}, '', '#sae-' + saeId);
   } else {
     const startPage = valid.includes(hash) ? hash : 'accueil';
     goPage(startPage, false);
@@ -2477,11 +2542,49 @@ function showArtSub(id, push = true) {
 // ============================================
 // SAE PAGES (placeholder)
 // ============================================
+const saeOrder = ['boosta','solidr','maia','clariane'];
+
+const saeOrder = ['boosta','solidr','maia','clariane'];
+
 function goSAE(id) {
   goPage('sae-detail');
+  showSaeSub(id);
+}
+
+function showSaeSub(id, push = true) {
   document.querySelectorAll('.sae-subpage').forEach(s => s.style.display = 'none');
   const el = document.getElementById('sae-' + id);
   if (el) { el.style.display = 'block'; revealFi(); window.scrollTo(0,0); }
+  document.querySelectorAll('.sae-nav-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.sae === id);
+  });
+  if (push) {
+    history.pushState({page: 'sae-detail', sae: id}, '', '#sae-' + id);
+  }
+}
+
+function nextSAE(currentId) {
+  const idx = saeOrder.indexOf(currentId);
+  const nextId = saeOrder[(idx + 1) % saeOrder.length];
+  showSaeSub(nextId);
+}
+
+function showSaeSub(id, push = true) {
+  document.querySelectorAll('.sae-subpage').forEach(s => s.style.display = 'none');
+  const el = document.getElementById('sae-' + id);
+  if (el) { el.style.display = 'block'; revealFi(); window.scrollTo(0,0); }
+  document.querySelectorAll('.sae-nav-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.sae === id);
+  });
+  if (push) {
+    history.pushState({page: 'sae-detail', sae: id}, '', '#sae-' + id);
+  }
+}
+
+function nextSAE(currentId) {
+  const idx = saeOrder.indexOf(currentId);
+  const nextId = saeOrder[(idx + 1) % saeOrder.length];
+  showSaeSub(nextId);
 }
 
 // ============================================
@@ -2854,7 +2957,90 @@ const translations = {
   contactMerci:{fr:"Merci de prendre le temps de parcourir mon portfolio. Que vous soyez enseignant, membre du jury, recruteur ou simplement curieux de mon parcours, je serais ravi d'echanger avec vous. N'hesitez pas a me contacter via le formulaire ci-dessous ou directement par les liens sur le cote.",en:"Thank you for taking the time to browse my portfolio. Whether you are a teacher, a panel member, a recruiter or simply curious about my journey, I would be delighted to connect with you. Feel free to contact me via the form below or directly through the links on the side."},
   formNom:{fr:"Nom",en:"Name"}, formEmail:{fr:"Email",en:"Email"}, formSujet:{fr:"Sujet",en:"Subject"}, formMessage:{fr:"Message",en:"Message"},
   formEnvoyer:{fr:"Envoyer ↗",en:"Send ↗"},
-  ciEmail:{fr:"Email",en:"Email"},
+  saeNavBoosta:{fr:"BOOSTA'Carriere",en:"BOOSTA'Carriere"},
+saeNavSolidr:{fr:"Solid'R",en:"Solid'R"},
+saeNavMaia:{fr:"Maia Village",en:"Maia Village"},
+saeNavClariane:{fr:"Clariane",en:"Clariane"},
+backParcours:{fr:"← Revenir a mon parcours",en:"← Back to my journey"},
+nextSae:{fr:"SAE suivante →",en:"Next project →"},
+saeTagBoosta:{fr:"Entrepreneuriat - BUT 2",en:"Entrepreneurship - Year 2"},
+saeTagSolidr:{fr:"Analyse strategique - BUT 2",en:"Strategic analysis - Year 2"},
+saeTagMaia:{fr:"Transformation digitale - BUT 3",en:"Digital transformation - Year 3"},
+saeTagClariane:{fr:"Communication strategique - BUT 3",en:"Strategic communication - Year 3"},
+saeLabelEnjeux:{fr:"Enjeux",en:"Challenges"},
+saeLabelSolution:{fr:"Solution",en:"Solution"},
+saeLabelDemarche:{fr:"Demarche",en:"Approach"},
+saeLabelResultats:{fr:"Resultats",en:"Results"},
+saeLabelComps:{fr:"Competences developpees",en:"Skills developed"},
+boostaEnjeux:{fr:"Trouver un stage ou une alternance quand on vient d'un milieu sans reseau constitue est un obstacle reel que les plateformes d'offres d'emploi classiques ne resolvent pas. Les etudiants de premier cycle manquent d'accompagnement personnalise pour valoriser leur candidature et preparer leurs entretiens.",en:"Finding an internship or apprenticeship when coming from a background without an established network is a real obstacle that traditional job platforms do not solve. First-cycle students lack personalized support to showcase their applications and prepare for interviews."},
+boostaSolution:{fr:"BOOSTA'Carriere est une solution d'accompagnement a l'insertion professionnelle pour les etudiants de BTS, BUT et Licence : coaching personnalise CV et lettre de motivation, preparation aux entretiens, et une communaute Discord pour elargir son reseau via des evenements organises autour de centres d'interet communs.",en:"BOOSTA'Carriere is a career support solution for BTS, BUT and Bachelor's students: personalized CV and cover letter coaching, interview preparation, and a Discord community to expand one's network through events built around shared interests."},
+boostaD1:{fr:"Pilotage de l'etude de marche qualitative et quantitative auprès de la cible etudiante",en:"Leading the qualitative and quantitative market research among the student target group"},
+boostaD2:{fr:"Traitement des donnees collectees via Google Forms et Excel pour en extraire des tendances exploitables",en:"Processing data collected via Google Forms and Excel to extract actionable trends"},
+boostaD3:{fr:"Conduite d'entretiens qualitatifs pour affiner la comprehension des besoins reels",en:"Conducting qualitative interviews to refine the understanding of real needs"},
+boostaD4:{fr:"Modelisation du business plan sur trois ans avec hypotheses de revenus chiffrees",en:"Modeling the three-year business plan with quantified revenue assumptions"},
+boostaD5:{fr:"Defense du projet devant un jury d'investisseurs au Village des Talents",en:"Defending the project in front of an investor panel at the Village des Talents"},
+boostaCaption:{fr:"Extrait du Business Plan : hypotheses de revenus sur 3 ans",en:"Extract from the Business Plan: three-year revenue assumptions"},
+boostaStat1:{fr:"Co-fondateurs",en:"Co-founders"},
+boostaStat2:{fr:"Pages d'etude de marche",en:"Pages of market research"},
+boostaStat3:{fr:"CA previsionnel annee 3",en:"Forecast revenue year 3"},
+boostaStat4:{fr:"Coachings projetes an 3",en:"Projected coachings year 3"},
+boostaComp1:{fr:"Etude de marche",en:"Market research"},
+boostaComp2:{fr:"Business plan",en:"Business plan"},
+boostaComp3:{fr:"Modelisation financiere",en:"Financial modeling"},
+boostaComp4:{fr:"Pitch investisseur",en:"Investor pitch"},
+boostaComp5:{fr:"Travail en equipe",en:"Teamwork"},
+solidrEnjeux:{fr:"Pres de 25% des etudiants de l'IUT beneficient d'une bourse, et une part significative a deja eu recours a une aide alimentaire. L'IUT souhaite etudier la faisabilite d'une epicerie solidaire pour repondre a cette precarite etudiante de maniere structurelle.",en:"Nearly 25% of IUT students receive a scholarship, and a significant proportion have already relied on food aid. The IUT wants to study the feasibility of a solidarity grocery store to structurally address this student hardship."},
+solidrSolution:{fr:"Une etude de faisabilite complete identifiant le modele de deploiement le plus adapte : approvisionnement via des reseaux solidaires nationaux (ANDES, BAPIF), modalites de fonctionnement, financement et impact attendu sur la dignite des etudiants beneficiaires.",en:"A complete feasibility study identifying the most suitable deployment model: supply through national solidarity networks (ANDES, BAPIF), operating arrangements, funding and expected impact on the dignity of student beneficiaries."},
+solidrD1:{fr:"Pilotage de l'analyse des donnees d'une enquete menee auprès de 427 etudiants sur 3 000",en:"Leading the data analysis of a survey conducted among 427 out of 3,000 students"},
+solidrD2:{fr:"Structuration d'un benchmarking d'epiceries solidaires existantes (Ma'Yonnaise, Episol)",en:"Structuring a benchmark of existing solidarity grocery stores (Ma'Yonnaise, Episol)"},
+solidrD3:{fr:"Conduite d'entretiens avec des acteurs nationaux : ANDES, Banque Alimentaire Paris IDF",en:"Conducting interviews with national stakeholders: ANDES, Paris IDF Food Bank"},
+solidrD4:{fr:"Modelisation de deux scenarios de deploiement avec budgets previsionnels detailles",en:"Modeling two deployment scenarios with detailed budget forecasts"},
+solidrD5:{fr:"Collaboration avec le departement informatique pour un cahier des charges front et back office",en:"Collaboration with the IT department on front and back office specifications"},
+solidrCaption:{fr:"Carte mentale du scenario de deploiement retenu",en:"Mind map of the chosen deployment scenario"},
+solidrStat1:{fr:"Membres de l'equipe",en:"Team members"},
+solidrStat2:{fr:"Etudiants enquetes",en:"Students surveyed"},
+solidrStat3:{fr:"Scenarios modelises",en:"Scenarios modeled"},
+solidrStat4:{fr:"Acteurs nationaux consultes",en:"National stakeholders consulted"},
+solidrComp1:{fr:"Analyse de donnees quantitatives",en:"Quantitative data analysis"},
+solidrComp2:{fr:"Benchmarking",en:"Benchmarking"},
+solidrComp3:{fr:"Entretiens qualitatifs",en:"Qualitative interviews"},
+solidrComp4:{fr:"Modelisation budgetaire",en:"Budget modeling"},
+solidrComp5:{fr:"Travail transversal",en:"Cross-functional work"},
+maiaEnjeux:{fr:"Maia Village, groupe de gestion de creches multi-etablissements, rencontre des limites operationnelles avec son systeme d'information actuel : inefficacite des processus, erreurs de traitement, securite insuffisante des donnees face aux exigences RGPD.",en:"Maia Village, a multi-site childcare management group, faces operational limitations with its current information system: inefficient processes, processing errors, insufficient data security against GDPR requirements."},
+maiaSolution:{fr:"Le deploiement de l'ERP Mercury, une solution agile et securisee adaptee a la croissance du reseau, accompagnee d'un plan de communication d'adoption structure pour garantir l'acceptation du changement par l'ensemble des parties prenantes : direction, equipes pedagogiques, familles.",en:"Deploying the Mercury ERP, an agile and secure solution suited to the network's growth, accompanied by a structured adoption communication plan to ensure change acceptance by all stakeholders: management, pedagogical teams, families."},
+maiaD1:{fr:"Audit du systeme d'information existant pour identifier dysfonctionnements et limites",en:"Auditing the existing information system to identify dysfunctions and limitations"},
+maiaD2:{fr:"Redaction d'un cahier des charges fonctionnel detaille, incluant l'analyse des besoins de chaque partie prenante",en:"Drafting detailed functional specifications, including the needs analysis of each stakeholder"},
+maiaD3:{fr:"Comparaison de plusieurs solutions ERP via une grille multicritere construite collectivement",en:"Comparing several ERP solutions using a multi-criteria grid built collectively"},
+maiaD4:{fr:"Recommandation argumentee du choix du prestataire Mercury",en:"Reasoned recommendation for selecting the Mercury provider"},
+maiaD5:{fr:"Elaboration d'un plan de communication d'adoption avec budget maitrise, incluant sensibilisation, formation et ambassadeurs du projet",en:"Developing an adoption communication plan with a controlled budget, including awareness, training and project ambassadors"},
+maiaCaption:{fr:"Extrait du cahier des charges : page de garde et structure du document",en:"Extract from the specifications: cover page and document structure"},
+maiaStat1:{fr:"Membres de l'equipe",en:"Team members"},
+maiaStat2:{fr:"Priorites fonctionnelles",en:"Functional priorities"},
+maiaStat3:{fr:"Budget plan d'adoption",en:"Adoption plan budget"},
+maiaStat4:{fr:"Phases de deploiement",en:"Deployment phases"},
+maiaComp1:{fr:"Audit de systeme d'information",en:"Information system audit"},
+maiaComp2:{fr:"Cahier des charges",en:"Specifications"},
+maiaComp3:{fr:"Analyse comparative",en:"Comparative analysis"},
+maiaComp4:{fr:"Conduite du changement",en:"Change management"},
+maiaComp5:{fr:"Communication multi-niveaux",en:"Multi-level communication"},
+clarianeEnjeux:{fr:"Clariane, leader europeen de l'hebergement pour seniors, porte encore le poids du scandale Orpea-Korian de 2022. Le groupe doit reconstruire sa reputation, d'abord auprès de ses collaborateurs, ensuite auprès du grand public, dans un secteur sous forte surveillance mediatique.",en:"Clariane, European leader in senior care, still carries the weight of the 2022 Orpea-Korian scandal. The group must rebuild its reputation, first among its employees, then among the general public, in a sector under heavy media scrutiny."},
+clarianeSolution:{fr:"Un audit complet de l'e-reputation du groupe, suivi d'un plan de communication centre sur la marque employeur (\"Chez Clariane, on prend soin de ceux qui prennent soin\"), et la production d'un contenu reel : une video documentaire montrant la sincerite du quotidien des equipes.",en:"A complete audit of the group's e-reputation, followed by a communication plan centered on the employer brand (\"At Clariane, we take care of those who take care\"), and the production of real content: a documentary video showing the sincerity of teams' daily life."},
+clarianeD1:{fr:"Collecte et classification de plus de 2 500 avis salaries sur Glassdoor et Indeed par thematique et tonalite",en:"Collecting and classifying over 2,500 employee reviews on Glassdoor and Indeed by theme and tone"},
+clarianeD2:{fr:"Identification du paradoxe central : NPS patients +45 contre NPS employe 12",en:"Identifying the central paradox: patient NPS +45 versus employee NPS 12"},
+clarianeD3:{fr:"Recentrage du plan de communication apres retours critiques du jury, autour d'un message unique",en:"Refocusing the communication plan after critical feedback from the panel, around a single message"},
+clarianeD4:{fr:"Definition d'objectifs chiffres, de cibles et d'un calendrier de campagnes sur 12 mois",en:"Defining quantified objectives, targets and a 12-month campaign calendar"},
+clarianeD5:{fr:"Production d'une video documentaire de 90 secondes, \"Le Relais\", filmee au smartphone",en:"Producing a 90-second documentary video, \"Le Relais\", filmed on a smartphone"},
+clarianeCaption:{fr:"Structure de l'equipe en mode agence et repartition des roles",en:"Agency-style team structure and role distribution"},
+clarianeStat1:{fr:"Membres de l'equipe",en:"Team members"},
+clarianeStat2:{fr:"Avis salaries analyses",en:"Employee reviews analyzed"},
+clarianeStat3:{fr:"Video documentaire produite",en:"Documentary video produced"},
+clarianeStat4:{fr:"Budget plan de communication",en:"Communication plan budget"},
+clarianeComp1:{fr:"Audit e-reputation",en:"E-reputation audit"},
+clarianeComp2:{fr:"Analyse multi-sources",en:"Multi-source analysis"},
+clarianeComp3:{fr:"Communication corporate",en:"Corporate communication"},
+clarianeComp4:{fr:"Marque employeur",en:"Employer brand"},
+clarianeComp5:{fr:"Production de contenu",en:"Content production"},
+ciEmail:{fr:"Email",en:"Email"},
 };
 
 function applyLang(lang) {
