@@ -2540,33 +2540,13 @@ function showArtSub(id, push = true) {
 }
 
 // ============================================
-// SAE PAGES (placeholder)
+// SAE PAGES
 // ============================================
-const saeOrder = ['boosta','solidr','maia','clariane'];
-
 const saeOrder = ['boosta','solidr','maia','clariane'];
 
 function goSAE(id) {
   goPage('sae-detail');
   showSaeSub(id);
-}
-
-function showSaeSub(id, push = true) {
-  document.querySelectorAll('.sae-subpage').forEach(s => s.style.display = 'none');
-  const el = document.getElementById('sae-' + id);
-  if (el) { el.style.display = 'block'; revealFi(); window.scrollTo(0,0); }
-  document.querySelectorAll('.sae-nav-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.sae === id);
-  });
-  if (push) {
-    history.pushState({page: 'sae-detail', sae: id}, '', '#sae-' + id);
-  }
-}
-
-function nextSAE(currentId) {
-  const idx = saeOrder.indexOf(currentId);
-  const nextId = saeOrder[(idx + 1) % saeOrder.length];
-  showSaeSub(nextId);
 }
 
 function showSaeSub(id, push = true) {
