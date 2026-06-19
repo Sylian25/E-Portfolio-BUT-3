@@ -2107,14 +2107,28 @@ function goPage(pid, push = true) {
 window.addEventListener('popstate', (e) => {
   const pid = (e.state && e.state.page) || 'accueil';
   goPage(pid, false);
+  if (pid === 'articles' && e.state && e.state.art) {
+    showArtSub(e.state.art, false);
+  }
 });
 
 window.addEventListener('load', () => {
   const hash = window.location.hash.replace('#', '');
   const valid = ['accueil','parcours','experiences','articles','annexes','contact'];
-  const startPage = valid.includes(hash) ? hash : 'accueil';
-  goPage(startPage, false);
-  history.replaceState({page: startPage}, '', '#' + startPage);
+  const artValid = ['comp-but','art1','art2','art3'];
+
+  if (hash.startsWith('articles-')) {
+    const artId = hash.replace('articles-', '');
+    goPage('articles', false);
+    if (artValid.includes(artId)) {
+      showArtSub(artId, false);
+    }
+    history.replaceState({page: 'articles', art: artId}, '', '#articles-' + artId);
+  } else {
+    const startPage = valid.includes(hash) ? hash : 'accueil';
+    goPage(startPage, false);
+    history.replaceState({page: startPage}, '', '#' + startPage);
+  }
 });
 
 // ============================================
