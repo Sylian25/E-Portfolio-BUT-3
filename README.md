@@ -11,7 +11,7 @@ Ce portfolio est un site web **conçu, développé et déployé entièrement par
 
 Il présente mon parcours de Data Analyst RH : mes expériences professionnelles, mes cinq SAE, mes trois articles réflexifs sur les compétences ANALYSER / DÉCIDER / PILOTER, et mes preuves documentées.
 
-🌐 **[→ Voir le portfolio en ligne]([https://sylian-aoudia-eportfolio.vercel.app/#accueil)/)**
+🌐 **[→ Voir le portfolio en ligne](https://sylian-aoudia-eportfolio.vercel.app/#accueil/)**
 
 ---
 
